@@ -14,7 +14,9 @@
   <link rel="stylesheet" href="/fonts/icomoon/style.css">
 
   <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/css/jquery-ui.css">
   <link rel="stylesheet" href="/css/owl.carousel.min.css">
   <link rel="stylesheet" href="/css/owl.theme.default.min.css">
@@ -33,7 +35,6 @@
   <link rel="stylesheet" href="/css/event_mediaquery.css">
   <link rel="stylesheet" href="/css/navbar.css">
   <style>
-
     .register {
       margin: -100px;
       width: 70%;
@@ -79,36 +80,42 @@
       font-weight: bold;
       font-size: 20px;
       flex-direction: column;
-      
+
     }
+
     .cont {
       position: fixed;
       top: 0px;
       left: -30px;
-      z-index:-1;
+      z-index: -1;
       padding-top: 8rem;
       min-height: 100vh;
       color: white;
-      transform: skewX(+5deg);
+      transform: skewX(+4deg);
       width: 180px;
       background-color: #000000;
     }
+
     /* .sze{
       font-size: 14px !important;
     } */
-    .site-navbar{
+    .site-navbar {
       position: unset;
     }
-    .container{
+
+    .container {
       max-width: 100% !important;
     }
-    .overlay .container #joinbtn{
-      width:45%;
+
+    .overlay .container #joinbtn {
+      width: 45%;
     }
-    .events-navbar{
-      z-index: 1; 
+
+    .events-navbar {
+      z-index: 1;
     }
-    .site-section{
+
+    .site-section {
       padding: 0px !important;
     }
   </style>
@@ -117,14 +124,15 @@
 
 <body onload="load()">
   <%- include('partials/preloader.ejs') %>
-  <div class="events-navbar" style="background-color: black;">
-    <%- include('partials/navbar.ejs') %>
-  </div>
+    <div class="events-navbar" style="background-color: black;">
+      <%- include('partials/navbar.ejs') %>
+    </div>
 
-  <div class="site-wrap flex">
-    
+    <div class="site-wrap flex">
 
-      <div id="page" class="justify-content-center" style="overflow:hidden;display:  flex;background:url('images/eventbg.png') no-repeat center center/cover">
+
+      <div id="page" class="justify-content-center"
+        style="overflow:hidden;display:  flex;background:url('images/eventbg.png') no-repeat center center/cover">
 
         <div class="cont ">
           <div class="head">
@@ -146,7 +154,7 @@
                 <div class="mx-auto text-center">
                   <h1 style="    font-size: 3.5rem;
               text-shadow: -2px -6px 17px red;">RannNeeti-22</h1>
-                  <button onclick="window.location = '/events/joinTeam'" id="joinbtn"class="btn btn-primary" style=" padding: 7px;
+                  <button onclick="window.location = '/events/joinTeam'" id="joinbtn" class="btn btn-primary" style=" padding: 7px;
               margin-top: 30px;
               border-radius: 30px;
               font-size: 20px;">Join A Team</button>
@@ -185,29 +193,29 @@
       <%- include('partials/footer.ejs') %>
 
 
-  </div>
+    </div>
 
 
-  <!-- Footer import as same for all page -->
+    <!-- Footer import as same for all page -->
 
 
-  <script src="/js/jquery-3.3.1.min.js"></script>
-  <script src="/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="/js/jquery-ui.js"></script>
-  <script src="/js/popper.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/owl.carousel.min.js"></script>
-  <script src="/js/jquery.stellar.min.js"></script>
-  <script src="/js/jquery.countdown.min.js"></script>
-  <script src="/js/bootstrap-datepicker.min.js"></script>
-  <script src="/js/jquery.easing.1.3.js"></script>
-  <script src="/js/aos.js"></script>
-  <script src="/js/jquery.fancybox.min.js"></script>
-  <script src="/js/jquery.sticky.js"></script>
-  <script src="/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.stellar.min.js"></script>
+    <script src="/js/jquery.countdown.min.js"></script>
+    <script src="/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/jquery.easing.1.3.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/jquery.fancybox.min.js"></script>
+    <script src="/js/jquery.sticky.js"></script>
+    <script src="/js/jquery.mb.YTPlayer.min.js"></script>
 
 
-  <script src="/js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 
