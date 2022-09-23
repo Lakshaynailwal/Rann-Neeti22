@@ -59,7 +59,20 @@ router.post("/createTeam", [authCheck, liveCheck], async (req, res) => {
 
 router.get("/joinTeam", async (req, res) => {
     const context = {
-        authenticated: req.isAuthenticated()
+        authenticated: req.isAuthenticated(),
+        colleges: [
+            "IIT MANDI",
+            "IIT DELHI",
+            "IIT BOMBAY",
+            "IIT JODHPUR",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "G",
+            "F",
+        ]
     }
     res.render('confirm', context);
 })

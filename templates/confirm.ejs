@@ -78,7 +78,6 @@
             width: 70%;
             padding: 5px;
             font-size: 16px;
-            margin-left: 30px;
             margin-bottom: 20px;
             border-radius: 10px;" name="teamId" id="teamId" type="text" placeholder="Enter Team Id"
                 autocomplete="off">
@@ -86,16 +85,18 @@
                 <div class="title-section container" >
                   <label class="heading m-0 py-2" for="TeamName">College Name</label>
               </div>
-              <input style="text-align: center;
+              <div style="width:100%;margin-bottom: 20px;position: relative;" class="d-flex d-flex-col justify-content-center">
+
+                <input class="justify-center" style="text-align: center;
               color:black;
               width: 70%;
               padding: 5px;
               font-size: 16px;
-              margin-left: 30px;
-              margin-bottom: 20px;
-              border-radius: 10px;" name="college" id="college" type="text" placeholder="Enter College Name"
+              border-radius: 10px;" name="college" id="college" placeholder="Enter College Name"
                   autocomplete="off">
-
+                  <ul id='college-suggestions' style="z-index:2;display:none;background-color:white;list-style-type:none;position: absolute;top:100%;margin:5px;border:solid 2px black; width:70%;max-height:calc(5*(1rem + 20px));overflow-y: scroll;"></ul>
+                  
+              </div>
                   <div class="title-section container" >
                     <label class="heading m-0 py-2" for="TeamName">Phone</label>
                 </div>
@@ -104,7 +105,6 @@
                 width: 70%;
                 padding: 5px;
                 font-size: 16px;
-                margin-left: 30px;
                 margin-bottom: 20px;
                 border-radius: 10px;" placeholder="Phone" name="phone" id="phone" type="text" 
                     autocomplete="off">
@@ -122,6 +122,51 @@
   </div>
   <%- include('partials/footer.ejs') %>
   </div>
+
+  <script>
+    const colleges = JSON.parse('<%- JSON.stringify(colleges) %>')
+    const college_suggestions = document.getElementById('college-suggestions')
+    const input_box = document.getElementById('college')
+
+    input_box.addEventListener('focus', ()=>{
+      college_suggestions.style.display = 'block'
+    })
+
+    input_box.addEventListener('blur', ()=>{
+      setTimeout(()=>{
+
+        college_suggestions.style.display = 'none'
+      }, 200)
+    })
+    
+    var regex_expr = "|"
+    colleges.forEach(element => {
+      // create regex for the input
+      regex_expr += element + "|"
+      //append colleges in li under #college-suggestions
+      const suggestion = document.createElement('li')
+      suggestion.innerText = element
+      suggestion.style.padding = "5px 10px"
+      suggestion.style.color='black'
+      suggestion.style.cursor = 'pointer'
+      suggestion.addEventListener('mouseover', ()=>{suggestion.style.background='#CCCCCC'})
+      suggestion.addEventListener('mouseout', ()=>{suggestion.style.background='white'})
+      suggestion.addEventListener('click', ()=>{input_box.value=suggestion.innerText})
+      college_suggestions.appendChild(suggestion)
+    });
+
+    input_box.addEventListener('input', (e)=>{
+      college_suggestions.querySelectorAll('li').forEach((element)=>{
+        if(element.innerText.toLowerCase().includes(e.target.value.toLowerCase())){
+          element.style.display = 'block'
+        }else{
+          element.style.display = 'none'
+        }
+      })
+    })
+    
+    input_box.setAttribute('pattern', regex_expr)
+  </script>
 
 
   <script src="/js/jquery-3.3.1.min.js"></script>
