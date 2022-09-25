@@ -1,11 +1,12 @@
 .our-team {
     padding: 30px 0 40px;
-    margin-bottom: 30px;
+    min-width: 250px;
+    margin: 30px;
     background-color: #000000;
     text-align: center;
     overflow: hidden;
     position: relative;
-        border-radius: 15px;
+    border-radius: 15px;
 }
 
 .our-team .picture {
@@ -101,14 +102,15 @@
     background-color: #000000;
 }
 
-.name, .title {
+.name,
+.title {
     color: white !important;
 }
 
 
-@media only screen and (max-width:576px){
-   .col-12{
-    max-width: 65% !important;
-    margin: auto !important;
-   }
+@media only screen and (max-width:576px) {
+    .col-12 {
+        max-width: 65% !important;
+        margin: auto !important;
+    }
 }

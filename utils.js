@@ -318,5 +318,17 @@ module.exports = { // event functions ==========================================
             return parseInt(a.order) > parseInt(b.order) ? 1 : -1;
         });
         return heads;
+    },
+    refactorHeads: function (headsData) {
+        let heads = {}
+        for (let i = 0; i < headsData.length; i++) {
+            if (heads.hasOwnProperty(headsData[i].title)) {
+                heads[headsData[i].title].push(headsData[i]);
+            } else {
+                heads[headsData[i].title] = [];
+                i--;
+            }
+        }
+        return heads;
     }
 };
