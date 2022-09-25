@@ -32,6 +32,8 @@
   <link rel="stylesheet" href="/css/confirm_mediaquery.css">
 
   <style>
+    .example::-webkit-scrollbar {
+                    display: none;}
     @media only screen and (max-width:500px) {
 
         /* * {
@@ -94,7 +96,7 @@
               font-size: 16px;
               border-radius: 10px;" name="college" id="college" placeholder="Enter College Name"
                   autocomplete="off">
-                  <ul id='college-suggestions' style="z-index:2;display:none;background-color:white;list-style-type:none;position: absolute;top:100%;margin:5px;border:solid 2px black; width:70%;max-height:calc(5*(1rem + 20px));overflow-y: scroll;"></ul>
+                  <ul class="example" id='college-suggestions' style="z-index:2;display:none;list-style-type:none;position: absolute;top:100%;margin:5px;background-color: black; width:70%;max-height:calc(5*(1rem + 20px));overflow-y: scroll;" ></ul>
                   
               </div>
                   <div class="title-section container" >
@@ -132,13 +134,6 @@
       college_suggestions.style.display = 'block'
     })
 
-    input_box.addEventListener('blur', ()=>{
-      setTimeout(()=>{
-
-        college_suggestions.style.display = 'none'
-      }, 200)
-    })
-    
     var regex_expr = "|"
     colleges.forEach(element => {
       // create regex for the input
@@ -147,10 +142,11 @@
       const suggestion = document.createElement('li')
       suggestion.innerText = element
       suggestion.style.padding = "5px 10px"
-      suggestion.style.color='black'
+      suggestion.style.color='red'
+      suggestion.style.textAlign= 'center'
       suggestion.style.cursor = 'pointer'
-      suggestion.addEventListener('mouseover', ()=>{suggestion.style.background='#CCCCCC'})
-      suggestion.addEventListener('mouseout', ()=>{suggestion.style.background='white'})
+      suggestion.addEventListener('mouseover', ()=>{suggestion.style.background='white'})
+      suggestion.addEventListener('mouseout', ()=>{suggestion.style.background='black'})
       suggestion.addEventListener('click', ()=>{input_box.value=suggestion.innerText})
       college_suggestions.appendChild(suggestion)
     });
@@ -166,6 +162,13 @@
     })
     
     input_box.setAttribute('pattern', regex_expr)
+
+    input_box.addEventListener('blur', ()=>{
+      setTimeout(()=>{
+
+        college_suggestions.style.display = 'none'
+      }, 200)
+    })
   </script>
 
 
