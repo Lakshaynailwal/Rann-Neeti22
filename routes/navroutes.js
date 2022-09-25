@@ -1,4 +1,4 @@
-const { userDetails, findTeamById, findUserTeams, findAllHeads } = require("../utils")
+const { userDetails, findTeamById, findUserTeams, findAllHeads, convertArrayToObject, refactorHeads } = require("../utils")
 const { authCheck, liveCheck } = require("../middleware/auth");
 const router = require("express").Router();
 
@@ -18,10 +18,13 @@ router.get("/profile", [authCheck, liveCheck], async (req, res) => {
 })
 
 router.get("/ourteam", async (req, res) => {
-    const heads = await findAllHeads();
+    const headsData = await findAllHeads();
+
+    let heads = refactorHeads(headsData);
+
     const context = {
         authenticated: req.isAuthenticated(),
-        heads: heads
+        headTitles: heads
     }
 
     res.render('ourteam.ejs', context);
