@@ -22,6 +22,21 @@ const EventSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        fixture_link:
+        {
+            type: String,
+        },
+        eventCoordinator:
+        {
+            name:
+            {
+                type: String,
+            },
+            phone:
+            {
+                type: String,
+            },
+        },
         fees:
         {
             type: Number,

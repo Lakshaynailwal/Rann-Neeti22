@@ -2,258 +2,226 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="/fonts/icomoon/style.css" />
 
-  <link rel="stylesheet" href="/css/bootstrap/bootstrap.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/css/jquery-ui.css" />
-  <link rel="stylesheet" href="/css/owl.carousel.min.css" />
-  <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
-  <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
 
-  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
 
-  <link rel="stylesheet" href="/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css" />
 
-  <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css" />
 
-  <link rel="stylesheet" href="/css/aos.css" />
-  <link rel="stylesheet" href="/css/navbar.css">
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/game_mediaquery.css" />
+    <link rel="stylesheet" href="/css/aos.css" />
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/game_mediaquery.css" />
 
-  <style>
-    
+    <style>
+        #table {
+            margin-top: 150px;
+            border-collapse: collapse;
+            border: none;
+            border-radius: 20px;
+            width: 80%;
+            height: 90%;
+        }
 
-#table{
-    margin-top: 150px;
-    border-collapse:collapse;
-    border: none;
-    border-radius: 20px;
-    width: 80%;
-    height: 90%;
-}
+        #table thead {
+            font-size: 25px;
+            font-weight: bold;
+            /* font-weight:900; */
+        }
 
-#table thead{
-    font-size: 25px;
-    font-weight: bold;
-    /* font-weight:900; */
-}
-#table tbody{
-    font-size: 20px;
-}
-.table-responsive{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-#table thead tr th:first-child{
-    border-top-left-radius: 10px;
-}
-#table thead tr {
-    border: 1px solid black;
-}
-#table thead tr th:last-child{
-    border-top-right-radius: 10px;
-}
-#table tbody tr:last-child td:first-child{
-    border-bottom-left-radius: 10px;
-}
-#table tbody tr:last-child td:last-child{
-    border-bottom-right-radius: 10px;
-}
-#table tbody tr>td{
-    padding:15px auto 15px auto ;
-   
-}
-#table  thead tr>th{
-    padding: 20px auto 20px auto;
-}
-#table tbody tr{
-    border: none;
-}
-.striped>tbody>tr:nth-child(even)>td, 
-.striped>tbody>tr:nth-child(even)>th {
-    background-color:#2a2b2a; 
-}
-.striped>tbody>tr:nth-child(odd)>td, 
-.striped>tbody>tr:nth-child(odd)>th {
-    background-color:#1b1c1b;
-}
-#table-footer{
-        /* position: absolute;
+        #table tbody {
+            font-size: 20px;
+        }
+
+        .table-responsive {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #table thead tr th:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        #table thead tr {
+            border: 1px solid black;
+        }
+
+        #table thead tr th:last-child {
+            border-top-right-radius: 10px;
+        }
+
+        #table tbody tr:last-child td:first-child {
+            border-bottom-left-radius: 10px;
+        }
+
+        #table tbody tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
+        }
+
+        #table tbody tr>td {
+            padding: 15px auto 15px auto;
+
+        }
+
+        #table thead tr>th {
+            padding: 20px auto 20px auto;
+        }
+
+        #table tbody tr {
+            border: none;
+        }
+
+        .striped>tbody>tr:nth-child(even)>td,
+        .striped>tbody>tr:nth-child(even)>th {
+            background-color: #2a2b2a;
+        }
+
+        .striped>tbody>tr:nth-child(odd)>td,
+        .striped>tbody>tr:nth-child(odd)>th {
+            background-color: #1b1c1b;
+        }
+
+        #table-footer {
+            /* position: absolute;
         width: 100%;
         bottom: -20px; */
-        margin-top: 100px;
-       
-    }
-    #table tbody tr td a{
-    text-decoration: none;
-    color: blue;
-}
-@media screen and (max-width:888px){
-    #table{
-        width:95%;
-        margin-top: 130px;
-        
-    }
-    #table  td,#table tr,#table tbody{
-      display: block;
-    }
-    #table thead tr{
-        position: absolute;
-        top: -9999px;
-        left:-9999px;
+            margin-top: 100px;
 
-    }
-    #table thead{
-        font-weight: bold;
-    }
-    #table td{
-        position: relative;
-        padding-left: 50%;
-    }
-    #table td:before{
-        content:attr(data);
-        position: absolute;
-        left:6px;
-    }
-   
-}
-  </style>
-  <title>
+        }
 
-  </title>
+        #table tbody tr td a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        @media screen and (max-width:888px) {
+            #table {
+                width: 95%;
+                margin-top: 130px;
+
+            }
+
+            #table td,
+            #table tr,
+            #table tbody {
+                display: block;
+            }
+
+            #table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+
+            }
+
+            #table thead {
+                font-weight: bold;
+            }
+
+            #table td {
+                position: relative;
+                padding-left: 50%;
+            }
+
+            #table td:before {
+                content: attr(data);
+                position: absolute;
+                left: 6px;
+            }
+
+        }
+    </style>
+    <title>
+
+    </title>
 </head>
 
 <body onload="load()">
     <%- include('partials/preloader.ejs') %>
-      <div style="background-color:black ;">
-        <%- include('partials/navbar.ejs') %>
-      </div>
+        <div style="background-color:black ;">
+            <%- include('partials/navbar.ejs') %>
+        </div>
 
- 
- 
-      <div class="site-wrap flex">
-   <section>
-    <div class="table-responsive">
-        <table class="table striped table-hover  " id="table">
-            <thead class="bg-dark text-light text-center">
-                <tr>
-                    <td class="column1">Sport</td>
-                    <td class="column2">Fixtures</td>
-                    <td class="column3">Rulebook</td>
-                    <td class="column4">Coordinator</td>
-                    <td class="column5">Mobile Number</td>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                <tr>
-                    <td class="column1" data="Sport">Athletics</td>
-                    <td class="column2" data="Fixtures"><a href="files/fix/volleyball.pdf" target="_blank">Download</a></td>
-                    <td class="column3" data="Rulebook"><a href="files/athletics.pdf" target="_blank">Download</a></td>
-                    <td class="column4" data="Coordinator">Gaurav Nirmal</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-9079239052">+91-9079239052</a></td>
-                </tr>
-                <tr>
-                    <td class="column1"data="Sport">Badminton</td>
-                    <td class="column2"data="Fixtures"><a href="files/fix/badminton.pdf" target="_blank">Download</a></td>
-                    <td class="column3"data="Rulebook"><a href="files/badminton.pdf" target="_blank">Download</a></td>
-                    <td class="column4" data="Coordinator">Surender Sharma</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-9599346049">+91-9599346049</a></td>
-                </tr>
-                <tr>
-                    <td class="column1"data="Sport">Basketball</td>
-                    <td class="column2"data="Fixtures"><a href="files/fix/basketball.pdf" target="_blank">Download</a></td>
-                    <td class="column3"data="Rulebook"><a href="files/basketball.pdf" target="_blank">Download</a></td>
-                    <td class="column4"data="Coordinator">Rohit Kaushal</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-7807112823 ">+91-7807112823</a></td>
-                </tr>
-                <tr>
-                    <td class="column1"data="Sport">Chess</td>
-                    <td class="column2"data="Fixtures"><a href="files/fix/volleyball.pdf" target="_blank">Download</a></td>
-                    <td class="column3"data="Rulebook"><a href="files/chess.pdf" target="_blank">Download</a></td>
-                    <td class="column4"data="Coordinator">Partd Kankarwal</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-7807554997">+91-7807554997</a></td>
-                </tr>
-                <tr>
-                    <td class="column1"data="Sport">Cricket</td>
-                    <td class="column2"data="Fixtures"><a href="files/fix/volleyball.pdf" target="_blank">Download</a></td>
-                    <td class="column3"data="Rulebook"><a href="files/cricket.pdf" target="_blank">Download</a></td>
-                    <td class="column4"data="Coordinator">Yash Paliwal</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-7597207655">+91-7597207655</a></td>
-                </tr>
-                <tr>
-                    <td class="column1"data="Sport">Football</td>
-                    <td class="column2"data="Fixtures"><a href="files/fix/football.pdf" target="_blank">Download</a></td>
-                    <td class="column3"data="Rulebook"><a href="files/football.pdf" target="_blank">Download</a></td>
-                    <td class="column4"data="Coordinator">Amirtd Varshan</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-9871127062">+91-9871127062</a></td>
-                </tr>
-                <tr>
-                    <td class="column1"data="Sport">Hockey</td>
-                    <td class="column2"data="Fixtures"><a href="files/fix/volleyball.pdf" target="_blank">Download</a></td>
-                    <td class="column3"data="Rulebook"><a href="files/hockey.pdf" target="_blank">Download</a></td>
-                    <td class="column4"data="Coordinator">Ankit Kumar</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-7023907312">+91-7023907312</a></td>
-                </tr>
-                <tr>
-                    <td class="column1"data="Sport">Lawn Tennis</td>
-                    <td class="column2"data="Fixtures"><a href="files/fix/tennis.pdf" target="_blank">Download</a></td>
-                    <td class="column3"data="Rulebook"><a href="files/tennis.pdf" target="_blank">Download</a></td>
-                    <td class="column4"data="Coordinator">Abhimanyu</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-9419216340">+91-9419216340</a></td>
-                </tr>
-                <tr>
-                    <td class="column1"data="Sport">Table Tennis</td>
-                    <td class="column2"data="Fixtures"><a href="files/fix/volleyball.pdf" target="_blank">Download</a></td>
-                    <td class="column3"data="Rulebook"><a href="files/tt.pdf" target="_blank">Download</a></td>
-                    <td class="column4"data="Coordinator">Roshan Sharma</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-7807557706">+91-8219173241</a></td>
-                </tr>
-                <tr>
-                    <td class="column1"data="Sport">Volleyball</td>
-                    <td class="column2"data="Fixtures"><a href="files/fix/volleyball.pdf" target="_blank">Download</a></td>
-                    <td class="column3" data="Rulebook"><a href="files/volleyball.pdf" target="_blank">Download</a></td>
-                    <td class="column4"data="Coordinator">Shashwat Garg</td>
-                    <td class="column5" data="Mobile Number"><a href="tel:+91-7772835491">+91-7772835491</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 
-</section>   
-<section>
-<div id="table-footer">
-<%- include('partials/footer.ejs') %>
-</div</section>
-</div>
-  <script src="/js/jquery-3.3.1.min.js"></script>
-  <script src="/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="/js/jquery-ui.js"></script>
-  <script src="/js/popper.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/owl.carousel.min.js"></script>
-  <script src="/js/jquery.stellar.min.js"></script>
-  <script src="/js/jquery.countdown.min.js"></script>
-  <script src="/js/bootstrap-datepicker.min.js"></script>
-  <script src="/js/jquery.easing.1.3.js"></script>
-  <script src="/js/aos.js"></script>
-  <script src="/js/jquery.fancybox.min.js"></script>
-  <script src="/js/jquery.sticky.js"></script>
-  <script src="/js/jquery.mb.YTPlayer.min.js"></script>
 
-  <script src="/js/main.js"></script>
+        <div class="site-wrap flex">
+            <section>
+                <div class="table-responsive">
+                    <table class="table striped table-hover  " id="table">
+                        <thead class="bg-dark text-light text-center">
+                            <tr>
+                                <td class="column1">Sport</td>
+                                <td class="column2">Fixtures</td>
+                                <td class="column3">Rulebook</td>
+                                <td class="column4">Coordinator</td>
+                                <td class="column5">Mobile Number</td>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+
+                            <% for(let i=0;i<events.length;i++) {%>
+                                <tr>
+                                    <td class="column1" data="Sport">
+                                        <%=events[i].name%>
+                                    </td>
+                                    <td class="column2" data="Fixtures"><a href="<%=events[i].fixture_link%>"
+                                            target="_blank">Download</a></td>
+                                    <td class="column3" data="Rulebook"><a href="<%=events[i].rulebook_link%>"
+                                            target="_blank">Download</a></td>
+                                    <td class="column4" data="Coordinator">
+                                        <%=events[i].eventCoordinator.name%>
+                                    </td>
+                                    <td class="column5" data="Mobile Number"><a href="tel:+91-9079239052">
+                                            <%=events[i].eventCoordinator.phone%>
+                                        </a></td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+            <section>
+                <div id="table-footer">
+                    <%- include('partials/footer.ejs') %>
+                        </div< /section>
+                </div>
+                <script src="/js/jquery-3.3.1.min.js"></script>
+                <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+                <script src="/js/jquery-ui.js"></script>
+                <script src="/js/popper.min.js"></script>
+                <script src="/js/bootstrap.min.js"></script>
+                <script src="/js/owl.carousel.min.js"></script>
+                <script src="/js/jquery.stellar.min.js"></script>
+                <script src="/js/jquery.countdown.min.js"></script>
+                <script src="/js/bootstrap-datepicker.min.js"></script>
+                <script src="/js/jquery.easing.1.3.js"></script>
+                <script src="/js/aos.js"></script>
+                <script src="/js/jquery.fancybox.min.js"></script>
+                <script src="/js/jquery.sticky.js"></script>
+                <script src="/js/jquery.mb.YTPlayer.min.js"></script>
+
+                <script src="/js/main.js"></script>
 </body>
 
 </html>

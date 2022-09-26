@@ -123,16 +123,16 @@
 
 <body onload="load()">
   <%- include('partials/preloader.ejs') %>
-  <div class="cont ">
-    <div class="head">
-      <span>&nbsp;E</span>
-      <span>&nbsp;V</span>
-      <span>&nbsp;E</span>
-      <span>&nbsp;N</span>
-      <span>&nbsp;T</span>
-      <span>&nbsp;S</span>
+    <div class="cont ">
+      <div class="head">
+        <span>&nbsp;E</span>
+        <span>&nbsp;V</span>
+        <span>&nbsp;E</span>
+        <span>&nbsp;N</span>
+        <span>&nbsp;T</span>
+        <span>&nbsp;S</span>
+      </div>
     </div>
-  </div>
     <div class="events-navbar" style="background-color: black;">
       <%- include('partials/navbar.ejs') %>
     </div>
@@ -140,10 +140,9 @@
     <div class="site-wrap flex">
 
 
-      <div id="page" class="justify-content-center"
-        style="overflow:hidden;display:  flex;">
+      <div id="page" class="justify-content-center" style="overflow:hidden;display:  flex;">
 
-        
+
         <div class="overlay" style=" background: url('https://user-images.githubusercontent.com/111749567/192130307-f23ace20-2ff1-41f6-84ab-157ee011b04f.png') no-repeat center center/cover ; height: auto;
       min-height: 100vh;">
           <div>
@@ -152,7 +151,7 @@
           min-height: 250px;">
                 <div class="mx-auto text-center">
                   <h1 style="    font-size: 3.5rem;
-              text-shadow: -2px -6px 17px red;">RannNeeti-22</h1>
+              text-shadow: -2px -6px 17px red;">RANN-NEETI 22</h1>
                   <button onclick="window.location = '/events/joinTeam'" id="joinbtn" class="btn btn-primary" style=" padding: 7px;
               margin-top: 30px;
               border-radius: 30px;
@@ -162,14 +161,15 @@
             </div>
           </div>
 
-          <div >
+          <div>
 
             <div class="site-section">
               <div class="container" style="margin: -45px 0px 8% 15%;">
                 <div style="display: flex;; flex-wrap: wrap;">
                   <%for(let i=0; i< events.length;i++){ %>
                     <div class="gamecard">
-                      <img style="object-fit: cover;object-position: center ;height: auto; width: 80%; height: 300px; border-radius: 20px;"
+                      <img
+                        style="object-fit: cover;object-position: center ;height: auto; width: 80%; height: 300px; border-radius: 20px;"
                         src="<%=events[i].event_image %>" alt="">
                       <button onclick="window.location='/events/game?game=<%=events[i].name %>';"
                         class="register btn-primary">
