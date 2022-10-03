@@ -659,7 +659,7 @@ h5,
   transition: .3s all ease;
 }
 
-.site-mobile-menu .site-mobile-menu-header .site-mobile-menu-close span:hover {
+.site-mobile-menu .site-mobile-menu-header .site-mobile-menu-close span {
   color: #25262a;
 }
 
