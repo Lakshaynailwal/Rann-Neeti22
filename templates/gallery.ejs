@@ -62,13 +62,40 @@
             margin-top: 160px;
             justify-content: center;
         }
+
+        @media only screen and (max-width:992px){
+            .load{
+                flex-direction: column;
+                align-items: center;
+            }
+            .pull2{
+                margin-top: 10px !important;
+            }
+        }
+
+        @media only screen and (max-width:600px){
+            .pull1{
+                width: 100% !important;
+            }
+            .pull2{
+                width: 100% !important;
+            }
+        }
+        @media only screen and (max-width:450px){
+            .pull1{
+                height:200px !important;
+            }
+            .pull2{
+                height: 200px !important;
+            }
+        }
     </style>
 
 
 </head>
 
-<body>
-
+<body onload="load()">
+    <%- include('partials/preloader.ejs') %>
     <div class="events-navbar" style="background-color: black;">
         <%- include('partials/navbar.ejs') %>
     </div>
@@ -76,34 +103,194 @@
     <div class="mx-auto text-center" style="margin-top:50px;">
         <h1 class="text-white px-5 font-weight-bold" style="font-size:32px">GALLERY</h1>
     </div>
-
-
-    <div id="gallery class=" site-section" style="height:auto;">
+    <div id="gallery class=" site-section" style="min-height:100vh;height:auto;">
         <div class="container gallery">
             <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <!-- loop start from here -->
-                    <% for(let i=0;i<2;i++){%>
-                        <div class="carousel-item ">
-                            <div class="widget-body mb-3" style="height:60%;">
-                                <div class="widget-vs">
-                                    <div class="w-100 d-flex" style="height:500px">
-                                        <div class="pull1" style="width:70% ;height:300px ;">
-                                            <img src="https://user-images.githubusercontent.com/111749567/189416837-225f218d-19cf-41c4-a756-2d0777e3e4cb.jpg"
-                                                alt="" style="max-width: 90%;">
-                                        </div>
-                                        <div class="pull2" style="width:70% ;height:300px ;">
-                                            <img src="https://user-images.githubusercontent.com/111749567/189416837-225f218d-19cf-41c4-a756-2d0777e3e4cb.jpg"
-                                                alt="" style="max-width: 90%;">
-                                        </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858633-d70fa0bf-845a-4dd8-b5d0-d1cb210e0480.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858655-204f8f7a-6faf-44aa-b89f-529379b9ad3c.jpg" alt = "not here" style="max-width: 90%;">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <%}%>
-                    
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858766-607bc413-b725-4196-bb96-0d28eee6f3ba.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858768-24285027-548b-4e85-bb6d-343f88ff7db0.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858776-aa83a45e-ff2c-4b97-83dc-cff669c4b72e.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858778-0f4e951e-4ac2-45bf-a5c7-d75b6f0c4048.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858787-90629b4b-5d98-4f3b-af05-90455d1e4f34.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858791-9f065e0d-9a23-469b-bdc9-51b497c613da.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item active ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858794-0fcac195-8be3-4643-a845-6878c53d3f80.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858799-4a5592ed-96ef-4391-bdc5-978ac1f21b41.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858739-5b479c6c-9aac-485f-84b2-fcd268d488e7.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858745-7a1fad77-3d9c-46ae-960e-c5e539f5b0fc.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858749-c1936004-eb4d-4f2d-84ea-da8e03df29a2.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858755-79b32f97-a54c-494b-9018-4120bd1e4fec.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858758-a95a22f7-fe60-420b-a20e-3c9377fb298d.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858715-acf1cd47-c9bf-413e-a340-62511a6b317c.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858725-dce84c68-2706-455e-b7b9-60f214ef77c1.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858730-9b8147ae-ff26-45a3-89cd-e8d86cf5b3c8.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858735-b1d38f12-d8dc-46f2-b00d-d31b6040123f.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858662-803146f4-b8fd-4f29-8322-2d193285f6c3.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858666-a662d62f-dc33-48dc-974d-d2c0ed1db112.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858674-dbe9809d-aa1f-4a8b-9d54-29be53560b8c.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858683-0a997d03-5b38-4835-a3fb-e63b63679387.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858690-912741b9-d365-4e1c-864a-a196cea05a78.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="widget-body mb-3" style="height:60%;">
+                            <div class="widget-vs">
+                                <div class="w-100 d-flex load" style="min-height:500px">
+                                    <div class="pull1" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858697-a21edc8a-0b32-46c4-acc6-3a805e64c652.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                    <div class="pull2" style="width:70% ;height:300px ;">
+                                        <img src="https://user-images.githubusercontent.com/91193585/193858705-50b04253-abd1-444f-a512-d0ba360b6e68.jpg" alt = "not here" style="max-width: 90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- loop end here/ -->
-
                     <a class="carousel-control-prev" style="opacity:unset  !important;width: unset;"
                         href="#carouselExampleIndicators3" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -139,9 +326,7 @@
 
 
         <script src="js/main.js"></script>
-        <script>
-           $('.carousel-item').first().addClass('active')
-        </script>
+
 
 
 </body>
