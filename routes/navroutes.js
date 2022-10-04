@@ -30,6 +30,12 @@ router.get("/ourteam", async (req, res) => {
     res.render('ourteam.ejs', context);
 })
 
+router.get("/gallery",async (req,res)=>{
+    const context = {
+        authenticated: req.isAuthenticated(),}
+    res.render('gallery.ejs',context)
+})
+
 router.get("/rulebooks", async (req, res) => {
     const context = {
         authenticated: req.isAuthenticated(),

@@ -65,13 +65,6 @@ router.get("/joinTeam", async (req, res) => {
             "IIT DELHI",
             "IIT BOMBAY",
             "IIT JODHPUR",
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "G",
-            "F",
         ]
     }
     res.render('confirm', context);
