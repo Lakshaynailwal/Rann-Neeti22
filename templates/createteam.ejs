@@ -92,9 +92,9 @@
             width: 500px;
         ">
                         <div class="title-section container">
-                            <label class="heading m-0 py-2" for="TeamName"  >Team Name</label>
+                            <label class="heading m-0 py-2" for="TeamName">Team Name</label>
 
-                        </div> 
+                        </div>
                         <input required style=" text-align: center; width: 70%; padding: 5px; font-size: 16px; margin-left: 30px;
                                 margin-bottom: 20px; border-radius: 10px;" name="TeamName" id="TeamName" type="text"
                             placeholder="Enter Team Name" autocomplete="off">
@@ -111,17 +111,31 @@
                             placeholder="Enter College Name" autocomplete="off">
                         <!-- <hr> -->
 
+
+
                         <div class="title-section container" style="margin-top:40px ;">
                             <label class="heading m-0 py-2" for="registration">Registration Fee - <%= event.fees%>
-                                    </label>
+                            </label>
                         </div>
                         <p style="font-size:16px">You have to pay this fees after registration, through payment
-                            portal.</p>
+                            portal.
+                        </p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled"
+                                checked disabled>
+                            <label class="form-check-label" for="flexCheckCheckedDisabled">
+                                <p>I have understood the <a target="_blank"
+                                        href="https://docs.google.com/document/d/17PjtDxJU5LqRwnL999qoHMTUzI2UJyhoOB9MumLFTrc/edit?usp=sharing">terms
+                                        and policy</a> of IIT Mandi</p>
+                            </label>
+                        </div>
+
                         <button style="width: 30%;
                 padding: 10px;
                 border-radius: 30px;
                 margin: 40px;
                 margin-left: 30px;" class="btn btn-primary">Confirm</button>
+
 
                     </form>
                 </div>
