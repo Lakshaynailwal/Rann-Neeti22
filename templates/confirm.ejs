@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="/fonts/icomoon/style.css">
 
   <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/css/jquery-ui.css">
   <link rel="stylesheet" href="/css/owl.carousel.min.css">
   <link rel="stylesheet" href="/css/owl.theme.default.min.css">
@@ -33,47 +35,50 @@
 
   <style>
     .example::-webkit-scrollbar {
-                    display: none;}
+      display: none;
+    }
+
     @media only screen and (max-width:500px) {
 
-        /* * {
+      /* * {
             font-size: 0.5rem;
         } */
 
-        input {
-            font-size: 10px;
-        }
+      input {
+        font-size: 10px;
+      }
     }
 
-    .site-navbar{
-        position: unset !important;
+    .site-navbar {
+      position: unset !important;
     }
-</style>
+  </style>
 
 </head>
 
 <body onload="load()">
-  <div class="site-wrap" style="background: url('/images/createteambg.jpeg') no-repeat center center/cover; height:auto; min-height: 100vh;">
+  <div class="site-wrap"
+    style="background: url('/images/createteambg.jpeg') no-repeat center center/cover; height:auto; min-height: 100vh;">
     <%- include('partials/preloader.ejs') %>
-    <div  style="background-color: black;">
-      <%- include('partials/navbar.ejs') %>
-    </div>
-
-    
-    <div class="container">
-      <div class="row align-items-center" style=" margin-bottom: 35px; height: auto;">
-          <div class="mx-auto text-center" style="margin-top:20px;">
-              <h1 class="text-white px-5 font-weight-bold" style="font-size:32px">Please Provide Details
-              </h1>
-        <hr color="#EE1E47" style="height:0.5px;box-shadow: 0 8px 2px -2px #EE1E47; max-width: 90%;">
-          </div>
+      <div style="background-color: black;">
+        <%- include('partials/navbar.ejs') %>
       </div>
-      <div class="container mx-auto row align-items-center">
-        <form class="mx-auto d-flex flex-column align-items-center" action="#/events/joinTeam" method="POST" style="
+
+
+      <div class="container">
+        <div class="row align-items-center" style=" margin-bottom: 35px; height: auto;">
+          <div class="mx-auto text-center" style="margin-top:20px;">
+            <h1 class="text-white px-5 font-weight-bold" style="font-size:32px">Please Provide Details
+            </h1>
+            <hr color="#EE1E47" style="height:0.5px;box-shadow: 0 8px 2px -2px #EE1E47; max-width: 90%;">
+          </div>
+        </div>
+        <div class="container mx-auto row align-items-center">
+          <form class="mx-auto d-flex flex-column align-items-center" action="/events/joinTeam" method="POST" style="
     width: 500px;
 ">
-            <div class="title-section container" >
-                <label class="heading m-0 py-2" for="teamId">Team Id</label>
+            <div class="title-section container">
+              <label class="heading m-0 py-2" for="teamId">Team Id</label>
             </div>
             <input style="text-align: center;
             color: black;
@@ -81,48 +86,56 @@
             padding: 5px;
             font-size: 16px;
             margin-bottom: 20px;
-            border-radius: 10px;" name="teamId" id="teamId" type="text" placeholder="Enter Team Id"
-                autocomplete="off">
+            border-radius: 10px;" name="teamId" id="teamId" type="text" placeholder="Enter Team Id" autocomplete="off">
 
-                <div class="title-section container" >
-                  <label class="heading m-0 py-2" for="TeamName">College Name</label>
-              </div>
-              <div style="width:100%;margin-bottom: 20px;position: relative;" class="d-flex d-flex-col justify-content-center">
-
-                <input class="justify-center" style="text-align: center;
+            <div class="title-section container">
+              <label class="heading m-0 py-2" for="TeamName">College Name</label>
+            </div>
+            <div style="width:100%;margin-bottom: 20px;position: relative;"
+              class="d-flex d-flex-col justify-content-center">
+              <input class="justify-center" style="text-align: center;
               color:black;
               width: 70%;
               padding: 5px;
               font-size: 16px;
-              border-radius: 10px;" name="college" id="college" placeholder="Enter College Name"
-                  autocomplete="off">
-                  <ul class="example" id='college-suggestions' style="z-index:2;display:none;list-style-type:none;position: absolute;top:100%;margin:5px;background-color: black; width:70%;max-height:calc(5*(1rem + 20px));overflow-y: scroll;" ></ul>
-                  
-              </div>
-                  <div class="title-section container" >
-                    <label class="heading m-0 py-2" for="TeamName">Phone</label>
-                </div>
-                <input style="text-align: center;
+              border-radius: 10px;" name="college" id="college" placeholder="Enter College Name" autocomplete="off">
+              <ul class="example" id='college-suggestions'
+                style="z-index:2;display:none;list-style-type:none;position: absolute;top:100%;margin:5px;background-color: black; width:70%;max-height:calc(5*(1rem + 20px));overflow-y: scroll;">
+              </ul>
+
+            </div>
+            <div class="title-section container">
+              <label class="heading m-0 py-2" for="TeamName">Phone</label>
+            </div>
+            <input style="text-align: center;
                 color:black;
                 width: 70%;
                 padding: 5px;
                 font-size: 16px;
                 margin-bottom: 20px;
-                border-radius: 10px;" placeholder="Phone" name="phone" id="phone" type="text" 
-                    autocomplete="off">
+                border-radius: 10px;" placeholder="Phone" name="phone" id="phone" type="text" autocomplete="off">
 
-                    <input type="submit" class="btn btn-primary" style="border-radius: 30px;
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+              <label class="form-check-label" for="flexCheckCheckedDisabled">
+                <p>I have understood the <a target="_blank"
+                    href="https://docs.google.com/document/d/17PjtDxJU5LqRwnL999qoHMTUzI2UJyhoOB9MumLFTrc/edit?usp=sharing">terms
+                    and policy</a> of IIT Mandi</p>
+              </label>
+            </div>
+            <input type="submit" class="btn btn-primary" style="border-radius: 30px;
                     padding: 6px;
                     margin:40px;
                     width: 35%;
                     font-size: 17px;" value="Proceed">
 
-        </form>
-    </div>
 
-    
-  </div>
-  <%- include('partials/footer.ejs') %>
+          </form>
+        </div>
+
+
+      </div>
+      <%- include('partials/footer.ejs') %>
   </div>
 
   <script>
@@ -130,7 +143,7 @@
     const college_suggestions = document.getElementById('college-suggestions')
     const input_box = document.getElementById('college')
 
-    input_box.addEventListener('focus', ()=>{
+    input_box.addEventListener('focus', () => {
       college_suggestions.style.display = 'block'
     })
 
@@ -142,32 +155,31 @@
       const suggestion = document.createElement('li')
       suggestion.innerText = element
       suggestion.style.padding = "5px 10px"
-      suggestion.style.color='red'
-      suggestion.style.textAlign= 'center'
+      suggestion.style.color = 'red'
+      suggestion.style.textAlign = 'center'
       suggestion.style.cursor = 'pointer'
-      suggestion.addEventListener('mouseover', ()=>{suggestion.style.background='white'})
-      suggestion.addEventListener('mouseout', ()=>{suggestion.style.background='black'})
-      suggestion.addEventListener('click', ()=>{input_box.value=suggestion.innerText})
+      suggestion.addEventListener('mouseover', () => { suggestion.style.background = 'white' })
+      suggestion.addEventListener('mouseout', () => { suggestion.style.background = 'black' })
+      suggestion.addEventListener('click', () => { input_box.value = suggestion.innerText })
       college_suggestions.appendChild(suggestion)
     });
 
-    input_box.addEventListener('input', (e)=>{
-      college_suggestions.querySelectorAll('li').forEach((element)=>{
-        if(element.innerText.toLowerCase().includes(e.target.value.toLowerCase())){
+    input_box.addEventListener('input', (e) => {
+      college_suggestions.querySelectorAll('li').forEach((element) => {
+        if (element.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
           element.style.display = 'block'
-        }else{
+        } else {
           element.style.display = 'none'
         }
       })
     })
-    
+
     input_box.setAttribute('pattern', regex_expr)
 
-    input_box.addEventListener('blur', ()=>{
-      setTimeout(()=>{
-
+    input_box.addEventListener('blur', () => {
+      setTimeout(() => {
         college_suggestions.style.display = 'none'
-      }, 200)
+      }, 500)
     })
   </script>
 
