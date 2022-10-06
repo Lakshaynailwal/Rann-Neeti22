@@ -121,11 +121,11 @@ module.exports = { // event functions ==========================================
         const userDetail = await userTable.findOne({ googleId: req.user.googleId });
         const { TeamName } = req.body;
 
-        // check if the hospitality fees paid or not
+        // check if the hospitality fees paid or not -- this validation is removed now
 
-        if (userDetail && userDetail.paymentStatus == 0) {
-            return "Sorry, you can't create a team before submitting accomadation charges!";
-        }
+        // if (userDetail && userDetail.paymentStatus == 0) {
+        //     return "Sorry, you can't create a team before submitting accomadation charges!";
+        // }
 
         // check the validation that is the user registered for the event or not
 
@@ -133,7 +133,7 @@ module.exports = { // event functions ==========================================
             let checker = (await module.exports.isRegisteredforEvent(req.user, event)) || (await module.exports.checkAtheleticEvents(req.user, event));
 
             if (checker) {
-                return "You can only register for atmost 3 atheletic events or already registered for this event";
+                return "You are already registered for this event";
             }
 
             // check any team with this name is already existing or not
@@ -152,6 +152,7 @@ module.exports = { // event functions ==========================================
                 event: event._id,
                 name: TeamName,
                 teamLeader: userDetail._id,
+                college: req.body.CollegeName,
             });
 
             newteam.save(function (err) {
@@ -173,7 +174,7 @@ module.exports = { // event functions ==========================================
         const eventDetail = await eventTable.findOne({ _id: eventId });
         return eventDetail;
     },
-    joinTeam: async function (teamId, req) {
+    joinTeam: async function (teamId, context, req) {
         const teamTable = require("./models/team");
         const userTable = require("./models/user");
         const eventTable = require("./models/event")
@@ -185,9 +186,10 @@ module.exports = { // event functions ==========================================
         if (teamDetail) {
             const eventDetail = await module.exports.findEventById(teamDetail.event);
 
-            if (userDetail && userDetail.paymentStatus == 0) {
-                return "Sorry, you can't join a team before submitting accomodation charges."
-            }
+            // this validation is removed now
+            // if (userDetail && userDetail.paymentStatus == 0) {
+            //     return "Sorry, you can't join a team before submitting accomodation charges."
+            // }
 
             // validtion of team id
             if (teamDetail == null || userDetail == null || eventDetail == null) {
@@ -198,7 +200,7 @@ module.exports = { // event functions ==========================================
             let checker = (await module.exports.isRegisteredforEvent(req.user, eventDetail)) || (await module.exports.checkAtheleticEvents(req.user, eventDetail));
 
             if (checker) {
-                return "You can only register for atmost 3 atheletic events or already registered for this event!";
+                return "You are already registered for this event!";
             }
 
             // first we have to check this team is full or not
@@ -278,13 +280,14 @@ module.exports = { // event functions ==========================================
 
 
         const teamDetail = await teamTable.findOne({ _id: teamId });
+        console.log(user);
         const userDetail = await module.exports.userDetails(user);
 
-        if (teamDetail && (teamDetail.teamLeader.toString() == userDetail._id.toString())) {
+        if (userDetail && teamDetail && (teamDetail.teamLeader.toString() == userDetail._id.toString())) {
             if (teamDetail.paymentStatus == 0) {
                 // remove all the members from team
                 for (let i = 0; i < teamDetail.members.length; i++) {
-                    await module.exports.deleteTeamMember(teamId, teamDetail.members[i].member_id);
+                    await module.exports.deleteTeamMember(teamId, teamDetail.members[i].member_id, user);
                 }
 
                 // remove the leader from the team

@@ -42,61 +42,61 @@
 </head>
 
 <body onload="load()">
-    
+
     <div class="site-wrap">
         <%- include('partials/preloader.ejs') %>
-        <div class="bg"></div>
-        <!-- Navbar -->
-        <nav class="navbar navbar-light mb-5" style="background-color: #22527b">
-            <div class="container">
-                <a class="navbar-brand mx-auto" href="#">
-                    <img src="https://user-images.githubusercontent.com/56690827/160768243-76239809-a9da-41f3-a270-ba9bdd205797.svg"
-                        alt="logo" class="d-inline-block align-top pull-left" />
-                </a>
-            </div>
-        </nav>
-    
-        <div class="row d-flex justify-content-center">
-            <div class="col-sm-10 col-md-8 col-lg-5">
-                <div class="card">
-                    <h5 class="card-header">Confirm Order</h5>
-    
-                    <div class="card-body">
-                        <p class="card-text">
-                            Thank you for taking up this decision.
-                        </p>
-    
-                        <dl class="row mt-2">
-                            <dt class="col-sm-3">Order ID</dt>
-                            <dd class="col-sm-9" id="orderId">
-                                <%- paymentDetail.orderId %>
-                            </dd>
-    
-                            <dt class="col-sm-3">Currency</dt>
-                            <dd class="col-sm-9">
-                                <%- paymentDetail.currency %>
-                            </dd>
-    
-                            <dt class="col-sm-3">Amount</dt>
-                            <dd class="col-sm-9">
-                                <%- paymentDetail.amount/100 %> Rs.
-                            </dd>
-                        </dl>
-    
-                        <button type="submit" class="btn btn-primary" onclick="checkout(event)">
-                            Checkout
-                        </button>
-                    </div>
+            <div class="bg"></div>
+            <!-- Navbar -->
+            <nav class="navbar navbar-light mb-5" style="background-color: #22527b">
+                <div class="container">
+                    <a class="navbar-brand mx-auto" href="#">
+                        <img src="https://user-images.githubusercontent.com/56690827/160768243-76239809-a9da-41f3-a270-ba9bdd205797.svg"
+                            alt="logo" class="d-inline-block align-top pull-left" />
+                    </a>
                 </div>
-                <form id="paymentVerifyForm" action="/payment/verify" method="POST">
-                    <input name="razorpay_payment_id" type="hidden" id="razorpay_payment_id" />
-                    <input name="razorpay_order_id" type="hidden" id="razorpay_order_id" />
-                    <input name="razorpay_signature" type="hidden" id="razorpay_signature" />
-                    <input name="paymentType" type="hidden" id="paymentType" />
-                    <input name="id" type="hidden" id="id" />
-                </form>
+            </nav>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-10 col-md-8 col-lg-5">
+                    <div class="card">
+                        <h5 class="card-header">Confirm Order</h5>
+
+                        <div class="card-body">
+                            <p class="card-text">
+                                Thank you for taking up this decision.
+                            </p>
+
+                            <dl class="row mt-2">
+                                <dt class="col-sm-3">Order ID</dt>
+                                <dd class="col-sm-9" id="orderId">
+                                    <%- paymentDetail.orderId %>
+                                </dd>
+
+                                <dt class="col-sm-3">Currency</dt>
+                                <dd class="col-sm-9">
+                                    <%- paymentDetail.currency %>
+                                </dd>
+
+                                <dt class="col-sm-3">Amount</dt>
+                                <dd class="col-sm-9">
+                                    <%- paymentDetail.amount/100 %> Rs.
+                                </dd>
+                            </dl>
+
+                            <button type="submit" class="btn btn-primary" onclick="checkout(event)">
+                                Checkout
+                            </button>
+                        </div>
+                    </div>
+                    <form id="paymentVerifyForm" action="/payment/verify" method="POST">
+                        <input name="razorpay_payment_id" type="hidden" id="razorpay_payment_id" />
+                        <input name="razorpay_order_id" type="hidden" id="razorpay_order_id" />
+                        <input name="razorpay_signature" type="hidden" id="razorpay_signature" />
+                        <input name="paymentType" type="hidden" id="paymentType" />
+                        <input name="id" type="hidden" id="id" />
+                    </form>
+                </div>
             </div>
-        </div>
     </div>
 
 

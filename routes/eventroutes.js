@@ -75,7 +75,7 @@ router.get("/joinTeam", async (req, res) => {
 
 router.post("/joinTeam", [authCheck, liveCheck], async (req, res) => {
     const { teamId, college, phone } = req.body;
-    let checker = await joinTeam(teamId, req);
+    let checker = await joinTeam(teamId, { college, phone }, req);
 
     req.flash("message", checker);
     res.redirect("/profile");
