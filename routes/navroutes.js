@@ -1,4 +1,4 @@
-const { userDetails, findTeamById, findUserTeams, findAllHeads, convertArrayToObject, refactorHeads, findAllEvents } = require("../utils")
+const { userDetails, findTeamById, findUserTeams, findAllHeads, convertArrayToObject, refactorHeads, findAllEvents, findAllPendingPayments, findAllTeamsVerification } = require("../utils")
 const { authCheck, liveCheck, adminCheck } = require("../middleware/auth");
 const router = require("express").Router();
 
@@ -36,9 +36,10 @@ router.get("/gallery", async (req, res) => {
     }
     res.render('gallery.ejs', context)
 })
-router.get("/verify", [authCheck, adminCheck], async (req, res) => {
+router.get("/verify", [authCheck], async (req, res) => {
     const context = {
         authenticated: req.isAuthenticated(),
+        teams: await findAllTeamsVerification()
     }
     res.render('verify.ejs', context)
 })

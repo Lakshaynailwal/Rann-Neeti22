@@ -149,24 +149,31 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        <% for(let i=0;i<20;i++){%>
+                        <% for(let i=0;i<teams.length;i++){%>
                             <tr>
-                                <td class="column1" data="Team">Noob-Tigers</td>
-                                <td class="column2" data="College">IIT-Mandi</td>
-                                <td class="column3" data="Event">Weight Lifting</td>
-                                <td class="column4" data="Leader">Lakshay</td>
-                                <td class="column5" data="Payment">10000</td>
-                                <td class="column6" data="Payment-Status"> <input type="checkbox"> </td>
+                                <td class="column1" data="Team">
+                                    <%= teams[i].name %>
+                                </td>
+                                <td class="column2" data="College">
+                                    <%= teams[i].college %>
+                                </td>
+                                <td class="column3" data="Event">
+                                    <%= teams[i].event.name %>
+                                </td>
+                                <td class="column4" data="Leader">
+                                    <%= teams[i].teamLeader.firstName %>
+                                </td>
+                                <td class="column5" data="Payment">
+                                    <%= teams[i].event.fees %>
+                                </td>
+
+                                <td class="column6" data="Payment-Status"> <input type="checkbox"
+                                        <%if(teams[i].paymentStatus==1) { %>
+                                    checked
+                                    <% } %>>
+                                </td>
                             </tr>
                             <%}%>
-                                <tr>
-                                    <td class="column1" data="Team">Noob-1</td>
-                                    <td class="column2" data="College">IIT-1</td>
-                                    <td class="column3" data="Event">Weight 1</td>
-                                    <td class="column4" data="Leader">Lakshay 1</td>
-                                    <td class="column5" data="Payment">10000</td>
-                                    <td class="column6" data="Payment-Status"> <input type="checkbox"> </td>
-                                </tr>
                     </tbody>
                 </table>
                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -332,6 +332,18 @@ module.exports = { // event functions ==========================================
         else
             return false;
     },
+    findAllTeamsVerification: async function (req) {
+        const teamTable = require("./models/team");
+        let teams = await teamTable.find({}).lean();
+
+        for (let i = 0; i < teams.length; i++) {
+            teams[i].event = await module.exports.findEventById(teams[i].event);
+            teams[i].teamLeader = await module.exports.findUserById(teams[i].teamLeader);
+        }
+
+        return teams;
+
+    },
     // heads
     findAllHeads: async function () {
         const headTable = require("./models/heads")
