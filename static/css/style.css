@@ -1802,7 +1802,8 @@ h5,
   padding: 2em;
   display: block;
   text-decoration: none;
-  color: #ee1e46 -webkit-transition: background-color 0.5s ease-in-out;
+  color: #ee1e46;
+  -webkit-transition: background-color 0.5s ease-in-out;
 }
 
 .accordion dd {
@@ -1836,10 +1837,13 @@ h5,
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
+.accordion::-webkit-scrollbar{
+    display: none;
+}
 
 dt:hover a {
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.01);
   transition: ease-in-out;
   transition: all 0.5s;
 }
