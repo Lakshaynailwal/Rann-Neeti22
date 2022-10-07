@@ -28,187 +28,108 @@
     <link rel="stylesheet" href="/css/aos.css">
 
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/payment_mediaquery.css">
 
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
     <style>
-        #pay {
-            color: rgb(235, 205, 205);
-        }
-
-        #pay-row {
-            width: 90%;
-            margin-left: 10%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .left-img {
-            clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-            border-right: 3px solid rgb(200, 34, 34);
-            border-bottom: 3px solid rgb(200, 34, 34);
-            box-shadow: 17px 0px 15px -15px rgb(151, 185, 147);
-            border-radius: 3px;
-        }
-
-        .right-img {
-            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
-            border-right: 3px solid rgb(200, 34, 34);
-            border-bottom: 3px solid rgb(200, 34, 34);
-            box-shadow: 17px 0px 15px -15px rgb(151, 185, 147);
-            border-radius: 3px
-        }
-
-        #pay-row {
-            margin-top: 50px;
-        }
-
-
-
-        .payment-con #pay-row img {
-            width: 100%;
-            height: 100%;
-        }
-
-
-        .payment-con .pay-col {
-            width: 80%;
-        }
-
-        @media screen and (max-width:767px) {
-            .payment-con #pay-row .pay-subrow {
-                margin-top: 70px;
-            }
-
-            #pay-row {
-                width: 100%;
-                margin-left: 20px;
-
-            }
-
-            #right-col {
-                margin-left: 5%;
-            }
-
-            .left-img {
-                height: 200px !important;
-            }
-        }
-
-        @media screen and (max-width:540px) {
-            .left-img {
-                height: 150px !important;
-            }
-        }
-
-        @media screen and (max-width:400px) {
-            .left-img {
-                height: 125px !important;
-            }
-        }
-
         .site-navbar {
             position: unset;
+        }
+
+        body {
+            background: url('https://img.freepik.com/premium-vector/luxury-bright-red-lines-modern-sport-background_125759-132.jpg') center center/cover;
+            background-attachment: fixed;
+        }
+
+        #page {
+            height: auto;
+            min-height: 50vh;
+            display: flex;
+            width: 100% !important;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contiu {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            height: 315px;
+        }
+
+        .contiu::-webkit-scrollbar {
+            display: none;
+        }
+
+        .conti {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
         }
     </style>
     <title>Payment Details</title>
 </head>
 
 <body onload="load()">
-    <!-- <h1>Pending Payments</h1>
-    <ul>
-        
 
-    </ul> -->
-    <div style="background-color: black;">
-        <%- include('partials/navbar.ejs') %>
-    </div>
     <%- include('partials/preloader.ejs') %>
-        <div id="pay"
-            style="height:100vh;background:url('https://img.freepik.com/premium-vector/luxury-bright-red-lines-modern-sport-background_125759-132.jpg') center center/cover ; background-attachment: fixed; padding: 40px;">
 
-            <div class="title-section">
-                <h2 class="heading">Pending Payments</h2>
-            </div>
-
-            <% for(let i=0;i<payments.length;i+=2) { %>
-                <div class="container-box payment-con">
-                    <div class="row" id="pay-row">
-                        <div class="col-md-6">
-                            <form action="/payment/order" id="paymentForm" method="post">
-                                <div class="row ">
-                                    <div class="col-6">
-                                        <% if(payments[i].paymentType=="user" ) {%>
-                                            <h3>Registration Fees</h3>
-                                            <%} else {%>
-                                                <h3>
-                                                    <%= payments[i].eventName%>
-                                                </h3>
-                                                <%}%>
-                                                    <img class="left-img"
-                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSi0EqhjkkSPH_uH3PpFfjL9spyirBUNtaUw&usqp=CAU"
-                                                        alt="">
-                                    </div>
-                                    <div class="col-4 btn-col-left"
-                                        style="display:flex;  flex-direction: column; justify-content:center;align-items:center;">
-                                        <div class="row" style="display:block ;">
-                                            <p>Fees : <%= payments[i].amount%>
-                                            </p>
-                                        </div>
-                                        <button style="width: 40%;" class="btn btn-primary">Pay</button>
-                                    </div>
-                                </div>
-
-                                <input name="paymentType" type="hidden" id="paymentType"
-                                    value="<%=payments[i].paymentType%>" readonly>
-                                <input name="id" id="id" type="hidden" value="<%= payments[i].id %>" readonly>
-
-                            </form>
-
-                        </div>
-
-                        <% if(i + 1 <payments.length) { %>
-                            <div class="col-md-6">
-                                <form action="/payment/order" id="paymentForm" method="post">
-                                    <div class="row ">
-                                        <div class="col-6">
-                                            <% if(payments[i+1].paymentType=="user" ) {%>
-                                                <h3>Registration Fees</h3>
-                                                <%} else {%>
-                                                    <h3>
-                                                        <%= payments[i+1].eventName%>
-                                                    </h3>
-                                                    <%}%>
-                                                        <img class="left-img"
-                                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSi0EqhjkkSPH_uH3PpFfjL9spyirBUNtaUw&usqp=CAU"
-                                                            alt="">
-                                        </div>
-                                        <div class="col-4 btn-col-left"
-                                            style="display:flex;  flex-direction: column; justify-content:center;align-items:center;">
-                                            <div class="row" style="display:block ;">
-                                                <p>Fees : <%= payments[i+1].amount%>
-                                                </p>
-                                            </div>
-                                            <button class="btn btn-dark">Pay</button>
-                                        </div>
-                                    </div>
-
-                                    <input name="paymentType" type="hidden" id="paymentType"
-                                        value="<%=payments[i+1].paymentType%>" readonly>
-                                    <input name="id" id="id" type="hidden" value="<%= payments[i+1].id %>" readonly>
-
-                                </form>
-
-                            </div>
-                            <%}%>
-                    </div>
-
+        <div style="background-color: black;">
+            <%- include('partials/navbar.ejs') %>
+                <div class="text-center" style="padding: 20px 0px;">
+                    <h1 style="font-weight: bold;    font-size: 3.5rem;
+        text-shadow: -2px -6px 17px red;">Payments</h1>
                 </div>
-                <%}%>
+        </div>
+        <div id="page">
+            <div class="conti">
+                <div class="title-section">
+                    <h2 class="heading">Account-Number</h2>
+                    <div class="account-no" style="margin: 0px 30px;">00000000000000000</div>
+                </div>
+                <div class="title-section">
+                    <h2 class="heading">IFSC Code</h2>
+                    <div class="ifsc-code" style="margin: 0px 30px;">0000000000</div>
+                </div>
+                <div class="title-section">
+                    <h2 class="heading">Account-Holder</h2>
+                    <div class="name" style="margin: 0px 30px;">IIT-Mandi</div>
+                </div>
 
-
+            </div>
+            <div class="contiu">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam consectetur aspernatur, animi libero
+                    ipsam laboriosam possimus ex id corrupti asperiores culpa sint sed aliquam cum expedita saepe
+                    nesciunt laborum explicabo laudantium sit adipisci neque soluta? Ex voluptatibus repellendus magnam.
+                    Asperiores molestias, tempora distinctio consectetur temporibus amet numquam dolores aspernatur
+                    expedita possimus perspiciatis sunt illum sapiente eligendi consequuntur quod sint mollitia,
+                    explicabo impedit autem saepe quos doloribus! Beatae saepe, est impedit maiores molestias soluta
+                    error doloribus suscipit facilis aspernatur unde alias laudantium sint at explicabo. Aliquam harum
+                    magni deleniti ex id maiores illo corrupti ab nam soluta, ad quam, placeat ipsum?Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Nemo accusamus necessitatibus ut vero. Placeat ad nisi cum
+                    aut voluptates dolores eligendi. Optio quo in magnam, nihil provident odit vel nulla cupiditate
+                    eveniet hic corporis, numquam obcaecati. Reiciendis distinctio officia, eveniet possimus suscipit
+                    commodi accusamus obcaecati alias porro? Ab distinctio optio possimus ea fuga velit nobis accusamus
+                    officia voluptatibus magnam rerum quae repudiandae beatae accusantium, nihil inventore quisquam esse
+                    ad architecto commodi illum veniam illo. A quibusdam velit quisquam sed iusto ea nesciunt voluptatum
+                    architecto dolor tempora, porro, officiis temporibus debitis nihil. Sed fugit magnam est sequi
+                    voluptatum earum architecto omnis rem autem veritatis! Sapiente ipsa explicabo saepe quae ratione,
+                    accusantium suscipit, tempora numquam accusamus consequuntur odio et enim vero ipsam assumenda
+                    provident ea minima? Nostrum obcaecati quis quidem amet error ducimus dolores. Doloremque
+                    praesentium animi dolorum eum, molestias dolore, provident necessitatibus consequuntur ipsam,
+                    quisquam vero sed tempora ipsum. Provident consequatur quod adipisci dolore et aspernatur quisquam
+                    officiis itaque neque molestias aliquid, quasi ipsum beatae. Aut architecto vel itaque hic
+                    recusandae eligendi consequatur nam laudantium quidem, obcaecati alias blanditiis enim commodi totam
+                    ipsam quam voluptate voluptatem at! Magni odio possimus eos porro? Nisi vel quae vitae in hic
+                    maiores fugiat dolore.</p>
+            </div>
         </div>
         <%- include('partials/footer.ejs') %>
+
+
             <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script> -->

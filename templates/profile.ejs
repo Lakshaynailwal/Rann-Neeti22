@@ -40,10 +40,8 @@
         }
 
         .head {
-            padding-top: 100px;
             display: flex;
             align-items: baseline;
-            transform: skewy(-3.5deg);
             color: rgb(255, 255, 255);
             font-weight: bold;
             font-size: 20px;
@@ -56,11 +54,10 @@
 
 
         .cont {
-            padding-top: 5rem;
             width: 100%;
-            height: 249px;
+            margin: 0px auto 50px auto;
+            height: auto;
             color: white;
-            transform: skewy(3.5deg) translatey(-15px);
             padding-top: 2.5rem;
         }
 
@@ -75,8 +72,7 @@
             text-align: center;
             border: 2px solid white;
             border-radius: 29px;
-            box-shadow: 3px 3px red;
-            backdrop-filter: blur(10px) saturate(200%);
+            box-shadow: 1px 1px 50px -16px red;
         }
 
         .teaminfo span {
@@ -126,7 +122,6 @@
 
         #conti {
             width: 60%;
-            background-color: #00000047;
         }
 
         @media only screen and (max-width:900px) {
@@ -138,6 +133,26 @@
                 margin-top: 60px;
             }
 
+        }
+
+        #page {
+            display: flex;
+            width: 94%;
+            min-height: 67vh;
+            height: auto;
+            margin: 70px auto 10px auto;
+        }
+
+        body {
+            background: url('https://img.freepik.com/premium-vector/luxury-bright-red-lines-modern-sport-background_125759-132.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+
+        }
+
+        .site-wrap {
+            min-height: 63vh;
+            height: auto;
+            background-color: #00000047;
         }
     </style>
     <link rel="stylesheet" href="/css/teampage_mediaquery.css">
@@ -151,8 +166,7 @@
             <div style="background-color:black ;">
                 <%- include('partials/navbar.ejs') %>
             </div>
-            <div class="site-wrap"
-                style="min-height: 63vh;height: auto;background: url('https://media.istockphoto.com/photos/abstract-red-and-black-are-light-pattern-with-the-gradient-is-the-picture-id1286371622?k=20&m=1286371622&s=612x612&w=0&h=Th-llkNsxoaQPtmBDn6-FE-CAwFA9oY_elP_qKJ1yFs=') no-repeat center center/cover;">
+            <div class="site-wrap">
                 <div class="cont">
                     <div class="head">
                         <span>
@@ -160,8 +174,7 @@
                         </span>
                     </div>
                 </div>
-                <div id="page"
-                    style="display: flex;width: 94%; min-height: 67vh; height: auto;margin: auto;align-items:  center">
+                <div id="page">
 
                     <div id="conti">
                         <div class="teaminfo">

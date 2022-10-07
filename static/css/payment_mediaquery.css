@@ -1,0 +1,25 @@
+@media only screen and (max-width:900px){
+    #page{
+        flex-direction: column;
+    }
+    .conti{
+        width: 70% !important;
+    }
+    .contiu{
+        overflow-y:unset !important;
+        height: unset !important;
+        width: 70% !important;
+    }
+}
+
+@media only screen and (max-width:400px){
+    h1{
+        font-size: 3rem !important;
+    }
+    h2{
+        font-size: 19px;
+    }
+    .title-section{
+        font-size: 15px;
+    }
+}
