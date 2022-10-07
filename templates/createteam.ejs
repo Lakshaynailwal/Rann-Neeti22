@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Team | RannNeeti-22</title>
 
-
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
     <link rel="stylesheet" href="/fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
@@ -100,15 +100,34 @@
                             placeholder="Enter Team Name" autocomplete="off">
 
                         <div class="title-section container">
-                            <label class="heading m-0 py-2" for="CollegeName">College Name</label>
+                            <label class="heading m-0 py-2" for="college">College Name</label>
+                        </div>
+                        <div style="width:100%;margin-bottom: 20px;position: relative;"
+                            class="d-flex d-flex-col justify-content-center">
+                            <input class="justify-center" style="text-align: center;
+                                color:black;
+                                width: 70%;
+                                padding: 5px;
+                                font-size: 16px;
+                                border-radius: 10px;" name="college" id="college" placeholder="Enter College Name"
+                                autocomplete="off">
+                            <ul class="example" id='college-suggestions'
+                                style="z-index:2;display:none;list-style-type:none;position: absolute;top:100%;margin:5px;background-color: black; width:70%;max-height:calc(5*(1rem + 20px));overflow-y: scroll;">
+                            </ul>
+
+                        </div>
+
+
+                        <div class="title-section container" style="margin-top: 30px;">
+                            <label class="heading m-0 py-2" for="phone">Phone Number</label>
                         </div>
                         <input required style="text-align: center;
-                        font-size: 16px;
-                    width: 70%;
-                    padding: 5px;
-                    margin-left: 30px;
-                    border-radius: 10px;" name="CollegeName" id="CollegeName" type="text"
-                            placeholder="Enter College Name" autocomplete="off">
+                            font-size: 16px;
+                        width: 70%;
+                        padding: 5px;
+                        margin-left: 30px;
+                        border-radius: 10px;" name="phone" id="phone" type="text" pattern="[0-9]{10}"
+                            placeholder="Enter Phone Number" autocomplete="off">
                         <!-- <hr> -->
 
 
@@ -143,6 +162,51 @@
             <%- include('partials/footer.ejs') %>
     </div>
 
+
+    <script>
+        const colleges = JSON.parse('<%- JSON.stringify(colleges) %>')
+        const college_suggestions = document.getElementById('college-suggestions')
+        const input_box = document.getElementById('college')
+
+        input_box.addEventListener('focus', () => {
+            college_suggestions.style.display = 'block'
+        })
+
+        var regex_expr = "|"
+        colleges.forEach(element => {
+            // create regex for the input
+            regex_expr += element + "|"
+            //append colleges in li under #college-suggestions
+            const suggestion = document.createElement('li')
+            suggestion.innerText = element
+            suggestion.style.padding = "5px 10px"
+            suggestion.style.color = 'red'
+            suggestion.style.textAlign = 'center'
+            suggestion.style.cursor = 'pointer'
+            suggestion.addEventListener('mouseover', () => { suggestion.style.background = 'white' })
+            suggestion.addEventListener('mouseout', () => { suggestion.style.background = 'black' })
+            suggestion.addEventListener('click', () => { input_box.value = suggestion.innerText })
+            college_suggestions.appendChild(suggestion)
+        });
+
+        input_box.addEventListener('input', (e) => {
+            college_suggestions.querySelectorAll('li').forEach((element) => {
+                if (element.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
+                    element.style.display = 'block'
+                } else {
+                    element.style.display = 'none'
+                }
+            })
+        })
+
+        input_box.setAttribute('pattern', regex_expr)
+
+        input_box.addEventListener('blur', () => {
+            setTimeout(() => {
+                college_suggestions.style.display = 'none'
+            }, 500)
+        })
+    </script>
 
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/jquery-migrate-3.0.1.min.js"></script>

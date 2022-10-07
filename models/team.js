@@ -29,6 +29,10 @@ const TeamSchema = new mongoose.Schema(
                 },
             ]
         ,
+        college:
+        {
+            type: String,
+        },
         createdAt:
         {
             type: Date,

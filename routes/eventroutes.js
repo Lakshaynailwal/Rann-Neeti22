@@ -41,7 +41,13 @@ router.get("/createTeam", [authCheck, liveCheck], async (req, res) => {
     const context = {
         event: event,
         user: req.session.user,
-        authenticated: req.isAuthenticated()
+        authenticated: req.isAuthenticated(),
+        colleges: [
+            "IIT MANDI",
+            "IIT DELHI",
+            "IIT BOMBAY",
+            "IIT JODHPUR",
+        ]
     }
     res.render('createteam.ejs', context)
 })

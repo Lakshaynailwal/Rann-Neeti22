@@ -42,9 +42,80 @@
 
         .input input {
             color: black;
-            width: 100%;
+            width: 50%;
             padding: 10px 0px;
             margin: 50px auto 20px auto;
+            text-align: center;
+        }
+
+        body {
+            background: url('https://wallpapers.com/images/hd/red-abstract-lines-6hwu6t8epsgm0tjy.webp') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .btn{
+            width: 20%;
+            margin: auto;
+        }
+        @media only screen and (max-width:750px){
+            td{
+                font-size: 12px;
+            }
+        }
+        @media only screen and (max-width:553px){
+            td{
+                font-size: 10px;
+            }
+        }
+        #page{
+            width: 90% !important;
+            margin: auto;
+            overflow:hidden;
+        }
+        .page2{
+            overflow-x: scroll;
+        }
+        
+        @media screen and (max-width:500px) {
+            #table {
+                width: 95%;
+                margin-top: 50px;
+            }
+            #table td,
+            #table tr,
+            #table tbody {
+                display: block;
+            }
+
+            #table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+
+            }
+
+            #table thead {
+                font-weight: bold;
+            }
+
+            #table td {
+                position: relative;
+                padding-left: 50%;
+            }
+
+            #table td:before {
+                content: attr(data);
+                position: absolute;
+                left: 6px;
+            }
+
+            .btn{
+                font-size: 9px;
+            }
         }
     </style>
 </head>
@@ -55,14 +126,14 @@
         <%- include('partials/navbar.ejs') %>
     </div>
     <div id="page">
-        <div class="container">
+        <div class="page">
             <div class="input">
                 <input type="search" id="search" placeholder="Search">
             </div>
         </div>
-        <div class="container">
+        <div class="page2">
             <table class="table striped table-hover  " id="table">
-                <thead class="bg-dark text-light text-center">
+                <thead class="text-light text-center">
                     <tr>
                         <td class="column1">Team</td>
                         <td class="column2">College</td>
@@ -73,7 +144,7 @@
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    <% for(let i=0;i<5;i++){%>
+                    <% for(let i=0;i<20;i++){%>
                         <tr>
                             <td class="column1" data="Team">Noob-Tigers</td>
                             <td class="column2" data="College">IIT-Mandi</td>
@@ -82,9 +153,10 @@
                             <td class="column5" data="Payment">10000</td>
                             <td class="column6" data="Payment-Status"> <input type="checkbox"> </td>
                         </tr>
-                    <%}%>
+                        <%}%>
                 </tbody>
             </table>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
 
