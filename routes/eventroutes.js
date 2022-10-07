@@ -41,7 +41,13 @@ router.get("/createTeam", [authCheck, liveCheck], async (req, res) => {
     const context = {
         event: event,
         user: req.session.user,
-        authenticated: req.isAuthenticated()
+        authenticated: req.isAuthenticated(),
+        colleges: [
+            "IIT MANDI",
+            "IIT DELHI",
+            "IIT BOMBAY",
+            "IIT JODHPUR",
+        ]
     }
     res.render('createteam.ejs', context)
 })
@@ -75,7 +81,7 @@ router.get("/joinTeam", async (req, res) => {
 
 router.post("/joinTeam", [authCheck, liveCheck], async (req, res) => {
     const { teamId, college, phone } = req.body;
-    let checker = await joinTeam(teamId, { college, phone }, req);
+    let checker = await joinTeam(teamId, req);
 
     req.flash("message", checker);
     res.redirect("/profile");

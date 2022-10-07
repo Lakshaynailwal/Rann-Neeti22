@@ -113,6 +113,14 @@ module.exports = { // event functions ==========================================
 
         return payments;
     },
+    updateUsersPhone: async function (user, phone) {
+        const userTable = require("./models/user");
+        await userTable.updateOne({ googleId: user.googleId }, { $set: { phoneNumber: phone } });
+    },
+    updateUsersCollege: async function (user, college) {
+        const userTable = require("./models/user");
+        await userTable.updateOne({ googleId: user.googleId }, { $set: { college: college } });
+    },
     // team functions ===================================================================================================================================
     createTeam: async function (req, event) {
         const userTable = require("./models/user");
@@ -152,7 +160,7 @@ module.exports = { // event functions ==========================================
                 event: event._id,
                 name: TeamName,
                 teamLeader: userDetail._id,
-                college: req.body.CollegeName,
+                college: req.body.college,
             });
 
             newteam.save(function (err) {
@@ -163,7 +171,8 @@ module.exports = { // event functions ==========================================
 
             // updating the team id of the leader
             await userTable.updateOne({ googleId: userDetail.googleId }, { $push: { teams: { teamId: newteam._id, eventId: event._id } } });
-
+            await module.exports.updateUsersPhone(req.user, req.body.phone);
+            await module.exports.updateUsersCollege(req.user, req.body.college);
 
             return "Team created successfully!";
         }
@@ -174,46 +183,57 @@ module.exports = { // event functions ==========================================
         const eventDetail = await eventTable.findOne({ _id: eventId });
         return eventDetail;
     },
-    joinTeam: async function (teamId, context, req) {
+    joinTeam: async function (teamId, req) {
         const teamTable = require("./models/team");
         const userTable = require("./models/user");
         const eventTable = require("./models/event")
 
-        const teamDetail = await teamTable.findOne({ _id: teamId });
-        const userDetail = await userTable.findOne({ googleId: req.user.googleId });
 
-
-        if (teamDetail) {
-            const eventDetail = await module.exports.findEventById(teamDetail.event);
-
-            // this validation is removed now
-            // if (userDetail && userDetail.paymentStatus == 0) {
-            //     return "Sorry, you can't join a team before submitting accomodation charges."
-            // }
-
-            // validtion of team id
-            if (teamDetail == null || userDetail == null || eventDetail == null) {
-                return "Invalid Details";
+        if (teamId && req) {
+            let teamDetail = null;
+            try {
+                teamDetail = await teamTable.findOne({ _id: teamId });
             }
-
-            // validation for already registered user or not
-            let checker = (await module.exports.isRegisteredforEvent(req.user, eventDetail)) || (await module.exports.checkAtheleticEvents(req.user, eventDetail));
-
-            if (checker) {
-                return "You are already registered for this event!";
+            catch (err) {
+                return "Invalid Team Id";
             }
+            const userDetail = await userTable.findOne({ googleId: req.user.googleId });
 
-            // first we have to check this team is full or not
-            let maxTeamsize = eventDetail.teamSize;
-            let currentTeamSize = teamDetail.members.length;
 
-            if (maxTeamsize > currentTeamSize + 1) {
-                await userTable.updateOne({ googleId: userDetail.googleId }, { $push: { teams: { teamId: teamId, eventId: eventDetail._id } } });
-                await teamTable.updateOne({ _id: teamId }, { $push: { members: { member_id: userDetail._id } } });
-                return "Team joined successfully!"
-            }
-            else {
-                return "Team already full!";
+            if (teamDetail) {
+                const eventDetail = await module.exports.findEventById(teamDetail.event);
+
+                // this validation is removed now
+                // if (userDetail && userDetail.paymentStatus == 0) {
+                //     return "Sorry, you can't join a team before submitting accomodation charges."
+                // }
+
+                // validtion of team id
+                if (teamDetail == null || userDetail == null || eventDetail == null) {
+                    return "Invalid Details";
+                }
+
+                // validation for already registered user or not
+                let checker = (await module.exports.isRegisteredforEvent(req.user, eventDetail)) || (await module.exports.checkAtheleticEvents(req.user, eventDetail));
+
+                if (checker) {
+                    return "You are already registered for this event!";
+                }
+
+                // first we have to check this team is full or not
+                let maxTeamsize = eventDetail.teamSize;
+                let currentTeamSize = teamDetail.members.length;
+
+                if (maxTeamsize > currentTeamSize + 1) {
+                    await userTable.updateOne({ googleId: userDetail.googleId }, { $push: { teams: { teamId: teamId, eventId: eventDetail._id } } });
+                    await teamTable.updateOne({ _id: teamId }, { $push: { members: { member_id: userDetail._id } } });
+                    await module.exports.updateUsersPhone(req.user, req.body.phone);
+                    await module.exports.updateUsersCollege(req.user, req.body.college);
+                    return "Team joined successfully!"
+                }
+                else {
+                    return "Team already full!";
+                }
             }
         }
         else {
