@@ -1,5 +1,6 @@
 const { application } = require("express");
 const { findAllEvents, findEvent, isRegisteredforEvent, createTeam, joinTeam } = require("../utils.js");
+const { findAllColleges } = require("../readFromSheet.js");
 const { authCheck, liveCheck } = require("../middleware/auth");
 const router = require("express").Router();
 
@@ -42,12 +43,7 @@ router.get("/createTeam", [authCheck, liveCheck], async (req, res) => {
         event: event,
         user: req.session.user,
         authenticated: req.isAuthenticated(),
-        colleges: [
-            "IIT MANDI",
-            "IIT DELHI",
-            "IIT BOMBAY",
-            "IIT JODHPUR",
-        ]
+        colleges: await findAllColleges()
     }
     res.render('createteam.ejs', context)
 })
@@ -66,12 +62,7 @@ router.post("/createTeam", [authCheck, liveCheck], async (req, res) => {
 router.get("/joinTeam", authCheck, async (req, res) => {
     const context = {
         authenticated: req.isAuthenticated(),
-        colleges: [
-            "IIT MANDI",
-            "IIT DELHI",
-            "IIT BOMBAY",
-            "IIT JODHPUR",
-        ]
+        colleges: await findAllColleges()
     }
     res.render('confirm', context);
 })

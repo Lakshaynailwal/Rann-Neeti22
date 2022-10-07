@@ -84,8 +84,30 @@ module.exports = {
         }
         return rows;
     },
+    listColleges: async function (auth) {
+        const sheets = google.sheets({ version: 'v4', auth });
+        const res = await sheets.spreadsheets.values.get({
+            spreadsheetId: '1OqH5FOtR2rp2_VVbdWzP2-vsA-Pdl0reDTNB3BI8gMc',
+            range: 'Sheet2!A:A',
+        });
+        const rows = res.data.values;
+        if (!rows || rows.length === 0) {
+            console.log('No data found.');
+            return;
+        }
+        return rows;
+    },
     findAllNotices: async function () {
         notices = await module.exports.authorize().then(module.exports.listNotices).catch(console.error);
         return notices;
+    },
+    findAllColleges: async function () {
+        colleges = await module.exports.authorize().then(module.exports.listColleges).catch(console.error);
+
+        collegeList = []
+        for (let i = 1; i < colleges.length; i++) {
+            collegeList.push(colleges[i][0]);
+        }
+        return collegeList;
     }
 };

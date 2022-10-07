@@ -1,5 +1,5 @@
 const { userDetails, findTeamById, findUserTeams, findAllHeads, convertArrayToObject, refactorHeads, findAllEvents } = require("../utils")
-const { authCheck, liveCheck } = require("../middleware/auth");
+const { authCheck, liveCheck, adminCheck } = require("../middleware/auth");
 const router = require("express").Router();
 
 router.get("/profile", [authCheck, liveCheck], async (req, res) => {
@@ -30,15 +30,17 @@ router.get("/ourteam", async (req, res) => {
     res.render('ourteam.ejs', context);
 })
 
-router.get("/gallery",async (req,res)=>{
+router.get("/gallery", async (req, res) => {
     const context = {
-        authenticated: req.isAuthenticated(),}
-    res.render('gallery.ejs',context)
+        authenticated: req.isAuthenticated(),
+    }
+    res.render('gallery.ejs', context)
 })
-router.get("/verify",async (req,res)=>{
+router.get("/verify", [authCheck, adminCheck], async (req, res) => {
     const context = {
-        authenticated: req.isAuthenticated(),}
-    res.render('verify.ejs',context)
+        authenticated: req.isAuthenticated(),
+    }
+    res.render('verify.ejs', context)
 })
 
 router.get("/rulebooks", async (req, res) => {

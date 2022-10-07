@@ -13,5 +13,8 @@ module.exports = {
     },
     liveCheck: function (req, res, next) {
         return next();
+    },
+    adminCheck: function (req, res, next) {
+        res.redirect("/");
     }
 }
