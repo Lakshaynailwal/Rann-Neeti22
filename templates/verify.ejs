@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rann-Neeti|Verify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="/css/aos.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/navbar.css">
+    <style>
+        .site-navbar {
+            position: unset;
+        }
+
+        .input {
+            display: flex;
+            justify-content: center;
+        }
+
+        .input input {
+            color: black;
+            width: 100%;
+            padding: 10px 0px;
+            margin: 50px auto 20px auto;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div style="background-color: black;">
+        <%- include('partials/navbar.ejs') %>
+    </div>
+    <div id="page">
+        <div class="container">
+            <div class="input">
+                <input type="search" id="search" placeholder="Search">
+            </div>
+        </div>
+        <div class="container">
+            <table class="table striped table-hover  " id="table">
+                <thead class="bg-dark text-light text-center">
+                    <tr>
+                        <td class="column1">Team</td>
+                        <td class="column2">College</td>
+                        <td class="column3">Event</td>
+                        <td class="column4">Leader</td>
+                        <td class="column5">Payment</td>
+                        <td class="column6">Verfiy</td>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <% for(let i=0;i<5;i++){%>
+                        <tr>
+                            <td class="column1" data="Team">Noob-Tigers</td>
+                            <td class="column2" data="College">IIT-Mandi</td>
+                            <td class="column3" data="Event">Weight Lifting</td>
+                            <td class="column4" data="Leader">Lakshay</td>
+                            <td class="column5" data="Payment">10000</td>
+                            <td class="column6" data="Payment-Status"> <input type="checkbox"> </td>
+                        </tr>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+    <%- include('partials/footer.ejs') %>
+        <script src="/js/jquery-3.3.1.min.js"></script>
+        <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="/js/jquery-ui.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/owl.carousel.min.js"></script>
+        <script src="/js/jquery.stellar.min.js"></script>
+        <script src="/js/jquery.countdown.min.js"></script>
+        <script src="/js/bootstrap-datepicker.min.js"></script>
+        <script src="/js/jquery.easing.1.3.js"></script>
+        <script src="/js/aos.js"></script>
+        <script src="/js/jquery.fancybox.min.js"></script>
+        <script src="/js/jquery.sticky.js"></script>
+        <script src="/js/jquery.mb.YTPlayer.min.js"></script>
+
+        <script src="/js/main.js"></script>
+
+        <script>
+            let search = document.getElementById('search');
+            let instance = document.getElementsByTagName('tr');
+            // console.log(instance);
+            let timeout = '';
+            search.onkeyup = (e) => {
+                // console.log(search.value)
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    for (let i = 1; i < instance.length; i++) {
+                        console.log(instance[i].children);
+                        let found = false;
+                        for (let j = 0; j < instance[i].children.length; j++) {
+                            found = found || instance[i].children[j].innerText.toLowerCase().includes(search.value.toLowerCase())
+                        }
+                        if (found) {
+                            instance[i].style.display = 'table-row';
+                            // instance[i].style.width = '100%';
+                        }
+                        else {
+                            instance[i].style.display = 'none';
+                        }
+
+                    }
+                }, 200)
+            }
+        </script>
+</body>
+
+</html>
