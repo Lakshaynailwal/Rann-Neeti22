@@ -3,7 +3,7 @@ const { findAllEvents, findEvent, isRegisteredforEvent, createTeam, joinTeam } =
 const { authCheck, liveCheck } = require("../middleware/auth");
 const router = require("express").Router();
 
-router.get("/", [authCheck, liveCheck], async (req, res) => {
+router.get("/", async (req, res) => {
     let events = await findAllEvents();
 
     let context = {
@@ -14,7 +14,7 @@ router.get("/", [authCheck, liveCheck], async (req, res) => {
     res.render("events.ejs", context);
 })
 
-router.get("/game", [authCheck, liveCheck], async (req, res) => {
+router.get("/game", async (req, res) => {
     const gameName = req.query.game;
     const event = await findEvent(gameName);
     if (event == null)
@@ -63,7 +63,7 @@ router.post("/createTeam", [authCheck, liveCheck], async (req, res) => {
     res.redirect("/profile");
 })
 
-router.get("/joinTeam", async (req, res) => {
+router.get("/joinTeam", authCheck, async (req, res) => {
     const context = {
         authenticated: req.isAuthenticated(),
         colleges: [
