@@ -53,16 +53,16 @@
       display: flex;
       flex-direction: column;
       width: 30%;
-      margin: 80px -23px;
-      height: auto;
+      margin: 20px -23px;
+      height: 300px;
       align-items: center;
     }
 
-    .gamecard img:hover {
-      /* opacity: 0.6; */
-      backdrop-filter: blur(100px);
-      transform: scale(1.03);
+    .gamecard:hover {
+      transform: scale(1.1);
       overflow: hidden;
+      transition: ease-in-out;
+      transition: all 0.5s;
     }
 
     .gamecard:hover button {
@@ -100,9 +100,6 @@
       background-color: #000000;
     }
 
-    /* .sze{
-      font-size: 14px !important;
-    } */
     .site-navbar {
       position: unset;
     }
@@ -120,7 +117,7 @@
     }
 
     .site-section {
-      padding: 0px !important;
+      padding: 3rem 0px !important;
     }
 
     .load p {
@@ -185,7 +182,7 @@
 
             <div class="site-section">
               <div class="container" style="margin: -45px 0px 8% 15%;">
-                <div style="display: flex;; flex-wrap: wrap;">
+                <div style="display: flex;; flex-wrap: wrap;padding: 2.5rem;">
                   <%for(let i=0; i< events.length;i++){ %>
                     <div class="gamecard">
                       <img
@@ -198,7 +195,6 @@
                     </div>
                     <% } %>
                 </div>
-
               </div>
             </div>
           </div>
