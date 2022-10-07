@@ -49,7 +49,7 @@
         }
 
         body {
-            background: url('https://wallpapers.com/images/hd/red-abstract-lines-6hwu6t8epsgm0tjy.webp') no-repeat center center/cover;
+            background: url('https://img.freepik.com/free-photo/colorful-abstract-nebula-space-background_53876-111356.jpg?w=1380&t=st=1665146567~exp=1665147167~hmac=0a5c93c0a8ce82acb0386b2b2b7dea1e4d3ca214367525ee8e59d99ac1e3d7bb') no-repeat center center/cover;
             background-attachment: fixed;
         }
 
@@ -57,34 +57,37 @@
             display: flex;
             flex-direction: column;
         }
-        .btn{
+
+        .btn {
             width: 20%;
             margin: auto;
         }
-        @media only screen and (max-width:750px){
-            td{
+
+        @media only screen and (max-width:750px) {
+            td {
                 font-size: 12px;
             }
         }
-        @media only screen and (max-width:553px){
-            td{
+
+        @media only screen and (max-width:553px) {
+            td {
                 font-size: 10px;
             }
         }
-        #page{
+
+        #page {
             width: 90% !important;
             margin: auto;
-            overflow:hidden;
+            overflow: hidden;
         }
-        .page2{
-            overflow-x: scroll;
-        }
-        
+
+
         @media screen and (max-width:500px) {
             #table {
                 width: 95%;
                 margin-top: 50px;
             }
+
             #table td,
             #table tr,
             #table tbody {
@@ -113,7 +116,7 @@
                 left: 6px;
             }
 
-            .btn{
+            .btn {
                 font-size: 9px;
             }
         }
@@ -125,38 +128,49 @@
     <div style="background-color: black;">
         <%- include('partials/navbar.ejs') %>
     </div>
-    <div id="page">
-        <div class="page">
-            <div class="input">
-                <input type="search" id="search" placeholder="Search">
+
+    <div style="background-color: rgb(0,0,0,0.4);">
+        <div id="page" style="min-height: 68vh;">
+            <div class="page">
+                <div class="input">
+                    <input type="search" id="search" placeholder="Search">
+                </div>
             </div>
-        </div>
-        <div class="page2">
-            <table class="table striped table-hover  " id="table">
-                <thead class="text-light text-center">
-                    <tr>
-                        <td class="column1">Team</td>
-                        <td class="column2">College</td>
-                        <td class="column3">Event</td>
-                        <td class="column4">Leader</td>
-                        <td class="column5">Payment</td>
-                        <td class="column6">Verfiy</td>
-                    </tr>
-                </thead>
-                <tbody class="text-center">
-                    <% for(let i=0;i<20;i++){%>
+            <div class="page2">
+                <table class="table striped table-hover  " id="table">
+                    <thead class="text-light text-center">
                         <tr>
-                            <td class="column1" data="Team">Noob-Tigers</td>
-                            <td class="column2" data="College">IIT-Mandi</td>
-                            <td class="column3" data="Event">Weight Lifting</td>
-                            <td class="column4" data="Leader">Lakshay</td>
-                            <td class="column5" data="Payment">10000</td>
-                            <td class="column6" data="Payment-Status"> <input type="checkbox"> </td>
+                            <td class="column1">Team</td>
+                            <td class="column2">College</td>
+                            <td class="column3">Event</td>
+                            <td class="column4">Leader</td>
+                            <td class="column5">Payment</td>
+                            <td class="column6">Verfiy</td>
                         </tr>
-                        <%}%>
-                </tbody>
-            </table>
-            <button type="submit" class="btn btn-primary">Submit</button>
+                    </thead>
+                    <tbody class="text-center">
+                        <% for(let i=0;i<20;i++){%>
+                            <tr>
+                                <td class="column1" data="Team">Noob-Tigers</td>
+                                <td class="column2" data="College">IIT-Mandi</td>
+                                <td class="column3" data="Event">Weight Lifting</td>
+                                <td class="column4" data="Leader">Lakshay</td>
+                                <td class="column5" data="Payment">10000</td>
+                                <td class="column6" data="Payment-Status"> <input type="checkbox"> </td>
+                            </tr>
+                            <%}%>
+                                <tr>
+                                    <td class="column1" data="Team">Noob-1</td>
+                                    <td class="column2" data="College">IIT-1</td>
+                                    <td class="column3" data="Event">Weight 1</td>
+                                    <td class="column4" data="Leader">Lakshay 1</td>
+                                    <td class="column5" data="Payment">10000</td>
+                                    <td class="column6" data="Payment-Status"> <input type="checkbox"> </td>
+                                </tr>
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </div>
     </div>
 
@@ -197,7 +211,11 @@
                             found = found || instance[i].children[j].innerText.toLowerCase().includes(search.value.toLowerCase())
                         }
                         if (found) {
-                            instance[i].style.display = 'table-row';
+                            let width = screen.width;
+                            if (width > 500)
+                                instance[i].style.display = 'table-row';
+                            else
+                                instance[i].style.display = 'block';
                             // instance[i].style.width = '100%';
                         }
                         else {
