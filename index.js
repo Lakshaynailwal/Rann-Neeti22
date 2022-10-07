@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const session = require("express-session")
 const events = require("./models/event.js")
 const users = require("./models/user.js")
+const Faqs = require("./models/faq.js");
 const port = process.env.PORT || 5000;
 const { authCheck } = require("./middleware/auth");
 const authRoutes = require("./routes/authroutes");
@@ -81,7 +82,13 @@ app.use("/payment", paymentRoutes);
 
 app.get("/", async (req, res) => {
     const message = req.flash("message");
-    res.render("index", { authenticated: req.isAuthenticated(), message: message });
+    const faqs = await Faqs.find({}).lean();
+    const context = {
+        authenticated: req.isAuthenticated(),
+        message: message,
+        faqs: faqs
+    }
+    res.render("index", context);
 })
 
 
