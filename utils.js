@@ -106,7 +106,7 @@ module.exports = { // event functions ==========================================
                 let team = await teamTable.findOne({ _id: teams[i].teamId });
                 if (team && team.teamLeader.toString() == userDetail._id.toString() && team.paymentStatus == 0) {
                     let event = await module.exports.findEventById(teams[i].eventId);
-                    payments.push({ paymentType: "team", amount: event.fees, id: team._id, eventName: event.name });
+                    payments.push({ paymentType: "team", amount: event.fees, id: team._id, eventName: event.name, image: event.event_image });
                 }
             }
         }
