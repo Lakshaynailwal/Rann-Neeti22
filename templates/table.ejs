@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
 
     <link rel="stylesheet" href="/css/bootstrap-datepicker.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css" />
 
     <link rel="stylesheet" href="/css/aos.css" />
@@ -32,23 +32,17 @@
     <link rel="stylesheet" href="/css/game_mediaquery.css" />
 
     <style>
+        body {
+            background: url('https://wallpapers.com/images/hd/red-abstract-lines-6hwu6t8epsgm0tjy.webp') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
         #table {
             margin-top: 150px;
             border-collapse: collapse;
             border: none;
             border-radius: 20px;
-            width: 80%;
+            width: 95%;
             height: 90%;
-        }
-
-        #table thead {
-            font-size: 25px;
-            font-weight: bold;
-            /* font-weight:900; */
-        }
-
-        #table tbody {
-            font-size: 20px;
         }
 
         .table-responsive {
@@ -56,65 +50,29 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-
-        #table thead tr th:first-child {
-            border-top-left-radius: 10px;
-        }
-
-        #table thead tr {
-            border: 1px solid black;
-        }
-
-        #table thead tr th:last-child {
-            border-top-right-radius: 10px;
-        }
-
-        #table tbody tr:last-child td:first-child {
-            border-bottom-left-radius: 10px;
-        }
-
-        #table tbody tr:last-child td:last-child {
-            border-bottom-right-radius: 10px;
-        }
-
-        #table tbody tr>td {
-            padding: 15px auto 15px auto;
-
-        }
-
-        #table thead tr>th {
-            padding: 20px auto 20px auto;
+            background-color: rgb(0,0,0,0.3);
         }
 
         #table tbody tr {
             border: none;
         }
 
-        .striped>tbody>tr:nth-child(even)>td,
-        .striped>tbody>tr:nth-child(even)>th {
-            background-color: #2a2b2a;
-        }
-
-        .striped>tbody>tr:nth-child(odd)>td,
-        .striped>tbody>tr:nth-child(odd)>th {
-            background-color: #1b1c1b;
-        }
-
-        #table-footer {
-            /* position: absolute;
-        width: 100%;
-        bottom: -20px; */
-            margin-top: 100px;
-
-        }
-
         #table tbody tr td a {
             text-decoration: none;
-            color: blue;
+            color: #ee1e46
+            font-weight: bold;
         }
-
-        @media screen and (max-width:888px) {
+        @media only screen and (max-width:833px){
+            td{
+                font-size: 12px;
+            }
+        }
+        @media only screen and (max-width:662px){
+            td{
+                font-size: 10px;
+            }
+        }
+        @media screen and (max-width:486px) {
             #table {
                 width: 95%;
                 margin-top: 130px;
@@ -168,7 +126,7 @@
             <section>
                 <div class="table-responsive">
                     <table class="table striped table-hover  " id="table">
-                        <thead class="bg-dark text-light text-center">
+                        <thead class="text-light text-center">
                             <tr>
                                 <td class="column1">Sport</td>
                                 <td class="column2">Fixtures</td>
@@ -185,9 +143,9 @@
                                         <%=events[i].name%>
                                     </td>
                                     <td class="column2" data="Fixtures"><a href="<%=events[i].fixture_link%>"
-                                            target="_blank">Download</a></td>
+                                            target="_blank">View</a></td>
                                     <td class="column3" data="Rulebook"><a href="<%=events[i].rulebook_link%>"
-                                            target="_blank">Download</a></td>
+                                            target="_blank">View</a></td>
                                     <td class="column4" data="Coordinator">
                                         <%=events[i].eventCoordinator.name%>
                                     </td>

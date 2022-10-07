@@ -16,21 +16,32 @@
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
 
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
 
     <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
 
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
     <link rel="stylesheet" href="/css/aos.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/teampage_mediaquery.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+        body {
+            background: url('https://img.freepik.com/free-vector/technology-web-banner-with-blue-red-lights-streak_1017-34380.jpg?w=1380&t=st=1665126361~exp=1665126961~hmac=390a86bb8f9a9b20689c004ebdb878912b44575a4326ff5fffbd33e622bc9d6d')no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
         .head span {
             font-size: 50px;
             line-height: 58px;
@@ -40,10 +51,8 @@
         }
 
         .head {
-            padding-top: 100px;
             display: flex;
-            align-items: baseline;
-            transform: skewy(-3.5deg);
+            align-items: center;
             color: rgb(255, 255, 255);
             font-weight: bold;
             font-size: 20px;
@@ -55,25 +64,21 @@
 
 
         .cont {
-            padding-top: 5rem;
             width: 100%;
             height: 249px;
             color: white;
-            transform: skewy(3.5deg) translatey(-58px);
-            padding-top: 2.5rem;
+            padding-top: unset !important;
         }
 
         .teaminfo {
             padding: 12px;
             display: flex;
-            width: 54%;
+            width: 70%;
             margin: auto;
             flex-direction: column;
             justify-content: center;
             height: 300px;
-            text-align: center;
 
-            align-items: center;
 
         }
 
@@ -102,27 +107,37 @@
         }
 
         .player {
-            border: 2px solid #ffffff80;
-            /* position: absolute; */
-            margin: 10px;
-            width: auto;
+            margin: 10px auto;
+            width: 75%;
             height: 90px;
-            /* min-width: 26%; */
             min-height: 90px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             color: white;
             font-size: 18px;
-            /* border-radius: 30px; */
-            backdrop-filter: blur(10px) saturate(120%);
-            box-shadow: 0px 0px 18px -7px #ff0000;
+            border: 2px solid;
         }
 
         #conti {
             width: 50%;
-            background-color: #00000047;
+
+        }
+
+        #container {
+            display: flex;
+            width: 100%;
+            min-height: 67vh;
+            height: auto;
+            margin: auto;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .contain {
+            height: 400px;
+            overflow-y: scroll;
+            width: 75%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
         }
     </style>
     <link rel="stylesheet" href="/css/teampage_mediaquery.css">
@@ -131,7 +146,7 @@
 
 <body onload="load()">
     <%- include('partials/preloader.ejs') %>
-        <div class="site-wrap" style="min-height: 63vh;height: auto; background-color: black;">
+        <div class="site-wrap" style="min-height: 63vh;height: auto;">
             <div style="background-color:black ;">
                 <%- include('partials/navbar.ejs') %>
             </div>
@@ -144,16 +159,14 @@
                 <div class="site-mobile-menu-body"></div>
             </div>
 
-            <div class="cont"
-                style="background: url('https://media.istockphoto.com/photos/abstract-red-and-black-are-light-pattern-with-the-gradient-is-the-picture-id1205633216?b=1&k=20&m=1205633216&s=612x612&w=0&h=Usx41mX7-MfboMFrH-RKx-lc9T1JDBtP4pp1ntQdaSk=') no-repeat center center/cover;">
+            <div class="cont" style="background-color: black;">
                 <div class="head">
                     <span>
-                        Team : <%= team.name%>
+                        <%= team.name%>
                     </span>
                 </div>
             </div>
-            <div id="page"
-                style="display: flex;width: 94%; min-height: 67vh; height: auto;margin: auto;align-items:  center;box-shadow: 1px 1px 50px -10px red;">
+            <div id="container">
 
                 <div id="conti">
                     <div class="teaminfo">
@@ -167,66 +180,63 @@
                         </div>
                         <% if(user._id==leader._id) { %>
                             <div class="title-section">
-                                <h2 class="heading m-0 mb-2 py-1" style="font-size: 20px">Delete team :
-                                </h2>
-
                                 <form action="/team/deleteTeam" method="post">
                                     <input type="hidden" value="<%= team._id %>" name="teamId">
-                                    <button class="btn btn-danger">Delete Team</button>
+                                    <button class="btn btn-primary">Delete Team</button>
                                 </form>
                             </div>
-
-
-
-
                             <%}%>
 
                     </div>
                 </div>
                 <div class="team" style="width: 50%; ">
-                    <div class="contain" style="height: 400px;overflow-y: scroll;width: 75%;margin: auto;">
+                    <div class="contain">
                         <% for(let i=0; i<teamMembers.length; i++) {%>
                             <div class="player">
-                                <span style="display: flex; align-items:center">
-                                    <%= teamMembers[i].firstName %>
-                                        <% if(user._id==leader._id) { %>
+                                <div style="display: flex;flex-direction: column;align-items: center;">
+                                    <span class="d-flex">
+                                        <%= teamMembers[i].firstName %>
+                                            <% if(user._id==leader._id) { %>
+                                                <form method="post" action="/team/deleteMember">
+                                                    <input type="hidden" value="<%=teamMembers[i]._id%>"
+                                                        name="memberId">
+                                                    <input type="hidden" value="<%=team._id%>" name="teamId">
+                                                    <button type="submit" style="background:rgb(0,0,0,0);"><i
+                                                            style="color: red;"
+                                                            class="material-icons">clear</i></button>
+                                                </form>
+                                                <% } %>
+                                    </span>
+                                    <Span>
+                                        <%= teamMembers[i].email %>
+                                    </Span>
+                                </div>
 
-                                            <form method="post" action="/team/deleteMember">
-                                                <input type="hidden" value="<%=teamMembers[i]._id%>" name="memberId">
-                                                <input type="hidden" value="<%=team._id%>" name="teamId">
-                                                <button type="submit" class="btn btn-danger" aria-label="Close"
-                                                    style="position: fixed; margin-right: 7px; color: white;">Remove</button>
-                                            </form>
-                                            <% } %>
-                                </span>
-                                <Span>
-                                    <%= teamMembers[i].email %>
-                                </Span>
                             </div>
                             <% } %>
                     </div>
                 </div>
             </div>
 
+            <%- include('partials/footer.ejs') %>
+
+                <script src="js/jquery-3.3.1.min.js"></script>
+                <script src="js/jquery-migrate-3.0.1.min.js"></script>
+                <script src="js/jquery-ui.js"></script>
+                <script src="js/popper.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/owl.carousel.min.js"></script>
+                <script src="js/jquery.stellar.min.js"></script>
+                <script src="js/jquery.countdown.min.js"></script>
+                <script src="js/bootstrap-datepicker.min.js"></script>
+                <script src="js/jquery.easing.1.3.js"></script>
+                <script src="js/aos.js"></script>
+                <script src="js/jquery.fancybox.min.js"></script>
+                <script src="js/jquery.sticky.js"></script>
+                <script src="js/jquery.mb.YTPlayer.min.js"></script>
 
 
-            <script src="js/jquery-3.3.1.min.js"></script>
-            <script src="js/jquery-migrate-3.0.1.min.js"></script>
-            <script src="js/jquery-ui.js"></script>
-            <script src="js/popper.min.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/owl.carousel.min.js"></script>
-            <script src="js/jquery.stellar.min.js"></script>
-            <script src="js/jquery.countdown.min.js"></script>
-            <script src="js/bootstrap-datepicker.min.js"></script>
-            <script src="js/jquery.easing.1.3.js"></script>
-            <script src="js/aos.js"></script>
-            <script src="js/jquery.fancybox.min.js"></script>
-            <script src="js/jquery.sticky.js"></script>
-            <script src="js/jquery.mb.YTPlayer.min.js"></script>
-
-
-            <script src="js/main.js"></script>
+                <script src="js/main.js"></script>
 </body>
 
 </html>

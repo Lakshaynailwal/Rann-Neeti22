@@ -1628,8 +1628,7 @@ h5,
 }
 
 .counter {
-  color: ee1e46;
-  font-family: 'Muli', sans-serif;
+  color: #ee1e46;
   width: 200px;
   height: 200px;
   text-align: center;
@@ -1643,7 +1642,7 @@ h5,
 .counter:before,
 .counter:after {
   content: "";
-  background: #fff;
+  background: white;
   width: 80%;
   height: 80%;
   border-radius: 100%;
@@ -1656,7 +1655,7 @@ h5,
 }
 
 .counter:after {
-  background: linear-gradient(45deg, #ee1e46 49%, #b72450 50%);
+  background: linear-gradient(45deg, #ee1e46 49%, #ee1e46 50%);
   width: 100%;
   height: 100%;
   box-shadow: none;
@@ -1669,7 +1668,7 @@ h5,
 
 .counter .counter-icon {
   color: #fff;
-  background: linear-gradient(45deg, #B81242 49%, #D74A75 50%);
+  background: linear-gradient(45deg, #ee1e46 49%, #ee1e46 50%);
   font-size: 33px;
   line-height: 70px;
   width: 70px;
@@ -1698,10 +1697,12 @@ h5,
   margin: 0 0 3px;
 }
 
-.counter .counter-value {
+
+/* for counter font */
+/* .counter .counter-value {
   font-size: 30px;
   font-weight: 700;
-}
+} */
 
 .counter.orange {
   color: #F38631;
@@ -1801,12 +1802,11 @@ h5,
   padding: 2em;
   display: block;
   text-decoration: none;
-  color: #fff;
+  color: #ee1e46
   -webkit-transition: background-color 0.5s ease-in-out;
 }
 
 .accordion dd {
-  background-color: #1abc9c;
   color: #fafafa;
   font-size: 1em;
   line-height: 1.5em;
@@ -1818,7 +1818,6 @@ h5,
 
 .accordion {
   position: relative;
-  background-color: #16a085;
 }
 
 .faqs {
@@ -1827,10 +1826,6 @@ h5,
   padding: 2em 0 2em 0;
 }
 
-.accordionTitle {
-  background-color: #22313f;
-  border-bottom: 1px solid #2c3e50;
-}
 
 .accordionTitle:before {
   content: "+";
@@ -1843,12 +1838,11 @@ h5,
   transition: transform 0.3s ease-in-out;
 }
 
-.accordionTitle:hover {
-  background-color: #2c3e50;
-}
-
-.accordionTitleActive {
-  background-color: #34495e;
+dt:hover a {
+  color: white;
+  transform: scale(1.1);
+  transition: ease-in-out;
+  transition: all 0.5s;
 }
 
 .accordionTitleActive:before {

@@ -35,6 +35,11 @@ router.get("/gallery",async (req,res)=>{
         authenticated: req.isAuthenticated(),}
     res.render('gallery.ejs',context)
 })
+router.get("/verify",async (req,res)=>{
+    const context = {
+        authenticated: req.isAuthenticated(),}
+    res.render('verify.ejs',context)
+})
 
 router.get("/rulebooks", async (req, res) => {
     const context = {
