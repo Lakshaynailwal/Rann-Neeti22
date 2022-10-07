@@ -4,3 +4,5 @@
 /seed.json
 /rzp.csv
 /events.json
+/config/credentials.json
+/config/token.json
