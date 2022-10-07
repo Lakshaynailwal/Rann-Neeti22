@@ -1279,7 +1279,7 @@ h5,
 .widget-title {
   padding: 16px 20px;
   color: #fff;
-  background-color: #ee1e46;
+  background-color: rgb(182, 14, 46);
   border-radius: 10px;
 }
 
@@ -1642,7 +1642,7 @@ h5,
 .counter:before,
 .counter:after {
   content: "";
-  background: white;
+  background: black;
   width: 80%;
   height: 80%;
   border-radius: 100%;
@@ -1655,7 +1655,7 @@ h5,
 }
 
 .counter:after {
-  background: linear-gradient(45deg, #ee1e46 49%, #ee1e46 50%);
+  background: linear-gradient(45deg, rgb(182, 14, 46) 49%, rgb(182, 14, 46) 50%);
   width: 100%;
   height: 100%;
   box-shadow: none;
@@ -1667,8 +1667,8 @@ h5,
 }
 
 .counter .counter-icon {
-  color: #fff;
-  background: linear-gradient(45deg, #ee1e46 49%, #ee1e46 50%);
+  color: white;
+  background: linear-gradient(45deg, rgb(182, 14, 46) 49%, rgb(182, 14, 46) 50%);
   font-size: 33px;
   line-height: 70px;
   width: 70px;
@@ -1699,10 +1699,10 @@ h5,
 
 
 /* for counter font */
-/* .counter .counter-value {
+.counter .counter-value {
   font-size: 30px;
   font-weight: 700;
-} */
+}
 
 .counter.orange {
   color: #F38631;
@@ -1802,8 +1802,7 @@ h5,
   padding: 2em;
   display: block;
   text-decoration: none;
-  color: #ee1e46
-  -webkit-transition: background-color 0.5s ease-in-out;
+  color: #ee1e46 -webkit-transition: background-color 0.5s ease-in-out;
 }
 
 .accordion dd {

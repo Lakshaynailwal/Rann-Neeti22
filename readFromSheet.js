@@ -106,7 +106,7 @@ module.exports = {
 
         collegeList = []
         for (let i = 1; i < colleges.length; i++) {
-            collegeList.push(colleges[i][0]);
+            collegeList.push(colleges[i][0].toUpperCase());
         }
         return collegeList;
     }

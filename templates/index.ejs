@@ -34,6 +34,11 @@
   <link rel="stylesheet" href="/css/index_mediaquery.css">
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <style>
+    body {
+      background: url('https://img.freepik.com/free-photo/colorful-abstract-nebula-space-background_53876-111356.jpg?w=1380&t=st=1665146567~exp=1665147167~hmac=0a5c93c0a8ce82acb0386b2b2b7dea1e4d3ca214367525ee8e59d99ac1e3d7bb') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+
     .hamburger {
       display: inline-block;
       cursor: pointer;
@@ -66,7 +71,7 @@
 <body onload="load()">
   <%- include('partials/flash.ejs') %>
 
-    <div class="site-wrap" style="background-color:rgb(0,0,0,0.5) ;">
+    <div class="site-wrap" style="background-color:rgb(0,0,0,0.3);">
       <%- include('partials/preloader.ejs') %>
         <%- include('partials/navbar.ejs') %>
           <div class="hero overlay"
@@ -148,70 +153,69 @@
               </div>
             </div>
             <br><br>
-            <!-- <div class="container"
+
+          </div>
+          <!-- <div class="container"
         style="background:url('https://img.freepik.com/premium-vector/luxury-bright-red-lines-modern-sport-background_125759-132.jpg') center center/cover ; background-attachment: fixed; padding: 40px;"> -->
 
 
-            <div
-              style="background:url('images/sponcontbg.jpg') no-repeat center center/cover ; background-attachment:fixed;">
-              <br><br><br>
-              <div class="container">
-                <div class="row" id="counterr">
+          <div><br><br><br>
+            <div class="container">
+              <div class="row" id="counterr">
 
-                  <div class="col-md-3 col-sm-6 countr">
-                    <div class="counter" id="ct1">
-                      <div class="counter-icon">
-                      </div>
-                      <h3 style="color:#ee1e46">Registration</h3>
-                      <span class="counter-value" style="color: #ee1e46;">Updating-Soon</span>
+                <div class="col-md-3 col-sm-6 countr">
+                  <div class="counter" id="ct1">
+                    <div class="counter-icon">
                     </div>
+                    <h3>Registration</h3>
+                    <span class="counter-value">800</span>
                   </div>
-                  <div class="col-md-3 col-sm-6 countr">
-                    <div class="counter" id="ct2">
-                      <div class="counter-icon">
-                      </div>
-                      <h3 style="color:#ee1e46">Footfall</h3>
-                      <span class="counter-value" style="margin-top:10px; color: #ee1e46;">Updating-Soon</span>
-                      <!-- <span style="margin-bottom: 10px;color:red; background-color: white;">&plus;</span> -->
+                </div>
+                <div class="col-md-3 col-sm-6 countr">
+                  <div class="counter" id="ct2">
+                    <div class="counter-icon">
                     </div>
+                    <h3>Footfall</h3>
+                    <span class="counter-value" style="margin-top:10px;">6800</span>
+                    <span style="margin-bottom: 10px;color:white; background-color: black;">&plus;</span>
                   </div>
+                </div>
 
-                  <div class="col-md-3 col-sm-6 countr">
-                    <div class="counter" id="ct3">
-                      <div class="counter-icon">
-                      </div>
-                      <h3 style="color:#ee1e46">Events</h3>
-                      <span class="counter-value" style="color: #ee1e46;">Updating-Soon</span>
+                <div class="col-md-3 col-sm-6 countr">
+                  <div class="counter" id="ct3">
+                    <div class="counter-icon">
                     </div>
+                    <h3>Events</h3>
+                    <span class="counter-value">11</span>
                   </div>
-                  <div class="col-md-3 col-sm-6 countr">
-                    <div class="counter" id="ct4">
-                      <div class="counter-icon">
-                      </div>
-                      <h3 style="color:#ee1e46">Colleges</h3>
-                      <span class="counter-value" style="color: #ee1e46;">Updating-Soon</span>
+                </div>
+                <div class="col-md-3 col-sm-6 countr">
+                  <div class="counter" id="ct4">
+                    <div class="counter-icon">
                     </div>
+                    <h3>Colleges</h3>
+                    <span class="counter-value">1000</span>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <!-- this script for counter
-          <script>
-            $(document).ready(function () {
-              $('.counter-value').each(function () {
-                $(this).prop('Counter', 0).animate({
-                  Counter: $(this).text()
-                }, {
-                  duration: 3500,
-                  easing: 'swing',
-                  step: function (now) {
-                    $(this).text(Math.ceil(now));
-                  }
+            <script>
+              $(document).ready(function () {
+                $('.counter-value').each(function () {
+                  $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                  }, {
+                    duration: 3500,
+                    easing: 'swing',
+                    step: function (now) {
+                      $(this).text(Math.ceil(now));
+                    }
+                  });
                 });
               });
-            });
-          </script> -->
-              <div id="notice" class="site-section" style=" background-color:rgb(0,0,0,0.2)"">
+            </script>
+            <div id="notice" class="site-section">
               <div class=" container">
                 <div class="row">
                   <div class="col-lg-12">
@@ -468,9 +472,8 @@
             </div>
 
 
-            <div id="sponsers" class="site-section" style=" background-color:rgb(0,0,0,0.2)">
-              <div class="row" style="    margin-left: 15px;
-              width: 56%;">
+            <div id="sponsers" class="container site-section">
+              <div class="row" style="margin-left: 15px; width: 56%;">
                 <div class="title-section">
                   <h2 class="heading">Sponsors</h2>
                 </div>
