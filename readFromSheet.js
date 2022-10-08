@@ -128,6 +128,9 @@ module.exports = {
         return admins;
     },
     isAdmin: async function (req) {
+        if (!(req.user))
+            return false;
+
         admins = await module.exports.findAllAdmins();
         let admin = false;
         for (let i = 0; i < admins.length; i++) {
