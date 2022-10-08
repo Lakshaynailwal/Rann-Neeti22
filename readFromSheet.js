@@ -97,6 +97,19 @@ module.exports = {
         }
         return rows;
     },
+    listAllAdmins: async function (auth) {
+        const sheets = google.sheets({ version: 'v4', auth });
+        const res = await sheets.spreadsheets.values.get({
+            spreadsheetId: '1OqH5FOtR2rp2_VVbdWzP2-vsA-Pdl0reDTNB3BI8gMc',
+            range: 'Sheet3!A:A',
+        });
+        const rows = res.data.values;
+        if (!rows || rows.length === 0) {
+            console.log('No data found.');
+            return;
+        }
+        return rows;
+    },
     findAllNotices: async function () {
         notices = await module.exports.authorize().then(module.exports.listNotices).catch(console.error);
         return notices;
@@ -109,5 +122,19 @@ module.exports = {
             collegeList.push(colleges[i][0].toUpperCase());
         }
         return collegeList;
+    },
+    findAllAdmins: async function () {
+        admins = await module.exports.authorize().then(module.exports.listAllAdmins).catch(console.error);
+        return admins;
+    },
+    isAdmin: async function (req) {
+        admins = await module.exports.findAllAdmins();
+        let admin = false;
+        for (let i = 0; i < admins.length; i++) {
+            if (req.user.email == admins[i][0])
+                admin = true;
+        }
+
+        return admin;
     }
 };
