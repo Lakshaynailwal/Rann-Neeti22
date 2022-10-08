@@ -214,7 +214,8 @@
                                         </td>
 
                                         <td class="column7" data="Payment-Status"> <input name="status" type="checkbox"
-                                                data-group="group<%=i*10000000%>" <%if(users[i].paymentStatus==1) { %>
+                                                data-group="group<%=i*10000000 + 10000000%>"
+                                                <%if(users[i].paymentStatus==1) { %>
                                             checked
                                             <% } %>>
                                         </td>
@@ -223,8 +224,8 @@
                                             <form class="verificationForm" action="/verifyUserPayment" method="post">
                                                 <input hidden name="userId" value="<%=users[i]._id%>">
                                                 <input hidden type="checkbox" name="status"
-                                                    data-group="group<%=i*10000000%>" <%if(users[i].paymentStatus==1) {
-                                                    %>
+                                                    data-group="group<%=i*10000000 + 10000000%>"
+                                                    <%if(users[i].paymentStatus==1) { %>
                                                 checked
                                                 <% } %>>
                                                     <button style="text-align: center;"

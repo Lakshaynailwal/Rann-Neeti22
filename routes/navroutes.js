@@ -53,9 +53,7 @@ router.post("/verifyTeamPayment", [authCheck, adminCheck], async (req, res) => {
     if (status == "on")
         paymentStatus = 1;
 
-    await updatePaymentStatus("team", paymentStatus, teamId);
-
-    console.log(paymentStatus);
+    await updatePaymentStatus(req, "team", paymentStatus, teamId);
     res.redirect('/verify');
 })
 
@@ -66,9 +64,7 @@ router.post("/verifyUserPayment", [authCheck, adminCheck], async (req, res) => {
     if (status == "on")
         paymentStatus = 1;
 
-    await updatePaymentStatus("user", paymentStatus, userId);
-
-    console.log(paymentStatus);
+    await updatePaymentStatus(req, "user", paymentStatus, userId);
     res.redirect('/verify');
 })
 

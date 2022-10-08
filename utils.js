@@ -1,4 +1,5 @@
 const payment = require("./models/payment");
+const { writeData, writePaymentData } = require("./readFromSheet.js");
 
 // Load config
 require("dotenv").config({ path: "./config/config.env" });
@@ -353,14 +354,27 @@ module.exports = { // event functions ==========================================
         return users;
 
     },
-    updatePaymentStatus: async function (typ, status, id) {
+    updatePaymentStatus: async function (req, typ, status, id) {
         const userTable = require('./models/user');
         const teamTable = require('./models/team')
         if (typ == "team") {
             await teamTable.updateOne({ _id: id }, { paymentStatus: status });
+            const team = await teamTable.findOne({ _id: id });
+
+            var currentdate = new Date();
+            var datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth() + 1) + "/"
+                + currentdate.getFullYear() + " @ "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+            eventName = await module.exports.findEventById(team.event);
+            await writePaymentData(['team', (team.name).toString(), eventName.fees.toString(), datetime, (team.college).toString(), req.user.email]);
         }
         else {
             await userTable.updateOne({ _id: id }, { paymentStatus: status });
+            const user = await userTable.findOne({ _id: id });
+            await writePaymentData(['user', user.firstName, 1700, Date.now(), user.college, req.user.email]);
         }
 
     },

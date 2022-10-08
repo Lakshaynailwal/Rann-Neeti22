@@ -3,7 +3,7 @@ const path = require('path');
 const process = require('process');
 const { authenticate } = require('@google-cloud/local-auth');
 const { google } = require('googleapis');
-
+let vals = {};
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 // The file token.json stores the user's access and refresh tokens, and is
@@ -136,5 +136,37 @@ module.exports = {
         }
 
         return admin;
+    },
+    writeData: async function (auth) {
+        const sheets = google.sheets({ version: 'v4', auth });
+        let values = [vals];
+        const resource = {
+            values
+        };
+        sheets.spreadsheets.values.append(
+            {
+                spreadsheetId: '1OqH5FOtR2rp2_VVbdWzP2-vsA-Pdl0reDTNB3BI8gMc',
+                range: 'Sheet4!A:E',
+                valueInputOption: 'RAW',
+                resource: resource,
+            },
+            (err, result) => {
+                if (err) {
+                    // Handle error
+                    console.log(err);
+                } else {
+                    console.log(
+                        '%d cells updated on range: %s',
+                        result.data.updates.updatedCells,
+                        result.data.updates.updatedRange
+                    );
+                }
+            }
+        );
+    },
+    writePaymentData: async function (values) {
+        vals = values;
+        await module.exports.authorize().then(module.exports.writeData).catch(console.error());
+        return true;
     }
 };
