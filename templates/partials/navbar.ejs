@@ -1,3 +1,38 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" style="background-color: black;" role="document">
+    <div style="background-color: black;" class="modal-content">
+      <div style="background-color: black;" class="modal-header">
+        <div class="title-section container">
+          <label class="heading m-0 py-2" for="teamId">Undertaking Link</label>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post" action="/uploadUndertaking">
+
+        <div style="background-color: black" class="modal-body">
+
+          <input class="justify-center" style="text-align: center;
+              color:black;
+              width: 70%;
+              padding: 5px;
+              font-size: 16px;
+              border-radius: 10px;" name="undertaking" id="undertaking" placeholder="Enter drive link of undertaking"
+            required autocomplete="off">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="site-mobile-menu site-navbar-target">
   <div class="site-mobile-menu-header">
     <div class="site-mobile-menu-close">
@@ -47,6 +82,11 @@
                       <li>
                         <a id="sign" href="/auth/logout" class="nav-link sze">Logout</a>
                       </li>
+
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Upload undertaking
+                      </button>
                 </ul>
                 <% } %>
           </ul>

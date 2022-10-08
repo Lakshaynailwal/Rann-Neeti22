@@ -1,4 +1,4 @@
-const { userDetails, findTeamById, findUserTeams, findAllHeads, convertArrayToObject, refactorHeads, findAllEvents, findAllPendingPayments, findAllTeamsVerification, updatePaymentStatus, findAllUsersVerification } = require("../utils")
+const { userDetails, findTeamById, findUserTeams, findAllHeads, convertArrayToObject, updateUnderTaking, refactorHeads, findAllEvents, findAllPendingPayments, findAllTeamsVerification, updatePaymentStatus, findAllUsersVerification } = require("../utils")
 const { authCheck, liveCheck, adminCheck } = require("../middleware/auth");
 const { isAdmin } = require("../readFromSheet.js")
 const payment = require("../models/payment");
@@ -81,6 +81,13 @@ router.get("/rulebooks", async (req, res) => {
         admin: await isAdmin(req)
     }
     res.render('table.ejs', context);
+})
+
+router.post("/uploadUndertaking", async (req, res) => {
+    const { undertaking } = req.body;
+    let check = await updateUnderTaking(req, undertaking);
+    req.flash("message", check);
+    res.redirect(req.session.returnTo || "/");
 })
 
 

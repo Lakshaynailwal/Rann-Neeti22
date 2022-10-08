@@ -403,5 +403,10 @@ module.exports = { // event functions ==========================================
             }
         }
         return heads;
-    }
+    },
+    updateUnderTaking: async function (req, underTakingLink) {
+        const userTable = require("./models/user");
+        await userTable.updateOne({ googleId: req.user.googleId }, { $set: { underTaking: underTakingLink } });
+        return "UnderTaking uploaded successfully";
+    },
 };

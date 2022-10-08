@@ -13,6 +13,7 @@ module.exports = {
         }
     },
     liveCheck: function (req, res, next) {
+        req.session.returnTo = req.originalUrl;
         return next();
     },
     adminCheck: async function (req, res, next) {

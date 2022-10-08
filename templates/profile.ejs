@@ -147,6 +147,82 @@
             height: auto;
             background-color: #00000047;
         }
+
+        .leaderboard {
+            max-width: 490px;
+            width: 100%;
+            border-radius: 12px;
+        }
+
+
+
+
+        .leaderboard__profiles {
+            background-color: rgb(182, 14, 46);
+            border-radius: 0 0 12px 12px;
+            padding: 15px 15px 20px;
+            display: grid;
+            row-gap: 8px;
+        }
+
+        .leaderboard__profile {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            margin-bottom: 15px;
+            align-items: center;
+            padding: 10px 30px 10px 10px;
+            overflow: hidden;
+            border-radius: 10px;
+
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+            background-color: #fff;
+        }
+
+        .leaderboard__profile:hover {
+            transform: scale(1.05);
+            transition: all 0.2s;
+        }
+
+        .leaderboard__picture {
+            max-width: 100%;
+            width: 60px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 500px rgb(182, 14, 46), 0 0 0 100px rgb(182, 14, 46);
+        }
+
+        .leaderboard__name {
+            color: white;
+            text-transform: uppercase;
+            font-size: 20px;
+            margin-left: 12px;
+        }
+
+        .leaderboard__value {
+            color: rgb(182, 14, 46);
+            font-size: 20px;
+            text-align: right;
+        }
+
+        .leaderboard__value>span {
+            opacity: 0.8;
+            font-weight: 600;
+            font-size: 13px;
+            margin-left: 3px;
+        }
+
+        /* body {
+            margin: 0;
+            background-color: #eaeaea;
+            display: grid;
+            height: 100vh;
+            place-items: center;
+            font-family: "Source Sans Pro", sans-serif;
+        } */
+
+        .leaderboard {
+            box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
+        }
     </style>
     <link rel="stylesheet" href="/css/teampage_mediaquery.css">
 
@@ -194,19 +270,24 @@
                             <% if(teams.length==0) { %>
                                 <strong> No events registered yet</strong>
                                 <% } else {%>
-                                    <% for(let i=0;i<teams.length;i++){ %>
-                                        <div class="player">
-                                            <span style="display: flex; align-items:center">
-                                                <li>
-                                                    <%= teams[i].eventName %> : <a target="_blank"
-                                                            href="/team?teamId=<%=teams[i]._id%>">
-                                                            <%=teams[i].name%>
-                                                        </a>
-                                                </li>
-                                            </span>
-                                        </div>
-                                        <% } }%>
 
+                                    <article class="leaderboard">
+                                        <% for(let i=0;i<teams.length;i++){ %>
+                                            <article style="background-color: rgb(182, 14, 46);"
+                                                class="leaderboard__profile">
+                                                <span class="leaderboard__name">
+                                                    <%= teams[i].eventName %>
+                                                </span>
+                                                <span class="leaderboard__value">
+                                                    <a target="_blank" href="/team?teamId=<%=teams[i]._id%>"
+                                                        style="color:black; text-align: right;">
+                                                        <%=teams[i].name%>
+                                                    </a>
+                                                </span>
+                                            </article>
+                                            <% }%>
+                                    </article>
+                                    <%}%>
                         </div>
                     </div>
                 </div>

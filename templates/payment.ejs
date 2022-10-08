@@ -92,23 +92,25 @@
             display: grid;
             grid-template-columns: 1fr 3fr 1fr;
             align-items: center;
-            padding: 10px 30px 10px 10px;
+            padding: 7px 30px 7px 7px;
             overflow: hidden;
             border-radius: 10px;
+            margin-bottom: 10px;
 
             cursor: pointer;
             transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
             background-color: #fff;
         }
 
-        .leaderboard:hover {
+        .leaderboard__profile:hover {
             transform: scale(1.05);
             transition: all 0.2s;
         }
 
         .leaderboard__picture {
-            max-width: 100%;
-            width: 60px;
+            width: 100% !important;
+            height: 100% !important;
+            background-size: cover !important;
             border-radius: 50%;
             box-shadow: 0 0 0 500px rgb(182, 14, 46), 0 0 0 100px rgb(182, 14, 46);
         }
@@ -160,7 +162,7 @@
         text-shadow: -2px -6px 17px red;">Payments</h1>
                 </div>
         </div>
-        <div id="page" style="min-height: 56vh;">
+        <div id="page" style="min-height: 60vh;">
             <div class="conti">
                 <div class="title-section">
                     <h2 class="heading">Account-Number</h2>
@@ -181,10 +183,12 @@
                     <% for(let i=0;i<payments.length;i++) {%>
                         <article style="background-color: black;" class="leaderboard__profile">
                             <%if(payments[i].paymentType=="user" ) {%>
-                                <img src="/images/logo.png" alt="" class="leaderboard__picture">
+                                <img src="/images/logo.png" alt="" style="object-fit: cover;
+                                object-position: center;" class="leaderboard__picture">
                                 <span class="leaderboard__name">Registration Fees</span>
                                 <% }else{ %>
-                                    <img src="<%=payments[i].image%>" alt="" class="leaderboard__picture">
+                                    <img src="<%=payments[i].image%>" alt="" style="object-fit: cover;
+                                    object-position: center;" class="leaderboard__picture">
                                     <span class="leaderboard__name">
                                         <%= payments[i].eventName %>
                                     </span>
@@ -197,8 +201,17 @@
                         <% }%>
                 </article>
             </div>
+
+
         </div>
+
+        <div class="container">
+            <p>
+                Note: You must have to upload your signed undertaking with all the details, otherwise your security
+                money will not be given back.
+            </p>
         </div>
+
         <%- include('partials/footer.ejs') %>
 
 
