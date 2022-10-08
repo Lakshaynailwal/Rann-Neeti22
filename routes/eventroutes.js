@@ -1,6 +1,6 @@
 const { application } = require("express");
 const { findAllEvents, findEvent, isRegisteredforEvent, createTeam, joinTeam } = require("../utils.js");
-const { findAllColleges } = require("../readFromSheet.js");
+const { findAllColleges, isAdmin } = require("../readFromSheet.js");
 const { authCheck, liveCheck } = require("../middleware/auth");
 const router = require("express").Router();
 
@@ -9,7 +9,8 @@ router.get("/", async (req, res) => {
 
     let context = {
         events: events,
-        authenticated: req.isAuthenticated()
+        authenticated: req.isAuthenticated(),
+        admin: await isAdmin(req)
     }
 
     res.render("events.ejs", context);
@@ -28,6 +29,7 @@ router.get("/game", async (req, res) => {
         event: event,
         // isRegisteredforEvent: checker ? checker.toString() : "false",
         authenticated: req.isAuthenticated(),
+        admin: await isAdmin(req)
     };
 
     res.render("game", { ...context, user: req.session.user });
@@ -43,7 +45,8 @@ router.get("/createTeam", [authCheck, liveCheck], async (req, res) => {
         event: event,
         user: req.session.user,
         authenticated: req.isAuthenticated(),
-        colleges: await findAllColleges()
+        colleges: await findAllColleges(),
+        admin: await isAdmin(req)
     }
     res.render('createteam.ejs', context)
 })
@@ -62,7 +65,8 @@ router.post("/createTeam", [authCheck, liveCheck], async (req, res) => {
 router.get("/joinTeam", authCheck, async (req, res) => {
     const context = {
         authenticated: req.isAuthenticated(),
-        colleges: await findAllColleges()
+        colleges: await findAllColleges(),
+        admin: await isAdmin(req)
     }
     res.render('confirm', context);
 })

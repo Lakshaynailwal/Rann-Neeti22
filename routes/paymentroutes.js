@@ -9,6 +9,7 @@ const UserDetail = require("../models/user");
 const teamTable = require("../models/team");
 const { findAllPendingPayments, findTeamById, findEventById, findEvent } = require("../utils");
 const { authCheck, liveCheck } = require("../middleware/auth");
+const { isAdmin } = require("../readFromSheet.js")
 const payment = require("../models/payment");
 
 
@@ -29,7 +30,8 @@ router.get("/", [authCheck, liveCheck], async function (req, res, next) {
     const payments = await findAllPendingPayments(req.user);
     const context = {
         authenticated: req.isAuthenticated(),
-        payments: payments
+        payments: payments,
+        admin: await isAdmin(req)
     }
     res.render("payment", context);
 });

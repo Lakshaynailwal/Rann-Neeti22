@@ -1,6 +1,7 @@
 const { application } = require("express");
 const { findAllEvents, findEvent, isRegisteredforEvent, createTeam, joinTeam, findTeamById, findAllMembersOfTeam, userDetails, findUserById, deleteTeamMember, deleteTeam } = require("../utils.js");
 const { authCheck, liveCheck } = require("../middleware/auth");
+const { isAdmin } = require("../readFromSheet.js");
 
 const router = require("express").Router();
 
@@ -21,7 +22,8 @@ router.get("/team", [authCheck, liveCheck], async (req, res) => {
         teamMembers: members,
         leader: teamLeader,
         user: req.user,
-        authenticated: req.isAuthenticated()
+        authenticated: req.isAuthenticated(),
+        admin: await isAdmin(req)
     }
     res.render("teampage", context);
 })

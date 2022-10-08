@@ -1,5 +1,5 @@
 const payment = require("./models/payment");
-const { writeData, writePaymentData } = require("./readFromSheet.js");
+const { writeData, writePaymentData, isAdmin } = require("./readFromSheet.js");
 
 // Load config
 require("dotenv").config({ path: "./config/config.env" });
@@ -355,6 +355,10 @@ module.exports = { // event functions ==========================================
 
     },
     updatePaymentStatus: async function (req, typ, status, id) {
+        let checker = await isAdmin(req);
+        if (!checker)
+            return false;
+
         const userTable = require('./models/user');
         const teamTable = require('./models/team')
         if (typ == "team") {

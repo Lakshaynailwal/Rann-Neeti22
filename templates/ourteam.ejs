@@ -69,64 +69,63 @@
   }
 </style>
 
-<body onload="load()">
+<body>
 
   <div class="site-section">
-    <%- include('partials/preloader.ejs') %>
-      <div style="background-color: black;">
-        <%- include('partials/navbar.ejs') %>
-      </div>
-      <h1 class="text-white" style=" font-size: 70px;
+    <div style="background-color: black;">
+      <%- include('partials/navbar.ejs') %>
+    </div>
+    <h1 class="text-white" style=" font-size: 70px;
     margin: 70px 0px 0px 0px;text-align: center">OUR TEAM</h1>
-      <div class="wrapper" style="margin: 35px auto;">
-        <hr>
-        <% for(let heads in headTitles ) {%>
-          <div class="title-section">
-            <h2 class="heading m-0 py-1" style="font-size: 28px">
-              <%=heads%>
-            </h2>
-          </div>
-          <div class="row">
-            <% for(let i=0;i<headTitles[heads].length;i++){%>
-              <div>
-                <div class="our-team">
-                  <div class="picture">
-                    <img class="img-fluid" style="object-fit: cover; object-position: center;"
-                      src="<%=headTitles[heads][i].image_link%>">
-                  </div>
-                  <div class="team-content">
-                    <h3 class="name">
-                      <%=headTitles[heads][i].name%>
-                    </h3>
-                    <h4 class="title">
-                      <%= headTitles[heads][i].phone%>
-                    </h4>
-                  </div>
-                  <ul class="social">
-                    <% if(headTitles[heads][i].instagram !="" ) { %>
-                      <li><a href="<%=headTitles[heads][i].instagram%>" target="_blank" class="fa-brands fa-instagram"
-                          aria-hidden="true"></a></li>
-                      <%}%>
-
-                        <% if(headTitles[heads][i].twitter !="" ) { %>
-                          <li><a href="<%=headTitles[heads][i].twitter%>" target="_blank" class="fa-brands fa-twitter"
-                              aria-hidden="true"></a>
-                          </li>
-                          <%}%>
-
-                            <% if(headTitles[heads][i].linkedin !="" ) { %>
-                              <li><a href="<%=headTitles[heads][i].linkedin%>" target="_blank"
-                                  class="fa-brands fa-linkedin" aria-hidden="true"></a></li>
-
-                              <%}%>
-                  </ul>
+    <div class="wrapper" style="margin: 35px auto;">
+      <hr>
+      <% for(let heads in headTitles ) {%>
+        <div class="title-section">
+          <h2 class="heading m-0 py-1" style="font-size: 28px">
+            <%=heads%>
+          </h2>
+        </div>
+        <div class="row">
+          <% for(let i=0;i<headTitles[heads].length;i++){%>
+            <div>
+              <div class="our-team">
+                <div class="picture">
+                  <img class="img-fluid" style="object-fit: cover; object-position: center;"
+                    src="<%=headTitles[heads][i].image_link%>">
                 </div>
+                <div class="team-content">
+                  <h3 class="name">
+                    <%=headTitles[heads][i].name%>
+                  </h3>
+                  <h4 class="title">
+                    <%= headTitles[heads][i].phone%>
+                  </h4>
+                </div>
+                <ul class="social">
+                  <% if(headTitles[heads][i].instagram !="" ) { %>
+                    <li><a href="<%=headTitles[heads][i].instagram%>" target="_blank" class="fa-brands fa-instagram"
+                        aria-hidden="true"></a></li>
+                    <%}%>
+
+                      <% if(headTitles[heads][i].twitter !="" ) { %>
+                        <li><a href="<%=headTitles[heads][i].twitter%>" target="_blank" class="fa-brands fa-twitter"
+                            aria-hidden="true"></a>
+                        </li>
+                        <%}%>
+
+                          <% if(headTitles[heads][i].linkedin !="" ) { %>
+                            <li><a href="<%=headTitles[heads][i].linkedin%>" target="_blank"
+                                class="fa-brands fa-linkedin" aria-hidden="true"></a></li>
+
+                            <%}%>
+                </ul>
               </div>
-              <%}%>
-          </div>
-          <hr>
-          <% } %>
-      </div>
+            </div>
+            <%}%>
+        </div>
+        <hr>
+        <% } %>
+    </div>
 
   </div>
   <%- include('partials/footer.ejs') %>
