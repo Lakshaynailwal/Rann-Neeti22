@@ -242,7 +242,10 @@ module.exports = { // event functions ==========================================
     },
     findTeamById: async function (teamId) {
         const teamTable = require("./models/team");
-        const teamDetail = await teamTable.findOne({ _id: teamId });
+        let teamDetail = await teamTable.findOne({ _id: teamId });
+        const event = await module.exports.findEventById(teamDetail.event);
+        teamDetail.eventName = event.name;
+        // console.log(teamDetail);
         return teamDetail;
     },
     findAllMembersOfTeam: async function (team) {

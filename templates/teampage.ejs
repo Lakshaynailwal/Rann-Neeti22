@@ -124,7 +124,7 @@
         #container {
             display: flex;
             width: 100%;
-            min-height: 67vh;
+            min-height: 52.2vh;
             height: auto;
             margin: auto;
             align-items: center;
@@ -161,8 +161,8 @@
 
             <div class="cont" style="background-color: black;">
                 <div class="head">
-                    <span>
-                        <%= team.name%>
+                    <span style="text-transform: uppercase;">
+                        Team : <%= team.name%>
                     </span>
                 </div>
             </div>
@@ -178,7 +178,16 @@
                             <h2 class="heading m-0 mb-2 py-1" style="font-size: 20px">Refferal : <%= team._id%>
                             </h2>
                         </div>
-                        <% if(user._id==leader._id) { %>
+
+                        <div class="title-section">
+                            <h2 class="heading m-0 mb-2 py-1" style="font-size: 20px">Sports : <%= team.eventName%>
+                            </h2>
+                        </div>
+                        <div class="title-section">
+                            <h2 class="heading m-0 mb-2 py-1" style="font-size: 20px">Leader : <%= leader.firstName%>
+                            </h2>
+                        </div>
+                        <% if(user._id.toString()==leader._id.toString()) { %>
                             <div class="title-section">
                                 <form action="/team/deleteTeam" method="post">
                                     <input type="hidden" value="<%= team._id %>" name="teamId">
@@ -196,7 +205,7 @@
                                 <div style="display: flex;flex-direction: column;align-items: center;">
                                     <span class="d-flex">
                                         <%= teamMembers[i].firstName %>
-                                            <% if(user._id==leader._id) { %>
+                                            <% if(user._id.toString()==leader._id.toString()) { %>
                                                 <form method="post" action="/team/deleteMember">
                                                     <input type="hidden" value="<%=teamMembers[i]._id%>"
                                                         name="memberId">
