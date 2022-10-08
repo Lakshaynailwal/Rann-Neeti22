@@ -36,7 +36,7 @@ router.get("/gallery", async (req, res) => {
     }
     res.render('gallery.ejs', context)
 })
-router.get("/verify", [authCheck], async (req, res) => {
+router.get("/verify", [authCheck, adminCheck], async (req, res) => {
     const context = {
         authenticated: req.isAuthenticated(),
         teams: await findAllTeamsVerification()

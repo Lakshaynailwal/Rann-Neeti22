@@ -15,6 +15,9 @@ module.exports = {
         return next();
     },
     adminCheck: function (req, res, next) {
-        res.redirect("/");
+        if (process.env.NODE_ENV == "development")
+            return next();
+        else
+            res.redirect("/");
     }
 }
