@@ -126,5 +126,15 @@ module.exports = {
     findAllAdmins: async function () {
         admins = await module.exports.authorize().then(module.exports.listAllAdmins).catch(console.error);
         return admins;
+    },
+    isAdmin: async function (req) {
+        admins = await module.exports.findAllAdmins();
+        let admin = false;
+        for (let i = 0; i < admins.length; i++) {
+            if (req.user.email == admins[i][0])
+                admin = true;
+        }
+
+        return admin;
     }
 };

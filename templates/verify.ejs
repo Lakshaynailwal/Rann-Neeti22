@@ -192,43 +192,45 @@
                             <%}%>
 
                                 <% for(let i=0;i<users.length;i++){%>
-                                    tr>
-                                    <td class="column1" data="Type">
-                                        User
-                                    </td>
-                                    <td class="column2" data="Team">
-                                        <%= users[i].firstName %><br>
-                                            <%= users[i].lastName %>
-                                    </td>
-                                    <td class="column3" data="College">
-                                        <%= users[i].college %>
-                                    </td>
-                                    <td class="column4" data="Event">
-                                        -
-                                    </td>
-                                    <td class="column5" data="Leader">
-                                        -
-                                    </td>
-                                    <td class="column6" data="Payment">
-                                        1700
-                                    </td>
+                                    <tr>
+                                        <td class="column1" data="Type">
+                                            User
+                                        </td>
+                                        <td class="column2" data="Team">
+                                            <%= users[i].firstName %><br>
+                                                <%= users[i].lastName %>
+                                        </td>
+                                        <td class="column3" data="College">
+                                            <%= users[i].college %>
+                                        </td>
+                                        <td class="column4" data="Event">
+                                            -
+                                        </td>
+                                        <td class="column5" data="Leader">
+                                            -
+                                        </td>
+                                        <td class="column6" data="Payment">
+                                            1700
+                                        </td>
 
-                                    <td class="column7" data="Payment-Status"> <input name="status" type="checkbox"
-                                            data-group="group<%=i*10000000%>" <%if(users[i].paymentStatus==1) { %>
-                                        checked
-                                        <% } %>>
-                                    </td>
-
-                                    <td class="column8" data="Submit">
-                                        <form class="verificationForm" action="/verifyUserPayment" method="post">
-                                            <input hidden name="userId" value="<%=users[i]._id%>">
-                                            <input hidden type="checkbox" name="status"
+                                        <td class="column7" data="Payment-Status"> <input name="status" type="checkbox"
                                                 data-group="group<%=i*10000000%>" <%if(users[i].paymentStatus==1) { %>
                                             checked
                                             <% } %>>
-                                                <button style="text-align: center;" class="btn btn-primary">OK</button>
-                                        </form>
-                                    </td>
+                                        </td>
+
+                                        <td class="column8" data="Submit">
+                                            <form class="verificationForm" action="/verifyUserPayment" method="post">
+                                                <input hidden name="userId" value="<%=users[i]._id%>">
+                                                <input hidden type="checkbox" name="status"
+                                                    data-group="group<%=i*10000000%>" <%if(users[i].paymentStatus==1) {
+                                                    %>
+                                                checked
+                                                <% } %>>
+                                                    <button style="text-align: center;"
+                                                        class="btn btn-primary">OK</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     <%}%>
                     </tbody>
