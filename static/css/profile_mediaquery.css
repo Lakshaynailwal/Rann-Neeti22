@@ -3,8 +3,17 @@
     .profilecard{
         width: 50% !important;
     }
-    .container{
+    #page{
         max-width: 100% !important;
+        flex-direction: column !important;
+    align-items: center !important;
+    }
+
+    hr{
+        display: none !important;
+    }
+    .team{
+        margin-bottom: 10px;
     }
 
 }   
@@ -45,3 +54,14 @@
     font-size: 17px !important;
    }
 } 
+
+@media only screen and (max-width:900px) {
+    .vl {
+        display: none;
+    }
+
+    .team {
+        margin-top: 60px;
+    }
+
+}
