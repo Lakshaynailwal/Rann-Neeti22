@@ -1842,8 +1842,9 @@ h5,
 }
 
 dt:hover a {
-  color: white;
-  transform: scale(1.01);
+  color: white !important;
+  transform: scale(1.03);
+  font-weight: bold !important;
   transition: ease-in-out;
   transition: all 0.5s;
 }

@@ -1,6 +1,7 @@
-@media only screen and (max-width:900px){
+@media only screen and (max-width:1000px){
     #page{
         flex-direction: column;
+
     }
     .conti{
         width: 70% !important;
@@ -12,7 +13,7 @@
     }
 }
 
-@media only screen and (max-width:400px){
+@media only screen and (max-width:500px){
     h1{
         font-size: 3rem !important;
     }
@@ -21,5 +22,11 @@
     }
     .title-section{
         font-size: 15px;
+    }
+    .leaderboard__name{
+        font-size: 15px !important;
+    }
+    .contiu{
+        width: 90% !important;
     }
 }
