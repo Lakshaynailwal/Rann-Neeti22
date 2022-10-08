@@ -347,6 +347,23 @@ module.exports = { // event functions ==========================================
         return teams;
 
     },
+    findAllUsersVerification: async function (req) {
+        const userTable = require("./models/user");
+        let users = await userTable.find({}).lean();
+        return users;
+
+    },
+    updatePaymentStatus: async function (typ, status, id) {
+        const userTable = require('./models/user');
+        const teamTable = require('./models/team')
+        if (typ == "team") {
+            await teamTable.updateOne({ _id: id }, { paymentStatus: status });
+        }
+        else {
+            await userTable.updateOne({ _id: id }, { paymentStatus: status });
+        }
+
+    },
     // heads
     findAllHeads: async function () {
         const headTable = require("./models/heads")

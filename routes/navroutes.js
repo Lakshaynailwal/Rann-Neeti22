@@ -1,5 +1,6 @@
-const { userDetails, findTeamById, findUserTeams, findAllHeads, convertArrayToObject, refactorHeads, findAllEvents, findAllPendingPayments, findAllTeamsVerification } = require("../utils")
+const { userDetails, findTeamById, findUserTeams, findAllHeads, convertArrayToObject, refactorHeads, findAllEvents, findAllPendingPayments, findAllTeamsVerification, updatePaymentStatus, findAllUsersVerification } = require("../utils")
 const { authCheck, liveCheck, adminCheck } = require("../middleware/auth");
+const payment = require("../models/payment");
 const router = require("express").Router();
 
 router.get("/profile", [authCheck, liveCheck], async (req, res) => {
@@ -39,10 +40,38 @@ router.get("/gallery", async (req, res) => {
 router.get("/verify", [authCheck, adminCheck], async (req, res) => {
     const context = {
         authenticated: req.isAuthenticated(),
-        teams: await findAllTeamsVerification()
+        teams: await findAllTeamsVerification(),
+        users: await findAllUsersVerification()
     }
     res.render('verify.ejs', context)
 })
+
+router.post("/verifyTeamPayment", [authCheck, adminCheck], async (req, res) => {
+    const { teamId, status } = req.body;
+
+    let paymentStatus = 0;
+    if (status == "on")
+        paymentStatus = 1;
+
+    await updatePaymentStatus("team", paymentStatus, teamId);
+
+    console.log(paymentStatus);
+    res.redirect('/verify');
+})
+
+router.post("/verifyUserPayment", [authCheck, adminCheck], async (req, res) => {
+    const { userId, status } = req.body;
+
+    let paymentStatus = 0;
+    if (status == "on")
+        paymentStatus = 1;
+
+    await updatePaymentStatus("user", paymentStatus, userId);
+
+    console.log(paymentStatus);
+    res.redirect('/verify');
+})
+
 
 router.get("/rulebooks", async (req, res) => {
     const context = {

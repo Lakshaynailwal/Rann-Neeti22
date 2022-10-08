@@ -140,43 +140,99 @@
                 <table class="table striped table-hover  " id="table">
                     <thead class="text-light text-center">
                         <tr>
-                            <td class="column1">Team</td>
-                            <td class="column2">College</td>
-                            <td class="column3">Event</td>
-                            <td class="column4">Leader</td>
-                            <td class="column5">Payment</td>
-                            <td class="column6">Verfiy</td>
+                            <td class="column1">Type</td>
+                            <td class="column2">Team</td>
+                            <td class="column3">College</td>
+                            <td class="column4">Event</td>
+                            <td class="column5">Leader</td>
+                            <td class="column6">Payment</td>
+                            <td class="column7">Verfied</td>
+                            <td class="column8">Submit</td>
                         </tr>
                     </thead>
                     <tbody class="text-center">
                         <% for(let i=0;i<teams.length;i++){%>
                             <tr>
-                                <td class="column1" data="Team">
+                                <td class="column1" data="Type">
+                                    Team
+                                </td>
+                                <td class="column2" data="Team">
                                     <%= teams[i].name %>
                                 </td>
-                                <td class="column2" data="College">
+                                <td class="column3" data="College">
                                     <%= teams[i].college %>
                                 </td>
-                                <td class="column3" data="Event">
+                                <td class="column4" data="Event">
                                     <%= teams[i].event.name %>
                                 </td>
-                                <td class="column4" data="Leader">
+                                <td class="column5" data="Leader">
                                     <%= teams[i].teamLeader.firstName %>
                                 </td>
-                                <td class="column5" data="Payment">
+                                <td class="column6" data="Payment">
                                     <%= teams[i].event.fees %>
                                 </td>
 
-                                <td class="column6" data="Payment-Status"> <input type="checkbox"
-                                        <%if(teams[i].paymentStatus==1) { %>
+                                <td class="column7" data="Payment-Status"> <input name="status" type="checkbox"
+                                        data-group="group<%=i%>" <%if(teams[i].paymentStatus==1) { %>
                                     checked
                                     <% } %>>
                                 </td>
+
+                                <td class="column8" data="Submit">
+                                    <form class="verificationForm" action="/verifyTeamPayment" method="post">
+                                        <input hidden name="teamId" value="<%=teams[i]._id%>">
+                                        <input hidden type="checkbox" name="status" data-group="group<%=i%>"
+                                            <%if(teams[i].paymentStatus==1) { %>
+                                        checked
+                                        <% } %>>
+                                            <button style="text-align: center;" class="btn btn-primary">OK</button>
+                                    </form>
+                                </td>
                             </tr>
                             <%}%>
+
+                                <% for(let i=0;i<users.length;i++){%>
+                                    tr>
+                                    <td class="column1" data="Type">
+                                        User
+                                    </td>
+                                    <td class="column2" data="Team">
+                                        <%= users[i].firstName %><br>
+                                            <%= users[i].lastName %>
+                                    </td>
+                                    <td class="column3" data="College">
+                                        <%= users[i].college %>
+                                    </td>
+                                    <td class="column4" data="Event">
+                                        -
+                                    </td>
+                                    <td class="column5" data="Leader">
+                                        -
+                                    </td>
+                                    <td class="column6" data="Payment">
+                                        1700
+                                    </td>
+
+                                    <td class="column7" data="Payment-Status"> <input name="status" type="checkbox"
+                                            data-group="group<%=i*10000000%>" <%if(users[i].paymentStatus==1) { %>
+                                        checked
+                                        <% } %>>
+                                    </td>
+
+                                    <td class="column8" data="Submit">
+                                        <form class="verificationForm" action="/verifyUserPayment" method="post">
+                                            <input hidden name="userId" value="<%=users[i]._id%>">
+                                            <input hidden type="checkbox" name="status"
+                                                data-group="group<%=i*10000000%>" <%if(users[i].paymentStatus==1) { %>
+                                            checked
+                                            <% } %>>
+                                                <button style="text-align: center;" class="btn btn-primary">OK</button>
+                                        </form>
+                                    </td>
+                                    </tr>
+                                    <%}%>
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>
@@ -201,6 +257,26 @@
         <script src="/js/jquery.mb.YTPlayer.min.js"></script>
 
         <script src="/js/main.js"></script>
+
+
+        <script>
+
+            $(document).on('click', 'input[type="checkbox"][data-group]', function (event) {
+                // The checkbox that was clicked
+                var actor = $(this);
+                // The status of that checkbox
+                var checked = actor.prop('checked');
+                // The group that checkbox is in
+                var group = actor.data('group');
+                // All checkboxes of that group
+                var checkboxes = $('input[type="checkbox"][data-group="' + group + '"]');
+                // All checkboxes excluding the one that was clicked
+                var otherCheckboxes = checkboxes.not(actor);
+                // Check those checkboxes
+                otherCheckboxes.prop('checked', checked);
+            });
+        </script>
+
 
         <script>
             let search = document.getElementById('search');
