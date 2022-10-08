@@ -1,4 +1,5 @@
 require("dotenv").config({ path: "../config/config.env" });
+const { findAllAdmins } = require("../readFromSheet.js");
 
 module.exports = {
     authCheck: function (req, res, next) {
@@ -14,10 +15,22 @@ module.exports = {
     liveCheck: function (req, res, next) {
         return next();
     },
-    adminCheck: function (req, res, next) {
+    adminCheck: async function (req, res, next) {
+        const admins = await findAllAdmins();
         if (process.env.NODE_ENV == "development")
             return next();
-        else
-            res.redirect("/");
+        else {
+            // check if current user is admin
+            let admin = false;
+            for (let i = 0; i < admins.length; i++) {
+                if (admins[i][0] == req.user.email)
+                    admin = true;
+            }
+
+            if (admin)
+                return next();
+            else
+                res.redirect("/");
+        }
     }
 }
