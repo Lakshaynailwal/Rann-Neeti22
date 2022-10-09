@@ -54,14 +54,14 @@
       <div id="cont">
         <nav class="site-navigation text-right" role="navigation">
           <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-            <li class="">
+            <li id="sign" class="nav-link sze">
               <a href="/" class="nav-link sze">Home</a>
             </li>
-            <li><a id href="/#about" class="nav-link sze">About Us</a></li>
-            <li><a id href="/events" class="nav-link sze">Events</a></li>
-            <li><a id href="/#sponsers" class="nav-link sze">Sponsors</a></li>
-            <li><a id href="/ourteam" class="nav-link sze">Our Team</a></li>
-            <li><a id href="/gallery" class="nav-link sze">Gallery</a></li>
+            <li><a href="/#about" class="nav-link sze">About Us</a></li>
+            <li><a href="/events" class="nav-link sze">Events</a></li>
+            <li><a href="/#sponsers" class="nav-link sze">Sponsors</a></li>
+            <li><a href="/ourteam" class="nav-link sze">Our Team</a></li>
+            <li><a href="/gallery" class="nav-link sze">Gallery</a></li>
 
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none">
               <li><a id href="/#contact" class="nav-link sze">Contact</a></li>
@@ -72,21 +72,23 @@
               </li>
               <% }else{ %>
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none">
-                  <li><a id href="/rulebooks" class="nav-link sze">Rulebooks</a></li>
+                  <li><a id="sign" href="/rulebooks" class="nav-link sze">Rulebooks</a></li>
                   <li><a id="sign" href="/profile" class="nav-link sze"> Profile</a></li>
 
                   <% if(admin){%>
-                    <li><a href="/verify" class="nav-link sze">Verify</a></li>
+                    <li><a id="sign" href="/verify" class="nav-link sze">Verify</a></li>
                     <%}%>
-                      <li><a href="/payment" class="nav-link sze">Payments</a></li>
+                      <li><a id="sign" href="/payment" class="nav-link sze">Payments</a></li>
                       <li>
                         <a id="sign" href="/auth/logout" class="nav-link sze">Logout</a>
                       </li>
 
                       <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Upload undertaking
-                      </button>
+                      <li>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                          Upload undertaking
+                        </button>
+                      </li>
                 </ul>
                 <% } %>
           </ul>
