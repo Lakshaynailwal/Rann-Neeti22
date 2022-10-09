@@ -378,7 +378,7 @@ module.exports = { // event functions ==========================================
         else {
             await userTable.updateOne({ _id: id }, { paymentStatus: status });
             const user = await userTable.findOne({ _id: id });
-            await writePaymentData(['user', user.firstName, 1700, Date.now(), user.college, req.user.email]);
+            await writePaymentData(['user', user.firstName, 1700, Date.now(), user.college, req.user.email, user.underTaking]);
         }
 
     },

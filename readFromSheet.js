@@ -149,7 +149,7 @@ module.exports = {
         sheets.spreadsheets.values.append(
             {
                 spreadsheetId: '1OqH5FOtR2rp2_VVbdWzP2-vsA-Pdl0reDTNB3BI8gMc',
-                range: 'Sheet4!A:E',
+                range: 'Sheet4!A:F',
                 valueInputOption: 'RAW',
                 resource: resource,
             },

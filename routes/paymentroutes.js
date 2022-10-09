@@ -7,7 +7,7 @@ const xid = require('xid-js');
 const PaymentDetail = require("../models/payment");
 const UserDetail = require("../models/user");
 const teamTable = require("../models/team");
-const { findAllPendingPayments, findTeamById, findEventById, findEvent } = require("../utils");
+const { findAllPendingPayments, findTeamById, findEventById, findEvent, findUserById } = require("../utils");
 const { authCheck, liveCheck } = require("../middleware/auth");
 const { isAdmin } = require("../readFromSheet.js")
 const payment = require("../models/payment");
@@ -28,10 +28,12 @@ let razorPayInstance = new Razorpay({
  */
 router.get("/", [authCheck, liveCheck], async function (req, res, next) {
     const payments = await findAllPendingPayments(req.user);
+    const userDetail = await findUserById(req.user._id);
     const context = {
         authenticated: req.isAuthenticated(),
         payments: payments,
-        admin: await isAdmin(req)
+        admin: await isAdmin(req),
+        userDetail: userDetail
     }
     res.render("payment", context);
 });

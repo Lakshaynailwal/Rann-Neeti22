@@ -41,6 +41,15 @@ router.get("/gallery", async (req, res) => {
     }
     res.render('gallery.ejs', context)
 })
+
+router.post("/uploadUndertaking", [authCheck, liveCheck], async (req, res) => {
+    const { undertaking } = req.body;
+    let check = await updateUnderTaking(req, undertaking);
+    req.flash("message", check);
+    res.redirect("/");
+})
+
+
 router.get("/verify", [authCheck, adminCheck], async (req, res) => {
     const context = {
         authenticated: req.isAuthenticated(),
@@ -81,13 +90,6 @@ router.get("/rulebooks", async (req, res) => {
         admin: await isAdmin(req)
     }
     res.render('table.ejs', context);
-})
-
-router.post("/uploadUndertaking", async (req, res) => {
-    const { undertaking } = req.body;
-    let check = await updateUnderTaking(req, undertaking);
-    req.flash("message", check);
-    res.redirect(req.session.returnTo || "/");
 })
 
 

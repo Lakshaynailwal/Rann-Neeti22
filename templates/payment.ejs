@@ -206,9 +206,17 @@
         </div>
 
         <div class="container">
-            <p>
-                Note: You must have to upload your signed undertaking with all the details, otherwise your security
-                money will not be given back.
+            <p style="text-align: center;">
+                <%if(userDetail && userDetail.underTaking && userDetail.underTaking !="" ) {%>
+                    Your <a tagret="_blank" href="<%= userDetail.underTaking %>">Undertaking</a>
+                    <% } else {%>
+                        Note: You must have to upload your signed <a target="_blank"
+                            href="https://docs.google.com/document/d/17PjtDxJU5LqRwnL999qoHMTUzI2UJyhoOB9MumLFTrc/edit?usp=sharing">undertaking</a>
+                        with all the details, otherwise your
+                        security
+                        money will not be given back and your payment will not be confirmed.
+                        <%}%>
+
             </p>
         </div>
 
