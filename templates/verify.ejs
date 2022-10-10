@@ -120,6 +120,9 @@
                 font-size: 9px;
             }
         }
+        .column3{
+            text-transform: uppercase;
+        }
     </style>
 </head>
 
@@ -185,7 +188,7 @@
                                             <%if(teams[i].paymentStatus==1) { %>
                                         checked
                                         <% } %>>
-                                            <button style="text-align: center;" class="btn btn-primary">OK</button>
+                                            <button style="text-align: center; width:unset !important;" class="btn btn-primary">OK</button>
                                     </form>
                                 </td>
                             </tr>
@@ -197,7 +200,7 @@
                                             User
                                         </td>
                                         <td class="column2" data="Team">
-                                            <%= users[i].firstName %><br>
+                                            <%= users[i].firstName %>
                                                 <%= users[i].lastName %>
                                         </td>
                                         <td class="column3" data="College">
@@ -231,7 +234,7 @@
                                                     { %>
                                                 checked
                                                 <% } %>>
-                                                    <button style="text-align: center;"
+                                                    <button style="text-align: center;width:unset !important;"
                                                         class="btn btn-primary">OK</button>
                                             </form>
                                         </td>

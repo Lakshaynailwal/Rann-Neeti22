@@ -103,13 +103,13 @@
         }
 
         .leaderboard__profile:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
             transition: all 0.2s;
         }
 
         .leaderboard__picture {
-            width: 100% !important;
-            height: 100% !important;
+            width: 91px !important;
+            height: 91px !important;
             background-size: cover !important;
             border-radius: 50%;
             box-shadow: 0 0 0 500px rgb(182, 14, 46), 0 0 0 100px rgb(182, 14, 46);
@@ -183,11 +183,11 @@
                     <% for(let i=0;i<payments.length;i++) {%>
                         <article style="background-color: black;" class="leaderboard__profile">
                             <%if(payments[i].paymentType=="user" ) {%>
-                                <img src="/images/logo.png" alt="" style="object-fit: cover;
+                                <img src="/images/logo.png" alt="" style="object-fit: contain;
                                 object-position: center;" class="leaderboard__picture">
                                 <span class="leaderboard__name">Registration Fees</span>
                                 <% }else{ %>
-                                    <img src="<%=payments[i].image%>" alt="" style="object-fit: cover;
+                                    <img src="<%=payments[i].image%>" alt="" style="object-fit: contain;
                                     object-position: center;" class="leaderboard__picture">
                                     <span class="leaderboard__name">
                                         <%= payments[i].eventName %>

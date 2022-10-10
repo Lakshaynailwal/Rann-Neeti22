@@ -199,7 +199,6 @@
                 </div>
               </div>
             </div>
-
             <script>
               $(document).ready(function () {
                 $('.counter-value').each(function () {
@@ -229,7 +228,7 @@
                           <% if(notices.length> 0) {%>
                             <ul>
                               <%for(let i=1;i<notices.length;i++) {%>
-                                <li>
+                                <li style="list-style: none;">
                                   <%= notices[i][1] %>
                                 </li>
                                 <% } %>
