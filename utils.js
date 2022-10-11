@@ -359,26 +359,26 @@ module.exports = { // event functions ==========================================
         if (!checker)
             return false;
 
+        var currentdate = new Date();
+        var datetime = currentdate.getDate() + "/"
+            + (currentdate.getMonth() + 1) + "/"
+            + currentdate.getFullYear() + " @ "
+            + currentdate.getHours() + ":"
+            + currentdate.getMinutes() + ":"
+            + currentdate.getSeconds();
         const userTable = require('./models/user');
         const teamTable = require('./models/team')
         if (typ == "team") {
             await teamTable.updateOne({ _id: id }, { paymentStatus: status });
             const team = await teamTable.findOne({ _id: id });
-
-            var currentdate = new Date();
-            var datetime = currentdate.getDate() + "/"
-                + (currentdate.getMonth() + 1) + "/"
-                + currentdate.getFullYear() + " @ "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
+            const leader = await module.exports.findUserById(team.teamLeader);
             eventName = await module.exports.findEventById(team.event);
-            await writePaymentData(['team', (team.name).toString(), eventName.fees.toString(), datetime, (team.college).toString(), req.user.email]);
+            await writePaymentData(['team', (team.name).toString(), eventName.fees.toString(), datetime, (team.college).toString(), req.user.email, " ", leader.phoneNumber]);
         }
         else {
             await userTable.updateOne({ _id: id }, { paymentStatus: status });
             const user = await userTable.findOne({ _id: id });
-            await writePaymentData(['user', user.firstName, 1700, Date.now(), user.college, req.user.email, user.underTaking]);
+            await writePaymentData(['user', user.firstName, 1700, datetime, user.college, req.user.email, user.underTaking, user.phoneNumber]);
         }
 
     },
