@@ -161,14 +161,14 @@
 
           <div><br><br><br>
             <div class="container">
-              <div class="row" id="counterr">
+              <div class="row" id="counter">
 
                 <div class="col-md-3 col-sm-6 countr">
                   <div class="counter" id="ct1">
                     <div class="counter-icon">
                     </div>
                     <h3>Registration</h3>
-                    <span class="counter-value">800</span>
+                    <span class="counter-value" data-val="800">800</span>
                   </div>
                 </div>
                 <div class="col-md-3 col-sm-6 countr">
@@ -176,7 +176,7 @@
                     <div class="counter-icon">
                     </div>
                     <h3>Footfall</h3>
-                    <span class="counter-value" style="margin-top:10px;">6800</span>
+                    <span class="counter-value" style="margin-top:10px;" data-val="6800">6800</span>
                     <span style="margin-bottom: 10px;color:white; background-color: black;">&plus;</span>
                   </div>
                 </div>
@@ -186,7 +186,7 @@
                     <div class="counter-icon">
                     </div>
                     <h3>Events</h3>
-                    <span class="counter-value">11</span>
+                    <span class="counter-value" data-val="11">11</span>
                   </div>
                 </div>
                 <div class="col-md-3 col-sm-6 countr">
@@ -194,26 +194,13 @@
                     <div class="counter-icon">
                     </div>
                     <h3>Colleges</h3>
-                    <span class="counter-value">56</span>
+                    <span class="counter-value" data-val="56" >56</span>
                   </div>
                 </div>
               </div>
             </div>
-
             <script>
-              $(document).ready(function () {
-                $('.counter-value').each(function () {
-                  $(this).prop('Counter', 0).animate({
-                    Counter: $(this).text()
-                  }, {
-                    duration: 3500,
-                    easing: 'swing',
-                    step: function (now) {
-                      $(this).text(Math.ceil(now));
-                    }
-                  });
-                });
-              });
+
             </script>
             <div id="notice" class="site-section">
               <div class=" container">
@@ -229,7 +216,7 @@
                           <% if(notices.length> 0) {%>
                             <ul>
                               <%for(let i=1;i<notices.length;i++) {%>
-                                <li>
+                                <li style="list-style: none;">
                                   <%= notices[i][1] %>
                                 </li>
                                 <% } %>
@@ -583,7 +570,32 @@
 
       <script src="/js/main.js"></script>
 
+      <script>
+        
+        let observer = new IntersectionObserver((entries) => {
+          entries.forEach((element) => {
+            if (element.isIntersecting) {
+              $(element.target).prop('Counter', 0).animate({
+                Counter: $(element.target).data('val')
+              }, {
+                duration: 3500,
+                easing: 'swing',
+                step: function (now) {
+                  $(element.target).text(Math.ceil(now));
+                }
+              });
+            }
+            else{
+              $(element.target).stop();
+            }
+          })
+        });
 
+        const box = document.getElementsByClassName('counter-value');
+        for (let i = 0; i < box.length; i++) {
+          observer.observe(box[i])
+        }
+      </script>
 
       <!-- JavaScript Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"

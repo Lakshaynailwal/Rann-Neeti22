@@ -699,10 +699,10 @@ h5,
 }
 
 .site-mobile-menu .site-nav-wrap a {
-  padding: 10px 20px;
+  padding: 7px 10px;
   display: block;
   position: relative;
-  color: #212529;
+  color: #000000;
 }
 
 .site-mobile-menu .site-nav-wrap a:hover {

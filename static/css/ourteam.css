@@ -54,7 +54,7 @@
     height: auto;
     border-radius: 50%;
     transform: scale(1);
-    transition: all 0.9s ease 0s;
+    transition: all 1s ease-in-out;
 }
 
 .our-team:hover .picture img {

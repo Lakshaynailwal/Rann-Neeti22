@@ -39,14 +39,6 @@
             background-attachment: fixed;
         }
 
-        .gallery {
-            margin: 40px auto;
-        }
-
-        .events-navbar {
-            z-index: 1;
-        }
-
         .site-navbar {
             position: unset;
         }
@@ -93,20 +85,35 @@
                 height: 200px !important;
             }
         }
+
+        .titli {
+            padding: 40px;
+            text-align: center;
+
+            text-shadow: 4px 3px 11px red;
+            font-weight: bold;
+        }
+
+        .titli h1 {
+            font-size: 50px;
+            text-transform: uppercase;
+        }
+        .site-section{
+            padding: 0px !important;
+        }
     </style>
 
 
 </head>
 
 <body>
-    <div class="events-navbar" style="background-color: black;">
+    <div style="background-color:black ;">
         <%- include('partials/navbar.ejs') %>
+            <div class="titli">
+                <h1>Gallery</h1>
+            </div>
     </div>
-
-    <div class="mx-auto text-center" style="margin-top:50px;">
-        <h1 class="text-white px-5 font-weight-bold" style="font-size:32px">GALLERY</h1>
-    </div>
-    <div id="gallery" class=" site-section" style="min-height:100vh;height:auto;">
+    <div id="gallery" class=" site-section" style="min-height:82vh;height:auto;background-color: rgb(0,0,0,0.4);">
         <div class="container gallery">
             <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
