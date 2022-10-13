@@ -113,7 +113,7 @@ module.exports = { // event functions ==========================================
                             fees = event.womenFees;
                     }
 
-                    payments.push({ paymentType: "team", amount: event.fees, id: team._id, eventName: event.name, image: event.event_image });
+                    payments.push({ paymentType: "team", amount: fees, id: team._id, eventName: event.name, image: event.event_image });
                 }
             }
         }
@@ -134,7 +134,7 @@ module.exports = { // event functions ==========================================
         const teamTable = require("./models/team");
         const eventTable = require("./models/event")
         const userDetail = await userTable.findOne({ googleId: req.user.googleId });
-        const { TeamName } = req.body;
+        const { TeamName, gender } = req.body;
 
         // check if the hospitality fees paid or not -- this validation is removed now
 
@@ -153,7 +153,7 @@ module.exports = { // event functions ==========================================
 
             // check any team with this name is already existing or not
 
-            const existingTeam = await teamTable.findOne({ name: TeamName });
+            const existingTeam = await teamTable.findOne({ name: TeamName.trim() });
 
             if (existingTeam) {
                 return "Team with team-name already exists!";
@@ -162,12 +162,17 @@ module.exports = { // event functions ==========================================
 
             // validation is done
 
+            let teamGender = "men";
+            if (gender == "2")
+                teamGender = "women";
+
             // creating a new entry in team table
             var newteam = new teamTable({
                 event: event._id,
                 name: TeamName,
                 teamLeader: userDetail._id,
                 college: req.body.college,
+                gender: teamGender,
             });
 
             newteam.save(function (err) {
