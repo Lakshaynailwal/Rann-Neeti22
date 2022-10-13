@@ -18,6 +18,7 @@ router.get("/profile", [authCheck, liveCheck], async (req, res) => {
     }
     // users team
     res.render("profile", context);
+    req.flash("message", "");
 })
 
 router.get("/ourteam", async (req, res) => {

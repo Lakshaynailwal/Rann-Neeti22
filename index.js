@@ -92,6 +92,7 @@ app.get("/", async (req, res) => {
         admin: await isAdmin(req)
     }
     res.render("index", context);
+    req.flash("message", "");
 })
 
 

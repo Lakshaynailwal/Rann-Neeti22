@@ -134,7 +134,7 @@ module.exports = { // event functions ==========================================
         const teamTable = require("./models/team");
         const eventTable = require("./models/event")
         const userDetail = await userTable.findOne({ googleId: req.user.googleId });
-        const { TeamName, gender } = req.body;
+        let { TeamName, gender } = req.body;
 
         // check if the hospitality fees paid or not -- this validation is removed now
 
@@ -153,7 +153,10 @@ module.exports = { // event functions ==========================================
 
             // check any team with this name is already existing or not
 
-            const existingTeam = await teamTable.findOne({ name: TeamName.trim() });
+            TeamName = TeamName.trim();
+            TeamName = TeamName.toUpperCase();
+
+            const existingTeam = await teamTable.findOne({ name: TeamName });
 
             if (existingTeam) {
                 return "Team with team-name already exists!";
