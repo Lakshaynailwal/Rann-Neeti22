@@ -42,6 +42,10 @@ const EventSchema = new mongoose.Schema(
             type: Number,
             required: true,
         },
+        womenFees:
+        {
+            type: Number,
+        },
         duration:
         {
             hours:
@@ -65,6 +69,10 @@ const EventSchema = new mongoose.Schema(
         teamSize: {
             type: Number,
             required: true
+        },
+        genderSpecific: {
+            type: Boolean,
+            default: false,
         }
     }
 );

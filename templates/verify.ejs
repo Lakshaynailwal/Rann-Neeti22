@@ -120,7 +120,8 @@
                 font-size: 9px;
             }
         }
-        .column3{
+
+        .column3 {
             text-transform: uppercase;
         }
     </style>
@@ -171,26 +172,35 @@
                                 <td class="column5" data="Leader">
                                     <%= teams[i].teamLeader.firstName %>
                                 </td>
-                                <td class="column6" data="Payment">
-                                    <%= teams[i].event.fees %>
-                                </td>
+                                <% if(teams[i].event.genderSpecific && teams[i].gender=="women" ){ %>
+                                    <td class="column6" data="Payment">
+                                        <%=teams[i].event.womenFees%>
+                                    </td>
+                                    <%}else{ %>
+                                        <td class="column6" data="Payment">
+                                            <%= teams[i].event.fees %>
+                                        </td>
+                                        <%}%>
 
-                                <td class="column7" data="Payment-Status"> <input name="status" type="checkbox"
-                                        data-group="group<%=i%>" <%if(teams[i].paymentStatus==1) { %>
-                                    checked
-                                    <% } %>>
-                                </td>
+                                            <td class="column7" data="Payment-Status"> <input name="status"
+                                                    type="checkbox" data-group="group<%=i%>"
+                                                    <%if(teams[i].paymentStatus==1) { %>
+                                                checked
+                                                <% } %>>
+                                            </td>
 
-                                <td class="column8" data="Submit">
-                                    <form class="verificationForm" action="/verifyTeamPayment" method="post">
-                                        <input hidden name="teamId" value="<%=teams[i]._id%>">
-                                        <input hidden type="checkbox" name="status" data-group="group<%=i%>"
-                                            <%if(teams[i].paymentStatus==1) { %>
-                                        checked
-                                        <% } %>>
-                                            <button style="text-align: center; width:unset !important;" class="btn btn-primary">OK</button>
-                                    </form>
-                                </td>
+                                            <td class="column8" data="Submit">
+                                                <form class="verificationForm" action="/verifyTeamPayment"
+                                                    method="post">
+                                                    <input hidden name="teamId" value="<%=teams[i]._id%>">
+                                                    <input hidden type="checkbox" name="status" data-group="group<%=i%>"
+                                                        <%if(teams[i].paymentStatus==1) { %>
+                                                    checked
+                                                    <% } %>>
+                                                        <button style="text-align: center; width:unset !important;"
+                                                            class="btn btn-primary">OK</button>
+                                                </form>
+                                            </td>
                             </tr>
                             <%}%>
 

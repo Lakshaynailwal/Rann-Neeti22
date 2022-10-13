@@ -107,6 +107,12 @@ module.exports = { // event functions ==========================================
                 let team = await teamTable.findOne({ _id: teams[i].teamId });
                 if (team && team.teamLeader.toString() == userDetail._id.toString() && team.paymentStatus == 0) {
                     let event = await module.exports.findEventById(teams[i].eventId);
+                    let fees = event.fees
+                    if (event.genderSpecific == true) {
+                        if (team.gender == "women")
+                            fees = event.womenFees;
+                    }
+
                     payments.push({ paymentType: "team", amount: event.fees, id: team._id, eventName: event.name, image: event.event_image });
                 }
             }
