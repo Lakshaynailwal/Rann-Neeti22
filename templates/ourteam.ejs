@@ -6,8 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team | Rann-Neeti</title>
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+  <link rel="stylesheet" href="/fonts/icomoon/style.css">
+
   <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -16,7 +20,7 @@
   <link rel="stylesheet" href="/css/owl.carousel.min.css">
   <link rel="stylesheet" href="/css/owl.theme.default.min.css">
   <link rel="stylesheet" href="/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="/css/navbar.css">
+
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
 
   <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
@@ -24,6 +28,12 @@
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
   <link rel="stylesheet" href="/css/aos.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index_mediaquery.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <link rel="stylesheet" href="/css/ourteam.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -71,6 +81,7 @@
   h3 {
     font-weight: bold;
   }
+
   .team-content h3 {
     font-size: 18px !important;
   }
@@ -84,15 +95,16 @@
   }
 
   .titli h1 {
-    font-size: 50px;
+    font-size: 3.5rem;
+    font-weight: bold;
   }
-  .our-team{
+
+  .our-team {
     border: 2px solid;
   }
 </style>
 
 <body>
-
   <div class="site-section" style="background-color: rgb(0,0,0,0.4);">
     <div style="background-color:black ;">
       <%- include('partials/navbar.ejs') %>
@@ -103,7 +115,7 @@
     <div class="wrapper" style="margin: 35px auto; ">
       <hr>
       <% for(let heads in headTitles ) {%>
-        <div class="title-section">
+        <div class="title-section" id="<%=heads.replace(/ /g,'')%>">
           <h2 class="heading m-0 py-1" style="font-size: 28px">
             <%=heads%>
           </h2>
@@ -148,11 +160,9 @@
         </div>
         <hr>
         <% } %>
-      </div>
-      <%- include('partials/footer.ejs') %>
+    </div>
+    <%- include('partials/footer.ejs') %>
   </div>
-
-
 
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/jquery-migrate-3.0.1.min.js"></script>
