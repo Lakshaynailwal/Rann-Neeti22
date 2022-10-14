@@ -1,5 +1,5 @@
 const payment = require("./models/payment");
-const { writeData, writePaymentData, isAdmin } = require("./readFromSheet.js");
+const { writeData, writePaymentData, isAdmin, writeTeamEntry } = require("./readFromSheet.js");
 
 // Load config
 require("dotenv").config({ path: "./config/config.env" });
@@ -188,7 +188,14 @@ module.exports = { // event functions ==========================================
             await userTable.updateOne({ googleId: userDetail.googleId }, { $push: { teams: { teamId: newteam._id, eventId: event._id } } });
             await module.exports.updateUsersPhone(req.user, req.body.phone);
             await module.exports.updateUsersCollege(req.user, req.body.college);
-
+            var currentdate = new Date();
+            var datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth() + 1) + "/"
+                + currentdate.getFullYear() + " @ "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+            await writeTeamEntry([TeamName, datetime, req.body.college, userDetail.phoneNumber]);
             return "Team created successfully!";
         }
         return "Sorry, unable to create team at this moment";
@@ -233,6 +240,10 @@ module.exports = { // event functions ==========================================
 
                 if (checker) {
                     return "You are already registered for this event!";
+                }
+
+                if (teamDetail.paymentStatus == 0) {
+                    return "Sorry, payment for this team is not done yet!";
                 }
 
                 // first we have to check this team is full or not
