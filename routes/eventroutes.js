@@ -1,11 +1,11 @@
 const { application } = require("express");
-const { findAllEvents, findEvent, isRegisteredforEvent, createTeam, joinTeam } = require("../utils.js");
+const { findAllEvents, findEvent, isRegisteredforEvent, createTeam, joinTeam, findAllSportsEvents, findAllEsports, findAllEsportsEvents } = require("../utils.js");
 const { findAllColleges, isAdmin } = require("../readFromSheet.js");
 const { authCheck, liveCheck } = require("../middleware/auth");
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
-    let events = await findAllEvents();
+    let events = await findAllSportsEvents();
 
     let context = {
         events: events,
@@ -14,6 +14,18 @@ router.get("/", async (req, res) => {
     }
 
     res.render("events.ejs", context);
+})
+
+router.get("/esports", async (req, res) => {
+    let events = await findAllEsportsEvents();
+
+    let context = {
+        events: events,
+        authenticated: req.isAuthenticated(),
+        admin: await isAdmin(req)
+    }
+
+    res.render("esports.ejs", context);
 })
 
 router.get("/game", async (req, res) => {

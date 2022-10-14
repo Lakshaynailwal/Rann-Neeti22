@@ -7,8 +7,17 @@ require("dotenv").config({ path: "./config/config.env" });
 module.exports = { // event functions ===================================================================================================================================
     findAllEvents: async function (req) {
         const events = require("./models/event");
-
         let eventList = await events.find({}).lean();
+        return eventList;
+    },
+    findAllSportsEvents: async function (req) {
+        const events = require("./models/event");
+        let eventList = await events.find({ eventType: "sports" });
+        return eventList;
+    },
+    findAllEsportsEvents: async function (req) {
+        const events = require("./models/event");
+        let eventList = await events.find({ eventType: "esports" });
         return eventList;
     },
     findEvent: async function (params) {

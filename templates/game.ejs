@@ -65,66 +65,73 @@
       <div class="title-section" style="background-color:black ;">
         <%- include('partials/navbar.ejs') %>
       </div>
-      <div class="bg"
-        style="background:url('https://t4.ftcdn.net/jpg/02/19/80/13/360_F_219801337_3kbasqLvgbUxAGVDH8QS35Sm4SEiPJFJ.jpg') no-repeat center center/cover ;">
-        <div class="overlay title-section" style=" padding: 2px;background-color: rgb(0, 0, 0)">
-          <div class="container">
-            <div class="row align-items-center" style="margin-top: 80px;height: auto; min-height: 250px">
-              <div class="container text-center">
-                <h1 class="text-white" id="game-name">
-                  <%=event.name%>
-                </h1>
-                <div class="container mt-4">
-                  <div class="row justify-content-center buttons">
-                    <button class="btn btn-primary px-2 py-1" style="border-radius: 30px; font-size: 20px"
-                      onclick="window.location='<%=event.rulebook_link %>';">
-                      RuleBook
-                    </button>
-                    <button id="create" class="  btn btn-primary px-2 py-1 "
-                      style="border-radius: 30px; font-size: 20px"
-                      onclick="window.location='/events/createTeam?game=<%=event.name %>';">
-                      Create Team
-                    </button>
+      <div class="bg" <% if(event.eventType=="esports" ) {%>
+        style="background:url('https://wallup.net/wp-content/uploads/2016/01/165482-esport-Electronic_Sports_World_Cup-Dota_2.jpg')
+        no-repeat center center/cover ;"
+        <%}else{ %>
+          style="background:url('https://t4.ftcdn.net/jpg/02/19/80/13/360_F_219801337_3kbasqLvgbUxAGVDH8QS35Sm4SEiPJFJ.jpg')
+          no-repeat center center/cover ;"
+          <%}%>
+            >
+            <div class="overlay title-section" style=" padding: 2px;background-color: rgb(0, 0, 0)">
+              <div class="container">
+                <div class="row align-items-center" style="margin-top: 80px;height: auto; min-height: 250px">
+                  <div class="container text-center">
+                    <h1 class="text-white" id="game-name">
+                      <%=event.name%>
+                    </h1>
+                    <div class="container mt-4">
+                      <div class="row justify-content-center buttons">
+                        <button class="btn btn-primary px-2 py-1" style="border-radius: 30px; font-size: 20px"
+                          onclick="window.location='<%=event.rulebook_link %>';">
+                          RuleBook
+                        </button>
+                        <button id="create" class="  btn btn-primary px-2 py-1 "
+                          style="border-radius: 30px; font-size: 20px"
+                          onclick="window.location='/events/createTeam?game=<%=event.name %>';">
+                          Create Team
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="container" style="padding: 150px 50px;">
-          <div class="title-section">
-            <h2 class="heading m-0 mb-2 py-1" style="font-size: 28px">Venue : <%= event.venue %>
-            </h2>
-
-          </div>
-          <hr style="background-color: white" />
-          <div id="teamSize" style="padding:20px 0px">
-            <div class="title-section" style="margin-bottom:0px !important ;">
-              <h2 class="heading m-0 py-1" style="font-size: 28px">
-                Team-Size : <%= event.teamSize %>
-              </h2>
-            </div>
-          </div>
-
-
-          <hr style="background-color: white">
-          <% if(event.genderSpecific){ %>
-            <div class="title-section">
-              <h2 class="heading m-0 mb-2 py-1" style="font-size: 28px">Registration Fees Men: <%= event.fees%>
-              </h2>
-            </div>
-            <div class="title-section">
-              <h2 class="heading m-0 mb-2 py-1" style="font-size: 28px">Registration Fees Women: <%= event.womenFees%>
-              </h2>
-            </div>
-            <%}else{ %>
+            <div class="container" style="padding: 150px 50px;">
               <div class="title-section">
-                <h2 class="heading m-0 mb-2 py-1" style="font-size: 28px">Registration Fees: <%= event.fees%>
+                <h2 class="heading m-0 mb-2 py-1" style="font-size: 28px">Venue : <%= event.venue %>
                 </h2>
+
               </div>
-              <%}%>
-        </div>
+              <hr style="background-color: white" />
+              <div id="teamSize" style="padding:20px 0px">
+                <div class="title-section" style="margin-bottom:0px !important ;">
+                  <h2 class="heading m-0 py-1" style="font-size: 28px">
+                    Team-Size : <%= event.teamSize %>
+                  </h2>
+                </div>
+              </div>
+
+
+              <hr style="background-color: white">
+              <% if(event.genderSpecific){ %>
+                <div class="title-section">
+                  <h2 class="heading m-0 mb-2 py-1" style="font-size: 28px">Registration Fees Men: <%= event.fees%>
+                  </h2>
+                </div>
+                <div class="title-section">
+                  <h2 class="heading m-0 mb-2 py-1" style="font-size: 28px">Registration Fees Women: <%=
+                      event.womenFees%>
+                  </h2>
+                </div>
+                <%}else{ %>
+                  <div class="title-section">
+                    <h2 class="heading m-0 mb-2 py-1" style="font-size: 28px">Registration Fees: <%= event.fees%>
+                    </h2>
+                  </div>
+                  <%}%>
+            </div>
       </div>
       <div class="title-section">
         <%- include('partials/footer.ejs') %>
