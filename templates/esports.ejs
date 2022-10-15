@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="/css/aos.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/event_mediaquery.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <style>
+        body {
+            background: url('https://img.freepik.com/free-vector/technology-web-banner-with-blue-red-lights-streak_1017-34380.jpg?w=1380&t=st=1665126361~exp=1665126961~hmac=390a86bb8f9a9b20689c004ebdb878912b44575a4326ff5fffbd33e622bc9d6d')no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        .register {
+            margin: -100px;
+            width: 70%;
+            padding: 21px;
+            border-radius: 10px;
+            background-color: #00000000;
+            border: 0px;
+        }
+
+        .gamecard {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin: 20px -23px;
+            height: 300px;
+            align-items: center;
+        }
+
+        .gamecard:hover {
+            transform: scale(1.1);
+            overflow: hidden;
+            transition: ease-in-out;
+            transition: all 0.5s;
+        }
+
+        .gamecard:hover button {
+            z-index: 1;
+        }
+
+        .head span {
+            font-size: 43px;
+            text-shadow: 4px 0px 18px red;
+            line-height: 58px;
+        }
+
+        .head {
+            line-height: 1.5;
+            padding-left: 5rem;
+            display: flex;
+            align-items: baseline;
+            transform: skewX(-5deg);
+            color: red;
+            font-weight: bold;
+            font-size: 20px;
+            flex-direction: column;
+
+        }
+
+        .cont {
+            position: fixed;
+            top: 0px;
+            left: -30px;
+            padding-top: 8rem;
+            min-height: 100vh;
+            color: white;
+            transform: skewX(+4deg);
+            width: 180px;
+            background-color: #000000;
+        }
+
+        .site-navbar {
+            position: unset;
+        }
+
+        .container {
+            max-width: 100% !important;
+        }
+
+        .overlay .container #joinbtn {
+            width: 45%;
+        }
+
+        .events-navbar {
+            z-index: 1;
+        }
+
+        .site-section {
+            padding: 3rem 0px !important;
+        }
+
+        .load p {
+            font-weight: bolder;
+            margin-bottom: unset !important;
+        }
+
+        .load {
+            margin: 30px auto 10px auto !important;
+        }
+    </style>
+
+</head>
+
+<body onload="load()">
+    <%- include('partials/preloader.ejs') %>
+        <div class="cont ">
+            <div class="head">
+                <span>&nbsp;E</span>
+                <span>&nbsp;S</span>
+                <span>&nbsp;P</span>
+                <span>&nbsp;0</span>
+                <span>&nbsp;R</span>
+                <span>&nbsp;T</span>
+                <span>&nbsp;S</span>
+            </div>
+        </div>
+        <div class="events-navbar" style="background-color: black;">
+            <%- include('partials/navbar.ejs') %>
+        </div>
+
+        <div class="site-wrap flex">
+
+
+            <div id="page" class="justify-content-center" style="overflow:hidden;display:  flex;">
+
+
+                <div class="overlay" style="  height: auto;
+      min-height: 100vh;">
+                    <div>
+                        <div class="conti container" style="margin: 0px 0px 0px 4%;">
+                            <div class="row align-items-center " style=" background-color: #000000; height: auto;
+          min-height: 300px;">
+                                <div class="mx-auto text-center">
+                                    <h1 style="font-weight: bold;    font-size: 3.5rem;
+              text-shadow: -2px -6px 17px red;">RANN-NEETI 22</h1>
+                                    <div class="load mx-auto text-center">
+                                        <p>Join us on <a target="_blank" href="https://discord.gg/sJY8Wqbk">Discord</a>
+                                        </p>
+                                    </div>
+                                    <button onclick="window.location = '/events/joinTeam'" id="joinbtn"
+                                        class="btn btn-primary" style=" padding: 7px;
+              margin-top: 30px;
+              border-radius: 30px;
+              font-size: 20px;">Join A Team</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <div class="site-section">
+                            <div class="container" style="margin: -45px 0px 8% 15%;">
+                                <div style="display: flex;; flex-wrap: wrap;padding: 2.5rem;">
+                                    <%for(let i=0; i< events.length;i++){ %>
+                                        <div class="gamecard">
+                                            <img style="object-fit: cover;object-position: center ;height: auto; width: 80%; height: 300px; border-radius: 20px;"
+                                                src="<%=events[i].event_image %>" alt="">
+                                            <button onclick="window.location='/events/game?game=<%=events[i].name %>';"
+                                                class="register btn-primary">
+                                                <%= events[i].name%>
+                                            </button>
+                                        </div>
+                                        <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <%- include('partials/footer.ejs') %>
+
+
+        </div>
+
+
+        <!-- Footer import as same for all page -->
+
+
+        <script src="/js/jquery-3.3.1.min.js"></script>
+        <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="/js/jquery-ui.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/owl.carousel.min.js"></script>
+        <script src="/js/jquery.stellar.min.js"></script>
+        <script src="/js/jquery.countdown.min.js"></script>
+        <script src="/js/bootstrap-datepicker.min.js"></script>
+        <script src="/js/jquery.easing.1.3.js"></script>
+        <script src="/js/aos.js"></script>
+        <script src="/js/jquery.fancybox.min.js"></script>
+        <script src="/js/jquery.sticky.js"></script>
+        <script src="/js/jquery.mb.YTPlayer.min.js"></script>
+
+
+        <script src="/js/main.js"></script>
+
+</body>
+
+</html>
