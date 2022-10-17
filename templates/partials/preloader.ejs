@@ -6,22 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+        #preload {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            margin-bottom: 20px;
+        }
+
+        #preload h1 {
+            font-weight: bolder;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 40px;
+            position: fixed;
+            margin-bottom: 150px;
+            text-shadow: 1px 1px 15px red;
+        }
+
+        @media only screen and (max-width:650px) {
+            #preload img {
+                width: 260px !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div id="preload" style="position:fixed;
-width:100%;
-height: 100vh;
-background: #000;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-z-index: 999999;
-margin-bottom:20px;">
-        <h1
-            style="font-weight: bolder; color: #ee1e46; text-transform:uppercase; font-size:40px;position:fixed;margin-bottom:150px;">
-            Rann-Neeti'22</h1>
+    <div id="preload">
+        <h1>Rann-Neeti'22</h1>
         <br />
         <br>
         <br><br>
