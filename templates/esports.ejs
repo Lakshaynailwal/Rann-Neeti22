@@ -36,100 +36,100 @@
     <link rel="stylesheet" href="/css/navbar.css">
     <style>
         body {
-            background: url('https://img.freepik.com/free-vector/technology-web-banner-with-blue-red-lights-streak_1017-34380.jpg?w=1380&t=st=1665126361~exp=1665126961~hmac=390a86bb8f9a9b20689c004ebdb878912b44575a4326ff5fffbd33e622bc9d6d')no-repeat center center/cover;
-            background-attachment: fixed;
-        }
-
+        background: url('https://img.freepik.com/free-vector/technology-web-banner-with-blue-red-lights-streak_1017-34380.jpg?w=1380&t=st=1665126361~exp=1665126961~hmac=390a86bb8f9a9b20689c004ebdb878912b44575a4326ff5fffbd33e622bc9d6d')no-repeat center center/cover;
+        background-attachment: fixed;
+      }
+    
         .register {
-            margin: -100px;
-            width: 70%;
-            padding: 21px;
-            border-radius: 10px;
-            background-color: #00000000;
-            border: 0px;
+          margin: -100px;
+          width: 70%;
+          padding: 21px;
+          border-radius: 10px;
+          background-color: #00000000;
+          border: 0px;
+          font-weight: bold;
         }
-
+    
         .gamecard {
-            display: flex;
-            flex-direction: column;
-            width: 30%;
-            margin: 20px -23px;
-            height: 300px;
-            align-items: center;
+          display: flex;
+          flex-direction: column;
+          width: 25%;
+          margin: 20px;
+          height: 300px;
+          align-items: center;
         }
-
+    
         .gamecard:hover {
-            transform: scale(1.1);
-            overflow: hidden;
-            transition: ease-in-out;
-            transition: all 0.5s;
+          transform: scale(1.1);
+          overflow: hidden;
+          transition: ease-in-out;
+          transition: all 0.5s;
         }
-
+    
         .gamecard:hover button {
-            z-index: 1;
+          z-index: 1;
         }
-
+    
         .head span {
-            font-size: 43px;
-            text-shadow: 4px 0px 18px red;
-            line-height: 58px;
+          font-size: 43px;
+          text-shadow: 4px 0px 18px red;
+          line-height: 58px;
         }
-
+    
         .head {
-            line-height: 1.5;
-            padding-left: 5rem;
-            display: flex;
-            align-items: baseline;
-            transform: skewX(-5deg);
-            color: red;
-            font-weight: bold;
-            font-size: 20px;
-            flex-direction: column;
-
+          line-height: 1.5;
+          padding-left: 5rem;
+          display: flex;
+          align-items: baseline;
+          transform: skewX(-5deg);
+          color: red;
+          font-weight: bold;
+          font-size: 20px;
+          flex-direction: column;
+    
         }
-
+    
         .cont {
-            position: fixed;
-            top: 0px;
-            left: -30px;
-            padding-top: 8rem;
-            min-height: 100vh;
-            color: white;
-            transform: skewX(+4deg);
-            width: 180px;
-            background-color: #000000;
+          position: fixed;
+          top: 0px;
+          left: -30px;
+          padding-top: 8rem;
+          min-height: 100vh;
+          color: white;
+          transform: skewX(+4deg);
+          width: 180px;
+          background-color: #000000;
         }
-
+    
         .site-navbar {
-            position: unset;
+          position: unset;
         }
-
+    
         .container {
-            max-width: 100% !important;
+          max-width: 100% !important;
         }
-
+    
         .overlay .container #joinbtn {
-            width: 45%;
+          width: 45%;
         }
-
+    
         .events-navbar {
-            z-index: 1;
+          z-index: 1;
         }
-
+    
         .site-section {
-            padding: 3rem 0px !important;
+          padding: 3rem 0px !important;
         }
-
+    
         .load p {
-            font-weight: bolder;
-            margin-bottom: unset !important;
+          font-weight: bolder;
+          margin-bottom: unset !important;
         }
-
+    
         .load {
-            margin: 30px auto 10px auto !important;
+          margin: 30px auto 10px auto !important;
         }
-    </style>
-
+      </style>
 </head>
 
 <body onload="load()">
@@ -181,11 +181,17 @@
                     <div>
 
                         <div class="site-section">
-                            <div class="container" style="margin: -45px 0px 8% 15%;">
-                                <div style="display: flex;; flex-wrap: wrap;padding: 2.5rem;">
+                            <div class="container" style="margin:0 0 0 20px;">
+                                <div style="display: flex;; flex-wrap: wrap;padding: 2.5rem; justify-content: center;">
                                     <%for(let i=0; i< events.length;i++){ %>
                                         <div class="gamecard">
-                                            <img style="object-fit: cover;object-position: center ;height: auto; width: 80%; height: 300px; border-radius: 20px;"
+                                            <img style="object-fit: cover;
+                                            object-position: center;
+                                            height: auto;
+                                            width: 100%;
+                                            height: 295px;
+                                            border:2px solid white;
+                                            border-radius:20px ;"
                                                 src="<%=events[i].event_image %>" alt="">
                                             <button onclick="window.location='/events/game?game=<%=events[i].name %>';"
                                                 class="register btn-primary">

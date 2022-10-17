@@ -1,56 +1,63 @@
-@media only screen and (max-width:1100px){
-    h1{
+@media only screen and (max-width:1100px) {
+    h1 {
         font-size: 3rem !important;
     }
 
-    .join{
-        width:20% !important;
+    .join {
+        width: 20% !important;
         /* font-size: 18px !important; */
     }
 
 }
-@media only screen and (max-width:1000px){
+
+@media only screen and (max-width:1000px) {
     .image {
         min-height: 270px !important;
     }
 }
-@media only screen and (max-width:800px){
-    h1{
+
+@media only screen and (max-width:800px) {
+    h1 {
         font-size: 2.5rem !important;
     }
-    .join{
+
+    .join {
         width: 30% !important;
         font-size: 17px !important;
         margin-bottom: 100px;
     }
-    .cont{
+
+    .cont {
         display: none !important;
     }
 }
-@media only screen and (max-width:910px){
 
-    .join{
+@media only screen and (max-width:910px) {
+
+    .join {
         width: 24% !important;
         font-size: 15px !important;
     }
 
-    .site{
+    .site {
         position: absolute;
         /* right: 12px; */
     }
 }
 
-@media only screen and (max-width:710px){
+@media only screen and (max-width:710px) {
 
-    h1{
+    h1 {
         font-size: 2rem !important;
     }
-    .join{
+
+    .join {
         /* width: 30% !important; */
         font-size: 15px !important;
         margin-bottom: 100px;
-    
-}}
+
+    }
+}
 
 
 
@@ -61,61 +68,73 @@
 
 
 
-@media only screen and (max-width:1100px){
-    h1{
+@media only screen and (max-width:1100px) {
+    h1 {
         font-size: 3rem !important;
     }
 
-    .join{
-        width:20% !important;
+    .join {
+        width: 20% !important;
         /* font-size: 18px !important; */
     }
 
 }
-@media only screen and (max-width:1000px){
+
+@media only screen and (max-width:1000px) {
     .image {
         min-height: 270px !important;
     }
 }
-@media only screen and (max-width:1200px){
+
+@media only screen and (max-width:1200px) {
     /* .sze{
         font-size: 14px !important;
       } */
 }
-@media only screen and (max-width:800px){
-    h1{
+
+@media only screen and (max-width:800px) {
+    h1 {
         font-size: 2.5rem !important;
     }
-    .join{
+
+    .join {
         width: 30% !important;
         font-size: 17px !important;
         margin-bottom: 100px;
     }
-    .gamecard{
+
+    .gamecard {
         width: 60% !important;
+        
     }
-    .cont{
+    .container{
+        margin:unset !important
+    }
+    .cont {
         display: none !important;
     }
 }
-@media only screen and (max-width:910px){
-    .gamecard{
+
+@media only screen and (max-width:910px) {
+    .gamecard {
         width: 70% !important;
-    margin: 70px 4px !important; 
+        margin: 70px 4px !important;
     }
-    .cont{
+
+    .cont {
         transform: skewX(+3deg) !important;
     }
 
-    .join{
+    .join {
         width: 24% !important;
         font-size: 15px !important;
     }
-    #joinbtn{
+
+    #joinbtn {
         font-size: 15px !important;
     }
 
-    .site{
+    .site {
         position: absolute;
         /* right: 12px; */
     }
@@ -123,21 +142,24 @@
 
 
 @media screen and (min-width:910px) and (max-width:1150px) {
-    .gamecard{
-      width: 42% !important;
+    .gamecard {
+        width: 30% !important;
     }
-  }
-  @media screen and (max-width:1100px) {
-    .overlay .container #joinbtn{
-      width: 60%;
-    }}
+}
 
-    @media screen and (max-width:450px){
-        .gamecard {
-            width: 85% !important;
-            margin: 70px -43px !important;
-        }
-        .conti{
-            margin: 0px !important;
-        }
+@media screen and (max-width:1100px) {
+    .overlay .container #joinbtn {
+        width: 60%;
     }
+}
+
+@media screen and (max-width:450px) {
+    .gamecard {
+        width: 85% !important;
+        margin: 70px 0px !important;
+    }
+
+    .conti {
+        margin: 0px !important;
+    }
+}
