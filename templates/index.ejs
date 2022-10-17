@@ -238,13 +238,13 @@
                         <h3 class="text-center">NoticeBoard</h3>
                       </div>
                       <div style="min-height:150px">
-                        <div class="text-center" style="height:200px;padding:80px 0;">
+                        <div style="text-align:left;height:200px;padding:80px 0; margin-left: 15%;">
 
                           <% if(notices.length> 0) {%>
                             <ul>
                               <%for(let i=1;i<notices.length;i++) {%>
                                 <li style="list-style: none;">
-                                  <%= notices[i][1] %>
+                                  <%=i%> . <%= notices[i][1] %>
                                 </li>
                                 <% } %>
                             </ul>
