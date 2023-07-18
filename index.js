@@ -17,7 +17,7 @@ const bodyParser = require("body-parser")
 const connectDB = require("./config/db");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
-const { findAllNotices, isAdmin } = require("./readFromSheet.js")
+// const { findAllNotices, isAdmin } = require("./readFromSheet.js")
 // Load config
 require("dotenv").config({ path: "./config/config.env" });
 
@@ -88,8 +88,8 @@ app.get("/", async (req, res) => {
         authenticated: req.isAuthenticated(),
         message: message,
         faqs: faqs,
-        notices: await findAllNotices(),
-        admin: await isAdmin(req)
+        // notices: await findAllNotices(),
+        // admin: await isAdmin(req)
     }
     res.render("index", context);
     req.flash("message", "");
